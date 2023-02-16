@@ -1,0 +1,9 @@
+==JSON Application Tutorial==
+Table of contents:
+* context --> Mapping of JSON object properties to semantic properties
+* defaultProperties --> properties that are shown in the JSON editor by default
+* array use cases
+** format: selectbox / checkbox
+** format: table
+** table with autocomplete
+* Inheritance with "allOf": {"type": "object", "$ref": "..."}

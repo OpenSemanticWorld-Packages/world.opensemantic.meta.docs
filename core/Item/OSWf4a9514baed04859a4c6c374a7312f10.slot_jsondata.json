@@ -1,4 +1,7 @@
 {
+    "required_predecessor": [
+        "Item:OSWf1df064239044b8fa3c968339fb93344"
+    ],
     "type": [
         "Category:OSW494f660e6a714a1a9681c517bbb975da"
     ],
@@ -10,8 +13,9 @@
             "lang": "en"
         }
     ],
-    "required_predecessor": [
-        "Item:OSWf1df064239044b8fa3c968339fb93344"
-    ],
-    "image": "File:OSW7ab0a0b8aaa34217bff6cf9e97988c4d.png"
+    "image": "File:OSW7ab0a0b8aaa34217bff6cf9e97988c4d.png",
+    "recommended_successor": [
+        "Item:OSW911488771ea449a6a34051f8213d7f2f",
+        "Item:OSWee501c0fa6a9407d99c058b5ff9d55b4"
+    ]
 }

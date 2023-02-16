@@ -1,4 +1,4 @@
-==JSON-LD==
+==JSON-LD: Motivation ==
 Problem: Everybody uses different keys<div style=" column-count: 3;">
 <div>JSON Dataset 1
 <syntaxhighlight lang="json">
@@ -19,7 +19,7 @@ Do they mean the same?
 </div>
 </div>
 
-==JSON-LD==
+==JSON-LD: Mapping (1)==
 Idea: Map keys to common vocabularies like https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html
 <div style=" column-count: 3;">
 <div>JSON Dataset 1
@@ -46,3 +46,34 @@ Idea: Map keys to common vocabularies like https://www.qudt.org/doc/DOC_VOCAB-QU
 Do they mean the same? Yes!
 </div>
 </div>
+
+== JSON-LD: Mapping (2) ==
+JSON-LD allows the definition of prefixes
+<syntaxhighlight lang="json-ld">
+{
+    "@context": {
+        "qudt": "http://qudt.org/vocab/quantitykind/",
+        "cap": "qudt:Capacitance",        
+    },
+    "cap": 1.0
+}
+</syntaxhighlight><div></div>
+
+== JSON-LD: Mapping (3) - Remote context==
+JSON-LD allows the import of context(s) from other JSON documents
+* Prefixes and mappings can be moved to a remote context 
+<syntaxhighlight lang="json-ld">
+{
+    "@context": [
+        "http://myschema.org/allmyquantitites.jsonld"
+        {
+            "current": "qudt:Current",        
+        }
+    ],
+    "cap": 1.0,
+    "current": 10.0 
+}
+</syntaxhighlight><div></div>
+
+==JSON Documents: Next==
+*[[Item:OSWee501c0fa6a9407d99c058b5ff9d55b4]] [{{fullurl:Item:OSWee501c0fa6a9407d99c058b5ff9d55b4|reveal=true}} Slideshow]

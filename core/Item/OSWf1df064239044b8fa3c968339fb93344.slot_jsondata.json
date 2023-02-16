@@ -1,4 +1,10 @@
 {
+    "required_predecessor": [],
+    "optional_predecessor": [],
+    "recommended_successor": [
+        "Item:OSWf4a9514baed04859a4c6c374a7312f10",
+        "Item:OSW911488771ea449a6a34051f8213d7f2f"
+    ],
     "type": [
         "Category:OSW494f660e6a714a1a9681c517bbb975da"
     ],
@@ -10,11 +16,11 @@
             "lang": "en"
         }
     ],
-    "image": "File:OSW2055124fe7b344148a1baad537bf8e35.png",
     "description": [
         {
             "text": "Covers basics about JSON-Documents",
             "lang": "en"
         }
-    ]
+    ],
+    "image": "File:OSW2055124fe7b344148a1baad537bf8e35.png"
 }

@@ -1,0 +1,28 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "ee501c0f-a6a9-407d-99c0-58b5ff9d55b4",
+    "name": "JsonApplicationTutorial",
+    "label": [
+        {
+            "text": "JSON Application Tutorial",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Exhibits some applications of JSON and JSON Schema, focussing on the JSON Editor.",
+            "lang": "en"
+        }
+    ],
+    "image": "File:OSWef6806b8a17f472c9dd34bfe0c1ca6f1.png",
+    "required_predecessor": [
+        "Item:OSWf1df064239044b8fa3c968339fb93344",
+        "Item:OSWf4a9514baed04859a4c6c374a7312f10"
+    ],
+    "optional_predecessor": [
+        "Item:OSW911488771ea449a6a34051f8213d7f2f"
+    ],
+    "recommended_successor": []
+}

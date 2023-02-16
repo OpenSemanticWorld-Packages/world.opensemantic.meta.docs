@@ -10,7 +10,7 @@ What is a JSON?
 ==JSON Documents: Key-Value-Pairs==
 
 *A JSON object defines key(word):value pairs.
-* Keys are formatted as strings, marked by quotation marks ("").
+*Keys are formatted as strings, marked by quotation marks ("").
 
 <syntaxhighlight lang="json">
 {
@@ -22,6 +22,7 @@ What is a JSON?
 
 *The key is always a string
 *The value can be a string, a number, a boolean or null
+*Additional data types are only possible by referencing them as external resources
 
 <syntaxhighlight lang="json">
 {
@@ -29,7 +30,8 @@ What is a JSON?
     "string": "any string value",
     "number": 1.0,
     "bool": true,
-    "empty": null
+    "empty": null,
+    "image": "https://my.cloud/image-1.png"
 }
 </syntaxhighlight>
 
@@ -54,8 +56,8 @@ What is a JSON?
 
 ==JSON Documents: Arrays==
 
-*the value can also be an array (list)
-* an array can contain any element, including objects and nested arrays
+*The value can also be an array (list)
+*An array can contain any element, including objects and nested arrays
 
 <syntaxhighlight lang="json">
 {
@@ -75,6 +77,44 @@ What is a JSON?
 }
 </syntaxhighlight>
 
+==JSON Documents: Pointer (1)==
+
+Pointer allow reference to
+*An object within the JSON document
+
+<syntaxhighlight lang="json">
+{
+    "firstname": "Susan",
+    "surname": "Birch",
+    "kids": ["Anne", "Tom"],
+    "emergency_contact": {
+        "$ref": "#/kids/0"
+    }    
+}
+</syntaxhighlight>
+Syntax https://www.rfc-editor.org/rfc/rfc6901:
+
+<nowiki>#</nowiki>        - the whole document = self-reference
+
+<nowiki>#</nowiki>/kids   - the value of the key "kids"
+
+<nowiki>#</nowiki>/kids/0 - the first item within the array "kids"
+==JSON Documents: Pointer (2)==
+Pointer allow reference to
+*An object within the JSON document
+*An external JSON document
+
+<syntaxhighlight lang="json">
+{
+    "firstname": "Susan",
+    "surname": "Birch",
+    "partner": {
+        "$ref": "http://www.personaldata.com/walter.birch.json"
+    }
+}
+</syntaxhighlight>
+
 ==JSON Documents: Next==
-* [[Item:OSWf4a9514baed04859a4c6c374a7312f10]] [{{fullurl:Item:OSWf4a9514baed04859a4c6c374a7312f10|reveal=true}} Slideshow]
+
+*[[Item:OSWf4a9514baed04859a4c6c374a7312f10]] [{{fullurl:Item:OSWf4a9514baed04859a4c6c374a7312f10|reveal=true}} Slideshow]
 *[[Item:OSW911488771ea449a6a34051f8213d7f2f]] [{{fullurl:Item:OSW911488771ea449a6a34051f8213d7f2f|reveal=true}} Slideshow]

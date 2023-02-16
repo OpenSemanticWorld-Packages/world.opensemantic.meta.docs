@@ -16,5 +16,8 @@
             "lang": "en"
         }
     ],
-    "image": "File:OSWcdf1d2e2f5d143aeb13096013632c8cb.png"
+    "image": "File:OSWcdf1d2e2f5d143aeb13096013632c8cb.png",
+    "recommended_successor": [
+        "Item:OSWee501c0fa6a9407d99c058b5ff9d55b4"
+    ]
 }

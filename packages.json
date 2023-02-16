@@ -12,9 +12,26 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
+                {
+                    "name": "OSW70b4d6464c1d44a887eb86e3b39b8751",
+                    "label": "StructedDataWorkshop",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW70b4d6464c1d44a887eb86e3b39b8751.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW70b4d6464c1d44a887eb86e3b39b8751.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW70b4d6464c1d44a887eb86e3b39b8751.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW70b4d6464c1d44a887eb86e3b39b8751.slot_jsondata.json"
+                        }
+                    }
+                },
                 {
                     "name": "OSWf1df064239044b8fa3c968339fb93344",
                     "label": "JsonTutorial",
@@ -85,6 +102,30 @@
                     "namespace": "NS_FILE",
                     "urlPath": "File/OSWcdf1d2e2f5d143aeb13096013632c8cb.png.slot_main.wikitext",
                     "fileURLPath": "File/OSWcdf1d2e2f5d143aeb13096013632c8cb.png",
+                    "slots": {}
+                },
+                {
+                    "name": "OSWee501c0fa6a9407d99c058b5ff9d55b4",
+                    "label": "JsonApplicationTutorial",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWee501c0fa6a9407d99c058b5ff9d55b4.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWee501c0fa6a9407d99c058b5ff9d55b4.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWee501c0fa6a9407d99c058b5ff9d55b4.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWee501c0fa6a9407d99c058b5ff9d55b4.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWef6806b8a17f472c9dd34bfe0c1ca6f1.png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWef6806b8a17f472c9dd34bfe0c1ca6f1.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWef6806b8a17f472c9dd34bfe0c1ca6f1.png",
                     "slots": {}
                 }
             ]

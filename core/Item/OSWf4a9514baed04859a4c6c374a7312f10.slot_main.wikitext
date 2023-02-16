@@ -1,5 +1,5 @@
 ==JSON-SCHEMA: Motivation ==
-Problem: If you create many JSON-Files over time and by different people / tools, you want them to follow a certain structure
+Problem: If many JSON-Files are created over time by different people / tools, you want them to follow a certain structure
 <div style=" column-count: 3;">
 <div>JSON Dataset 1
 <syntaxhighlight lang="json">
@@ -20,7 +20,7 @@ They express the same information, but are different / incompatible
 </div>
 </div>
 
-==JSON-SCHEMA: Validation==
+==JSON-SCHEMA: Validation (1)==
 A JSON-SCHEMA can describe and validate a JSON-Document
 <div style=" column-count: 3;">
 <div>JSON Schema
@@ -50,7 +50,7 @@ Dataset 1 is valid
 </div>
 </div>
 
-==JSON-SCHEMA: Validation==
+==JSON-SCHEMA: Validation (2)==
 A JSON-SCHEMA can describe and validate a JSON-Document
 <div style=" column-count: 3;">
 <div>JSON Schema
@@ -86,9 +86,10 @@ What is a JSON-SCHEMA?
 * A JSON document defining the valid structure of another JSON document
 *The "type" keyword is special. It allows us to specify which values of a JSON object are valid! [https://json-schema.org/understanding-json-schema/basics.html#the-type-keyword]
 
-==JSON-SCHEMA: Definition ==
-How to define a JSON-SCHEMA?
-*Creating a JSON document, using the special "type" keyword 
+==JSON-SCHEMA: the "type" Keyword ==
+What is a JSON-SCHEMA?
+* A JSON document defining the valid structure of another JSON document
+*The "type" keyword is special. It allows us to specify which values of a JSON object are valid!
 *json-schema.org defines the following basic types [https://json-schema.org/understanding-json-schema/reference/type.html#type-specific-keywords]:
 **string
 **number
@@ -97,11 +98,10 @@ How to define a JSON-SCHEMA?
 **array
 **boolean
 **null
-
 ==JSON-SCHEMA: Typing==
 How to define a JSON-SCHEMA?
-*Creating a JSON document, using the special "type" keyword, which allows us to specify which values of a JSON object are valid! 
-*To leverage this, our defined keyword:value pairs need to become JSON objects, specifying a type!<div> 
+*We want to levearge the power of typing and validation
+*Therefore, our defined key(word):value pairs need to become JSON objects, specifying a type!
 <syntaxhighlight lang="json">
 {
     "title": "Item",
@@ -122,15 +122,12 @@ How to define a JSON-SCHEMA?
     }
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Reference==
 How to define a JSON-SCHEMA?
-*Creating a JSON document, using the special "type" keyword, which allows us to specify which values of a JSON object are valid! 
-
-*To leverage this, our defined keyword:value pairs need to become JSON objects, specifying a type!
+*We want to levearge the power of typing and validation
+*Therefore, our defined key(word):value pairs need to become JSON objects, specifying a type!
 *JSON (object) properties posses a keyword, which is used for reference
-<div> 
 <syntaxhighlight lang="json">
 {
     "title": "Item",
@@ -151,15 +148,13 @@ How to define a JSON-SCHEMA?
     }
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Other Keywords (1)==
 How to define a JSON-SCHEMA?
-*The "type" key(word) is special. It allows us to specify which values of a JSON object are valid!
-* To leverage this, our defined keyword:value pairs need to become JSON objects, specifying a type!
-* JSON (object) properties posses a keyword, which is used for reference
-*JSON properties, being objects, can also have a title - e.g. for display purpose
-<div> 
+*We want to levearge the power of typing and validation
+*Therefore, our defined key(word):value pairs need to become JSON objects, specifying a type!
+*JSON (object) properties posses a keyword, which is used for reference
+*JSON properties, being objects, can also have a title - e.g., for display purpose
 <syntaxhighlight lang="json">
 {
     "title": "Item",
@@ -184,17 +179,15 @@ How to define a JSON-SCHEMA?
     }
 }
 </syntaxhighlight>
-</div>
 
 == JSON-SCHEMA: Other Keywords (2) ==
 How to define a JSON-SCHEMA?
-* The "type" keyword is special. It allows us to specify which values of a JSON object are valid!
-* To leverage this, our defined keyword:value pairs need to become JSON objects, specifying a type!
+*We want to levearge the power of typing and validation
+*Therefore, our defined key(word):value pairs need to become JSON objects, specifying a type!
 *JSON (object) properties posses a keyword, which is used for reference
-*JSON properties, being objects, can also have a keyword "title" - for display purpose
+*JSON properties, being objects, can also have a title - e.g., for display purpose
 *Usefull other keywords: 
 **"description" - to give a context
-<div> 
 <syntaxhighlight lang="json">
 {
     "title": "Item",
@@ -208,18 +201,16 @@ How to define a JSON-SCHEMA?
     }
 }
 </syntaxhighlight>
-</div>
 
 == JSON-SCHEMA: Other Keywords (3) ==
 How to define a JSON-SCHEMA?
-* The "type" keyword is special. It allows us to specify which values of a JSON object are valid!
-* To leverage this, our defined keyword:value pairs need to become JSON objects, specifying a type!
+*We want to levearge the power of typing and validation
+*Therefore, our defined key(word):value pairs need to become JSON objects, specifying a type!
 *JSON (object) properties posses a keyword, which is used for reference
-*JSON properties, being objects, can also have a keyword "title" - for display purpose
+*JSON properties, being objects, can also have a title - e.g., for display purpose
 *Usefull other keywords: 
 **"description" - to give a context
 **"default" - to specify a fall back if no value is entered
-<div> 
 <syntaxhighlight lang="json">
 {
     "title": "Item",
@@ -234,7 +225,6 @@ How to define a JSON-SCHEMA?
     }
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Selected Types==
 Some selected property types and formats
@@ -247,13 +237,11 @@ Some selected property types and formats
 **OK: 1.0 - Numbers with a zero fractional part are considered integers
 **XX: 3.1415926 - Floating point numbers are rejected
 **XX: "42" - Numbers as strings are rejected
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "integer",
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Number (1)==
 Some selected property types and formats
@@ -263,27 +251,23 @@ Some selected property types and formats
 **OK: 3.1415926 - Floating point numbers
 **OK: 2.99792458e8 - Exponential notation
 **XX: "42" - Numbers as strings are rejected
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "number",
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Number (2)==
 Some selected property types and formats
 * "type": "integer"
 * "type": "number" - analogous to float
 ** Multiples [https://json-schema.org/understanding-json-schema/reference/numeric.html#multiples]
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "number",
     "multipleOf" : 10
 }
 </syntaxhighlight>
-</div>
 
 == JSON-SCHEMA: Number (3) ==
 Some selected property types and formats
@@ -291,7 +275,6 @@ Some selected property types and formats
 *"type": "number" - analogous to float
 **Multiples
 ** Range [https://json-schema.org/understanding-json-schema/reference/numeric.html#range]
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "number",
@@ -299,20 +282,17 @@ Some selected property types and formats
     "exclusiveMaximum": 100
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: String  ==
 Some selected property types and formats
 *"type": "integer"
 *"type": "number"
 *"type": "string" - analogous to str [https://json-schema.org/understanding-json-schema/reference/string.html#string]
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "string"
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: String Length==
 Some selected property types and formats
@@ -320,7 +300,6 @@ Some selected property types and formats
 *"type": "number"
 *"type": "string" - analogous to str
 **Length [https://json-schema.org/understanding-json-schema/reference/string.html#length]
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "string",
@@ -328,7 +307,6 @@ Some selected property types and formats
     "maxLength": 3
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: String Pattern==
 Some selected property types and formats
@@ -336,16 +314,13 @@ Some selected property types and formats
 *"type": "number"
 *"type": "string" - analogous to str
 **Length
-** Regular expressions - "pattern" keyword [https://json-schema.org/understanding-json-schema/reference/string.html#regular-expressions]
-<div> 
+** Regular expressions - the "pattern" keyword [https://json-schema.org/understanding-json-schema/reference/string.html#regular-expressions]
 <syntaxhighlight lang="json">
 {
     "type": "string",
     "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
 }
 </syntaxhighlight>
-</div>
-
 
 ==JSON-SCHEMA: String Format (1)==
 Some selected property types and formats
@@ -354,16 +329,14 @@ Some selected property types and formats
 *"type": "string" - analogous to str
 **Length
 **Regular expressions
-**Format - "format" keyword [https://json-schema.org/understanding-json-schema/reference/string.html#format]
+**Format - the "format" keyword [https://json-schema.org/understanding-json-schema/reference/string.html#format]
 ***"email"
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "string",
     "format": "email"
 }
 </syntaxhighlight>
-</div>
 
 == JSON-SCHEMA: String Format (2) ==
 Some selected property types and formats
@@ -372,7 +345,7 @@ Some selected property types and formats
 * "type": "string" - analogous to str
 **Length
 **Regular expressions
-**Format - "format" keyword, some examples:
+**Format - the "format" keyword, some examples:
 ***"email"
 ***"date-time"
 ***"time"
@@ -380,8 +353,7 @@ Some selected property types and formats
 ***"duration"
 ***"ipv4"
 *** "uuid"
-***"uri" - e.g. an URL
-<div> 
+***"uri" - e.g., an URL
 <syntaxhighlight lang="json">
 {
     "type": "object",
@@ -394,7 +366,6 @@ Some selected property types and formats
     }
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Array (1)==
 Some selected property types and formats
@@ -402,13 +373,11 @@ Some selected property types and formats
 *"type": "number"
 *"type": "string"
 *"type": "array" - analogous to list [https://json-schema.org/understanding-json-schema/reference/array.html#array]
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "array"
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Array (2)==
 Some selected property types and formats
@@ -419,13 +388,11 @@ Some selected property types and formats
 ** OK: [1, 2, 3, 4, 5] - items of one type
 **OK: [3, "different", { "types" : "of values" }] - items of different types
 ** XX: {"Not": "an array"}
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "array"
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Array Item==
 Some selected property types and formats
@@ -433,8 +400,7 @@ Some selected property types and formats
 *"type": "number"
 *"type": "string"
 *"type": "array" - analogous to list
-**Specifying types for items [https://json-schema.org/understanding-json-schema/reference/array.html#items]
-<div> 
+**Specifying types for items - the "items" keyword [https://json-schema.org/understanding-json-schema/reference/array.html#items]
 <syntaxhighlight lang="json">
 {
     "type": "array",
@@ -443,7 +409,6 @@ Some selected property types and formats
     }
 }
 </syntaxhighlight>
-</div>
 
 == JSON-SCHEMA: Array Length==
 Some selected property types and formats
@@ -451,9 +416,8 @@ Some selected property types and formats
 * "type": "number"
 * "type": "string"
 * "type": "array" - analogous to list
-** Specifying types for items
+** Specifying types for items  - the "items" keyword
 **Length [https://json-schema.org/understanding-json-schema/reference/array.html#length]
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "array",
@@ -461,7 +425,6 @@ Some selected property types and formats
     "maxItems": 3
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Array Unique==
 Some selected property types and formats
@@ -472,22 +435,21 @@ Some selected property types and formats
 **Specifying types for items
 **Length
 **Uniqueness [https://json-schema.org/understanding-json-schema/reference/array.html#uniqueness]
-<div> 
 <syntaxhighlight lang="json">
 {
     "type": "array",
     "uniqueItems": true
 }
 </syntaxhighlight>
-</div>
 
 ==JSON-SCHEMA: Go-To Patterns==
 Some JSON-SCHEMA go-to patterns
 
 == JSON-SCHEMA: Required==
 Some JSON-SCHEMA go-to patterns
-*Forcing the user to enter a value for a certain property --> keyword: "required"
-<div> 
+*Forcing the user to enter a value for a certain property - the "required" keyword
+<div style=" column-count: 2;">
+<div>JSON Schema
 <syntaxhighlight lang="json">
 {
     "title": "Entity",
@@ -503,17 +465,27 @@ Some JSON-SCHEMA go-to patterns
 }
 </syntaxhighlight>
 </div>
+<div>JSON Data
+<syntaxhighlight lang="json">
+{
+    "label": "Item"
+}
+</syntaxhighlight>
+</div>
+</div>
 
 ==JSON-SCHEMA: Autogeneration ==
 Some JSON-SCHEMA go-to patterns
-*Forcing the user to enter a value for a certain property --> keyword: "required"
+*Forcing the user to enter a value for a certain property - the "required" keyword
 *Automatically generating a value, e.g., for a uuid
-<div> 
+<div style=" column-count: 2;">
+<div>JSON Schema
 <syntaxhighlight lang="json">
 {
     "title": "Entity",
     "type": "object",
     "required": [
+        "label",
         "uuid"
     ],
     "properties": {
@@ -529,8 +501,77 @@ Some JSON-SCHEMA go-to patterns
 }
 </syntaxhighlight>
 </div>
+<div>JSON Data
+<syntaxhighlight lang="json">
+{
+    "label": "Item",
+    "uuid": "ae7e1570-80c2-4476-8e68-bbd3063ba085"
+}
+</syntaxhighlight>
+</div>
+</div>
 
-==JSON-SCHEMA: Options==
-Inheritance - oneOf
-==JSON-SCHEMA: Reference==
-Inheritance - allOf
+==JSON-SCHEMA: Options (1)==
+Some JSON-SCHEMA go-to patterns
+*Allowing more than one valid option - the "anyOf" keyword 
+*Allowing exactly one valid option - the "oneOf" keyword
+<div> 
+<syntaxhighlight lang="json">
+{
+    "title": "Identifier",
+    "type": "string",
+    "oneOf": [
+        {
+            "title": "UUID",
+            "format": "uuid"
+        },
+        {
+            "title": "URI or URL",
+            "format": "uri"
+        }
+    ]
+}
+</syntaxhighlight>
+</div>
+
+==JSON-SCHEMA: Options (2)==
+Some JSON-SCHEMA go-to patterns
+*Allowing more than one valid option - the "anyOf" keyword 
+*Allowing exactly one valid option - the "oneOf" keyword
+*Validating against several options - the "allOf" keyword
+<div> 
+<syntaxhighlight lang="json">
+{
+    "title": "Abbreviation",    
+    "type": "string",
+    "allOf": [
+        "minLength": 2,
+        "maxLength": 5,
+        "pattern": "[A-Z]"
+    ]
+}
+</syntaxhighlight>
+</div>
+
+==JSON-SCHEMA: Options(3)==
+Some JSON-SCHEMA go-to patterns
+*Allowing more than one valid option - the "anyOf" keyword 
+*Allowing exactly one valid option - the "oneOf" keyword
+*Validating against several options - the "allOf" keyword
+*Excluding one option  - the "not" keyword
+<div> 
+<syntaxhighlight lang="json">
+{
+    "title": "Abbreviation",    
+    "not": [
+        "type": "number",
+        "type": "integer",
+        "type": "null",
+        "type": "boolean"  
+    ]
+}
+</syntaxhighlight>
+</div>
+
+==JSON Documents: Next==
+*[[Item:OSW911488771ea449a6a34051f8213d7f2f]] [{{fullurl:Item:OSW911488771ea449a6a34051f8213d7f2f|reveal=true}} Slideshow]

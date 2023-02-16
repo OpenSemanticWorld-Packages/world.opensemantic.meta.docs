@@ -1,0 +1,41 @@
+
+== State of the art regarding data standards ==
+
+* Documents
+** Formats themselves are highly standardized (pdf, MS Office, OpenDocument family)
+** Support for metadata, but implementation in the UI mostly limited to generic information
+* Images
+** Formats themselves are highly standardized (png, jpeg, tiff, etc.)
+** Metadata beyond generic information only supported by special formats like tiff
+* Tabular data
+** CSV widely used, supported by almost all software systems
+** Extensive degrees of freedom almost always require prior knowledge for correct interpretation
+* Domain-specific data (chemistry, engineering, computer science, etc.)
+** Depends strongly on the use case
+* How can we generate arbitrary structured (meta)data in a well-defined format?
+** e. g. for processes running in different labs around the world?
+
+== The JSON Standard Family ==
+
+* What can be expressed directly in JSON, what can be described indirectly? => [[Item:OSWf1df064239044b8fa3c968339fb93344]]
+* How do references work in JSON?
+* How can a JSON document be specified and validated? (json-schema) => [[Item:OSWf4a9514baed04859a4c6c374a7312f10]]
+* How can the meaning of data be defined? (json-ld) => [[Item:OSW911488771ea449a6a34051f8213d7f2f]]
+
+{{Template:ELN/Editor/Graph
+| file_name = graph-01
+| page_name = Item:OSW70b4d6464c1d44a887eb86e3b39b8751
+| root = Item:OSW911488771ea449a6a34051f8213d7f2f
+| properties = HasPart; HasRequiredPredecessor; HasOptionalPredecessor; HasRecommendedSuccessor; -HasRequiredPredecessor; -HasOptionalPredecessor; -HasRecommendedSuccessor; HasImage
+| depth = 5
+| full_width = 0
+| edit = 0
+| edge_labels = 0
+}}
+
+== Application & Hands-on  ==
+
+* ... using [https://github.com/OpenSemanticLab OpenSemanticLab] as example implementation => [[Item:OSWee501c0fa6a9407d99c058b5ff9d55b4]]
+* UI generation (json-schema based editors & renderers)
+* Knowledge Graph Generation
+* Code Generation (python dataclasses) => [https://github.com/OpenSemanticLab/osw-python osw python package]
