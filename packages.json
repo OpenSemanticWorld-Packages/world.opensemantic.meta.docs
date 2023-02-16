@@ -1,0 +1,93 @@
+{
+    "publisher": "OpenSemanticWorld",
+    "publisherURL": "https://github.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs",
+    "author": [
+        "Simon Stier",
+        "Lukas Gold"
+    ],
+    "language": "en",
+    "licenseName": "CC BY-NC 4.0",
+    "packages": {
+        "OSW Docs - Core": {
+            "globalID": "world.opensemantic.meta.docs.core",
+            "label": "OSW Docs - Core",
+            "description": "Provides core documentation of OpenSemanticWorld / -Lab",
+            "version": "0.1.0",
+            "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
+            "pages": [
+                {
+                    "name": "OSWf1df064239044b8fa3c968339fb93344",
+                    "label": "JsonTutorial",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWf1df064239044b8fa3c968339fb93344.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWf1df064239044b8fa3c968339fb93344.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWf1df064239044b8fa3c968339fb93344.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWf1df064239044b8fa3c968339fb93344.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW2055124fe7b344148a1baad537bf8e35.png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW2055124fe7b344148a1baad537bf8e35.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW2055124fe7b344148a1baad537bf8e35.png",
+                    "slots": {}
+                },
+                {
+                    "name": "OSWf4a9514baed04859a4c6c374a7312f10",
+                    "label": "JsonSchemaTutorial",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWf4a9514baed04859a4c6c374a7312f10.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWf4a9514baed04859a4c6c374a7312f10.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWf4a9514baed04859a4c6c374a7312f10.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWf4a9514baed04859a4c6c374a7312f10.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW7ab0a0b8aaa34217bff6cf9e97988c4d.png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW7ab0a0b8aaa34217bff6cf9e97988c4d.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW7ab0a0b8aaa34217bff6cf9e97988c4d.png",
+                    "slots": {}
+                },
+                {
+                    "name": "OSW911488771ea449a6a34051f8213d7f2f",
+                    "label": "JsonLdTutorial",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW911488771ea449a6a34051f8213d7f2f.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW911488771ea449a6a34051f8213d7f2f.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW911488771ea449a6a34051f8213d7f2f.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW911488771ea449a6a34051f8213d7f2f.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWcdf1d2e2f5d143aeb13096013632c8cb.png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWcdf1d2e2f5d143aeb13096013632c8cb.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWcdf1d2e2f5d143aeb13096013632c8cb.png",
+                    "slots": {}
+                }
+            ]
+        }
+    }
+}

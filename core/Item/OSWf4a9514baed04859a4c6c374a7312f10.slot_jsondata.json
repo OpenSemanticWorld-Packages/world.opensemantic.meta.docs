@@ -1,0 +1,17 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "f4a9514b-aed0-4859-a4c6-c374a7312f10",
+    "name": "JsonSchemaTutorial",
+    "label": [
+        {
+            "text": "JSON-SCHEMA Tutorial",
+            "lang": "en"
+        }
+    ],
+    "required_predecessor": [
+        "Item:OSWf1df064239044b8fa3c968339fb93344"
+    ],
+    "image": "File:OSW7ab0a0b8aaa34217bff6cf9e97988c4d.png"
+}

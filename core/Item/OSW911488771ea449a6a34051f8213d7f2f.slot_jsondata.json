@@ -1,0 +1,20 @@
+{
+    "required_predecessor": [
+        "Item:OSWf1df064239044b8fa3c968339fb93344"
+    ],
+    "optional_predecessor": [
+        "Item:OSWf4a9514baed04859a4c6c374a7312f10"
+    ],
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "91148877-1ea4-49a6-a340-51f8213d7f2f",
+    "name": "JsonLdTutorial",
+    "label": [
+        {
+            "text": "JSON-LD Tutorial",
+            "lang": "en"
+        }
+    ],
+    "image": "File:OSWcdf1d2e2f5d143aeb13096013632c8cb.png"
+}

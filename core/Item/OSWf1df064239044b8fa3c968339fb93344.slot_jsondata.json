@@ -1,0 +1,20 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "f1df0642-3904-4b8f-a3c9-68339fb93344",
+    "name": "JsonTutorial",
+    "label": [
+        {
+            "text": "JSON Tutorial",
+            "lang": "en"
+        }
+    ],
+    "image": "File:OSW2055124fe7b344148a1baad537bf8e35.png",
+    "description": [
+        {
+            "text": "Covers basics about JSON-Documents",
+            "lang": "en"
+        }
+    ]
+}

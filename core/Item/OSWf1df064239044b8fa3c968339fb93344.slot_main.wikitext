@@ -1,0 +1,80 @@
+== JSON Documents: Basics==
+
+What is a JSON?
+* A JSON itself is a JSON object, marked by [https://json-schema.org/understanding-json-schema/basics.html#hello-world]
+
+<syntaxhighlight lang="json">
+{}
+</syntaxhighlight>
+
+==JSON Documents: Key-Value-Pairs==
+
+*A JSON object defines key(word):value pairs.
+* Keys are formatted as strings, marked by quotation marks ("").
+
+<syntaxhighlight lang="json">
+{
+    "key": "value"
+}
+</syntaxhighlight>
+
+==JSON Documents: Data types==
+
+*The key is always a string
+*The value can be a string, a number, a boolean or null
+
+<syntaxhighlight lang="json">
+{
+    "key": "value",
+    "string": "any string value",
+    "number": 1.0,
+    "bool": true,
+    "empty": null
+}
+</syntaxhighlight>
+
+==JSON Documents: Subobjects==
+
+*The value can also be a JSON document (object) itself
+*A nested object can have the same key-value pairs as the root document
+*There is no limit in the nesting depth
+
+<syntaxhighlight lang="json">
+{
+    "key": "value",
+    "string": "any string value",
+    "number": 1.0,
+    "bool": true,
+    "empty": null,
+    "object": {
+        "has": "it's own key-value-pairs"
+    }
+}
+</syntaxhighlight>
+
+==JSON Documents: Arrays==
+
+*the value can also be an array (list)
+* an array can contain any element, including objects and nested arrays
+
+<syntaxhighlight lang="json">
+{
+    "key": "value",
+    "string": "any string value",
+    "number": 1.0,
+    "bool": true,
+    "empty": null,
+    "object": {
+        "has": "it's own key-value-pairs"
+    },
+    "array": [
+        "a list", 
+        {"of": "any"}, 
+        ["item1", 1.0, true]
+    ]
+}
+</syntaxhighlight>
+
+==JSON Documents: Next==
+* [[Item:OSWf4a9514baed04859a4c6c374a7312f10]] [{{fullurl:Item:OSWf4a9514baed04859a4c6c374a7312f10|reveal=true}} Slideshow]
+*[[Item:OSW911488771ea449a6a34051f8213d7f2f]] [{{fullurl:Item:OSW911488771ea449a6a34051f8213d7f2f|reveal=true}} Slideshow]

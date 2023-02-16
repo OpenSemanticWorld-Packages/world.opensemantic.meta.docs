@@ -1,0 +1,48 @@
+==JSON-LD==
+Problem: Everybody uses different keys<div style=" column-count: 3;">
+<div>JSON Dataset 1
+<syntaxhighlight lang="json">
+{
+    "c": 1.0
+}
+</syntaxhighlight>
+</div>
+<div>JSON Dataset 2
+<syntaxhighlight lang="json">
+{
+    "cap": 1.0
+}
+</syntaxhighlight>
+</div>
+<div>
+Do they mean the same?
+</div>
+</div>
+
+==JSON-LD==
+Idea: Map keys to common vocabularies like https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html
+<div style=" column-count: 3;">
+<div>JSON Dataset 1
+<syntaxhighlight lang="json">
+{
+    "@context": {
+        "c": "http://qudt.org/vocab/quantitykind/Capacitance"  
+    },
+    "c": 1.0
+}
+</syntaxhighlight>
+</div>
+<div>JSON Dataset 2
+<syntaxhighlight lang="json">
+{    
+    "@context": {
+        "cap": "http://qudt.org/vocab/quantitykind/Capacitance"  
+    },
+    "cap": 1.0
+}
+</syntaxhighlight>
+</div>
+<div>
+Do they mean the same? Yes!
+</div>
+</div>
