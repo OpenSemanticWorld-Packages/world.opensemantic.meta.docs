@@ -1,0 +1,263 @@
+==Step1: Generate a Template JSON==
+<div style=" column-count: 2;">
+<div>Template-Schema
+<syntaxhighlight lang="json">
+    "title": "Generic Model",
+    "properties": {
+        "parameters": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "submodels": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "parameters": {
+                        "$ref": "#/properties/parameters"
+                    },
+                    "submodels": {
+                        "$ref": "#/properties/submodels"
+                    }
+                }
+            }
+        }
+    }
+}
+</syntaxhighlight>
+</div>
+<div>Template-JSON
+<syntaxhighlight lang="json">
+{
+    "name": "BattmoModel"
+    "submodels": [
+        {
+            "name": "Geometrie",
+            "parameters": [
+                {
+                    "name": "FaceArea"
+                }
+            ],
+            "submodels": [
+                {
+                    "name": "NegativeElectrode",
+                    "parameters": [],
+                    "submodels": [
+                        {
+                            "name": "ActiveMaterial",
+                            "parameters": [
+                                {
+                                    "name": "thickness"
+                                }
+                            ],
+                            "submodels": []
+                        }
+                    ]
+                },
+                {
+                    "name": "PositiveElectrode",
+                    "parameters": [],
+                    "submodels": [
+                        {
+                            "name": "ActiveMaterial",
+                            "parameters": [
+                                {
+                                    "name": "thickness"
+                                }
+                            ],
+                            "submodels": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+</syntaxhighlight>
+</div>
+</div>
+
+==Step2: Generate the schema==
+<div style=" column-count: 3;">
+<div>Template-JSON
+<syntaxhighlight lang="json">
+{
+    "name": "BattmoModel"
+    "submodels": [
+        {
+            "name": "Geometrie",
+            "parameters": [
+                {
+                    "name": "FaceArea"
+                }
+            ],
+            "submodels": [
+                {
+                    "name": "NegativeElectrode",
+                    "parameters": [],
+                    "submodels": [
+                        {
+                            "name": "ActiveMaterial",
+                            "parameters": [
+                                {
+                                    "name": "thickness"
+                                }
+                            ],
+                            "submodels": []
+                        }
+                    ]
+                },
+                {
+                    "name": "PositiveElectrode",
+                    "parameters": [],
+                    "submodels": [
+                        {
+                            "name": "ActiveMaterial",
+                            "parameters": [
+                                {
+                                    "name": "thickness"
+                                }
+                            ],
+                            "submodels": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+</syntaxhighlight>
+</div>
+<div>
+Template<syntaxhighlight lang="handlebars">
+{ 
+    "name": "{{{name}}}", 
+    "properties": { 
+        {{#each parameters}}
+        "{{{name}}}": {}{{#unless @last}},{{/unless}}
+        {{/each}}{{#if parameters}}{{#if submodels}},{{/if}}{{/if}}
+        {{#each submodels}}
+        "{{{name}}}":
+            {{> self}}{{#unless @last}},{{/unless}}
+        {{/each}} 
+    } 
+}
+</syntaxhighlight>
+</div>
+<div>
+Schema<syntaxhighlight lang="json">
+{
+    "name":"BattmoModel",
+    "properties": {
+        "Geometrie":{
+            "name":"Geometrie",
+            "properties":
+            {
+                "FaceArea":{},
+                "NegativeElectrode":{
+                    "name":"NegativeElectrode",
+                    "properties":{
+                        "ActiveMaterial":{
+                            "name":"ActiveMaterial",
+                            "properties":{
+                                "thickness":{}
+                            }
+                        }
+                    }
+                },
+                "PositiveElectrode": {
+                    "name":"PositiveElectrode",
+                    "properties":{
+                        "ActiveMaterial":{
+                            "name":"ActiveMaterial",
+                            "properties": {
+                                "thickness":{}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</syntaxhighlight>
+</div>
+</div>
+
+==Step3: Generate the target JSON==
+<div style=" column-count: 2;">
+<div>
+Schema<syntaxhighlight lang="json">
+{
+    "name":"BattmoModel",
+    "properties": {
+        "Geometrie":{
+            "name":"Geometrie",
+            "properties":
+            {
+                "FaceArea":{},
+                "NegativeElectrode":{
+                    "name":"NegativeElectrode",
+                    "properties":{
+                        "ActiveMaterial":{
+                            "name":"ActiveMaterial",
+                            "properties":{
+                                "thickness":{}
+                            }
+                        }
+                    }
+                },
+                "PositiveElectrode": {
+                    "name":"PositiveElectrode",
+                    "properties":{
+                        "ActiveMaterial":{
+                            "name":"ActiveMaterial",
+                            "properties": {
+                                "thickness":{}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</syntaxhighlight>
+</div>
+<div>JSON
+<syntaxhighlight lang="json">
+{
+    "name": "MyModel1",
+    "geometry": {
+        "format": "1D",
+        "faceArea": "0.0001",
+        "NegativeElectrode": {
+            "ActiveMaterial": {
+                "thickness": "0.000064"
+            }
+        },
+        "PositiveElectrode": {
+            "ActiveMaterial": {
+                "thickness": "0.000057"
+            }
+        },
+        "Electrolyte": {
+            "Separator": {
+                "thickness": "0.000015"
+            }
+        }
+    }
+}
+</syntaxhighlight>
+</div>
+</div>

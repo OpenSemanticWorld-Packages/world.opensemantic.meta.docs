@@ -92,7 +92,7 @@ Pointer allow reference to
     }    
 }
 </syntaxhighlight>
-Syntax https://www.rfc-editor.org/rfc/rfc6901:
+Syntax [https://www.rfc-editor.org/rfc/rfc6901]:
 
 <nowiki>#</nowiki>        - the whole document = self-reference
 

@@ -1,0 +1,16 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "18201c9a-18f6-4574-a12d-97efdeb2f953",
+    "name": "SchemaTemplateTutorial",
+    "label": [
+        {
+            "text": "Schema Template Tutorial",
+            "lang": "en"
+        }
+    ],
+    "required_predecessor": [
+        "Item:OSW6df03625b42e4b44bd9f2dfa77387887"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "6df03625-b42e-4b44-bd9f-2dfa77387887",
+    "name": "HandlebarsTemplates",
+    "label": [
+        {
+            "text": "Handlebars Templates",
+            "lang": "en"
+        }
+    ],
+    "required_predecessor": [
+        "Item:OSWf1df064239044b8fa3c968339fb93344"
+    ]
+}

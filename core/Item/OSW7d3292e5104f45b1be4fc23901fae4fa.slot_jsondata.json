@@ -1,0 +1,20 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "7d3292e5-104f-45b1-be4f-c23901fae4fa",
+    "name": "TabularData",
+    "label": [
+        {
+            "text": "Tabular Data",
+            "lang": "en"
+        },
+        {
+            "text": "Tabellarische Daten",
+            "lang": "de"
+        }
+    ],
+    "required_predecessor": [
+        "Item:OSW911488771ea449a6a34051f8213d7f2f"
+    ]
+}

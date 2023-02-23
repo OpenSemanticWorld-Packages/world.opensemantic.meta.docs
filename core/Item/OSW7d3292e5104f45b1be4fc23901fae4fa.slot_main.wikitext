@@ -1,0 +1,423 @@
+==Tabular Data: JSON-Representation==
+<div style=" column-count: 3;">
+<div style="break-inside: avoid;">Table
+{| class="wikitable"
+|+
+!id
+!name
+!number
+|-
+|row1
+|test1
+|1e12
+|-
+|row2
+|test2
+|2
+|-
+|row3
+|test3
+| 3
+|}
+</div>
+<div style="break-inside: avoid;">JSON - id as key
+<syntaxhighlight lang="json">
+{
+  "content": {
+   "row1": {"id": "row1", "name": "test1", "number": "1e12"},
+   "row2": {"id": "row2", "name": "test2", "number": 2},
+   "row3": {"id": "row3", "name": "test3", "number": 3}
+}
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">JSON - index as key
+<syntaxhighlight lang="json">
+{
+  "content": [
+   {"id": "row1", "name": "test1", "number": "1e12"},
+   {"id": "row2", "name": "test2", "number": 2},
+   {"id": "row3", "name": "test3", "number": 3}
+]
+}
+</syntaxhighlight>
+</div>
+</div>
+
+==Tabular Data: JSON-LD Mapping==
+*map each column to a term
+*set a default language
+*misuse language tag as unit tag - not recommended
+<div style=" column-count: 2;">
+<div style="break-inside: avoid;">JSON - id as key with context
+<syntaxhighlight lang="json">
+{
+  "@context": {
+    "test": "http://test.voc/",
+    "name": {"@id": "test:name", "@language": "en"},
+    "number": {"@id": "test:number", "@language": "Volt"},
+    "content": {"@container": "@index", "@id": "test:hasRow", "@index": "test:HasId"}
+  },
+  "content": {
+   "row1": {"id": "row1", "name": "test1", "number": "1e12"},
+   "row2": {"id": "row2", "name": "test2", "number": 2},
+   "row3": {"id": "row3", "name": "test3", "number": 3}
+}
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">Mapping
+{| class="wikitable"
+!Subject
+!Predicate
+!Object
+!Language
+|-
+|_:b0
+|<nowiki>http://test.voc/hasRow</nowiki>
+|_:b1
+|
+|-
+|_:b0
+|<nowiki>http://test.voc/hasRow</nowiki>
+|_:b2
+|
+|-
+|_:b0
+|<nowiki>http://test.voc/hasRow</nowiki>
+|_:b3
+|
+|-
+|_:b1
+|<nowiki>http://test.voc/HasId</nowiki>
+|row1
+|
+|-
+|_:b1
+|<nowiki>http://test.voc/name</nowiki>
+|test1
+|en
+|-
+|_:b1
+|<nowiki>http://test.voc/number</nowiki>
+|1e12
+|volt
+|-
+|_:b2
+|<nowiki>http://test.voc/HasId</nowiki>
+|row2
+|
+|-
+|_:b2
+|<nowiki>http://test.voc/name</nowiki>
+|test2
+|en
+|-
+|_:b2
+|<nowiki>http://test.voc/number</nowiki>
+|2
+|
+|-
+|_:b3
+|<nowiki>http://test.voc/HasId</nowiki>
+|row3
+|
+|-
+|_:b3
+|<nowiki>http://test.voc/name</nowiki>
+|test3
+|en
+|-
+|_:b3
+|<nowiki>http://test.voc/number</nowiki>
+|3
+|
+|}
+</div>
+</div>
+
+==Tabular Data: JSON-LD Mapping==
+*map each column to a term
+*set a default language
+*misuse language tag as unit tag - not recommended
+<div style=" column-count: 2;">
+<div style="break-inside: avoid;">JSON - index as key with context
+<syntaxhighlight lang="json">
+{
+  "@context": {
+    "test": "http://test.voc/",
+    "id": "test:hasId",
+    "name": {"@id": "test:name", "@language": "en"},
+    "number": {"@id": "test:number", "@language": "Volt"},
+    "content": {"@container": "@index", "@id": "test:hasRow", "@index": "test:HasId"}
+  },
+  "content": [
+   {"id": "row1", "name": "test1", "number": "1e12"},
+   {"id": "row2", "name": "test2", "number": 2},
+   {"id": "row3", "name": "test3", "number": 3}
+]
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">Mapping
+{| class="wikitable"
+!Subject
+!Predicate
+!Object
+!Language
+|-
+|_:b0
+|<nowiki>http://test.voc/hasRow</nowiki>
+|_:b1
+|
+|-
+|_:b0
+|<nowiki>http://test.voc/hasRow</nowiki>
+|_:b2
+|
+|-
+|_:b0
+|<nowiki>http://test.voc/hasRow</nowiki>
+|_:b3
+|
+|-
+|_:b1
+|<nowiki>http://test.voc/hasId</nowiki>
+|row1
+|
+|-
+|_:b1
+|<nowiki>http://test.voc/name</nowiki>
+|test1
+|en
+|-
+|_:b1
+|<nowiki>http://test.voc/number</nowiki>
+|1e12
+|volt
+|-
+|_:b2
+|<nowiki>http://test.voc/hasId</nowiki>
+|row2
+|
+|-
+|_:b2
+|<nowiki>http://test.voc/name</nowiki>
+|test2
+|en
+|-
+|_:b2
+|<nowiki>http://test.voc/number</nowiki>
+|2
+|
+|-
+|_:b3
+|<nowiki>http://test.voc/hasId</nowiki>
+|row3
+|
+|-
+|_:b3
+|<nowiki>http://test.voc/name</nowiki>
+|test3
+|en
+|-
+|_:b3
+|<nowiki>http://test.voc/number</nowiki>
+|3
+|
+|}
+</div>
+</div>
+
+==Tabular Data: JSON-LD Mapping==
+*alternative mapping with named nodes
+<div style=" column-count: 2;">
+<div style="break-inside: avoid;">JSON - index as key with context
+<syntaxhighlight lang="json">
+{
+  "@context": {
+    "test": "http://test.voc/",
+    "id": {"@id": "@id",  "@context": {"@base": "http://test.voc/"}},
+    "name": {"@id": "test:name", "@language": "en"},
+    "number": {"@id": "test:number", "@language": "Volt"},
+    "content": {"@container": "@index", "@id": "test:hasRow", "@index": "test:HasId", "@context": {"@base": "http://test.voc/"}}
+  },
+  "@id": "test:myTable",
+  "content": [
+   {"id": "row1", "name": "test1", "number": "1e12"},
+   {"id": "row2", "name": "test2", "number": 2},
+   {"id": "row3", "name": "test3", "number": 3}
+]
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">Mapping
+
+</div>
+{| class="wikitable"
+!Subject
+!Predicate
+!Object
+!Language
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasRow</nowiki>
+|<nowiki>http://test.voc/row1</nowiki>
+|
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasRow</nowiki>
+|<nowiki>http://test.voc/row2</nowiki>
+|
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasRow</nowiki>
+|<nowiki>http://test.voc/row3</nowiki>
+|
+|-
+|<nowiki>http://test.voc/row1</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|test1
+|en
+|-
+|<nowiki>http://test.voc/row1</nowiki>
+|<nowiki>http://test.voc/number</nowiki>
+|1e12
+|volt
+|-
+|<nowiki>http://test.voc/row2</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|test2
+|en
+|-
+|<nowiki>http://test.voc/row2</nowiki>
+|<nowiki>http://test.voc/number</nowiki>
+|2
+|
+|-
+|<nowiki>http://test.voc/row3</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|test3
+|en
+|-
+|<nowiki>http://test.voc/row3</nowiki>
+|<nowiki>http://test.voc/number</nowiki>
+|3
+|
+|}
+</div>
+
+==Tabular Data: JSON-LD Mapping==
+
+<div style=" column-count: 2;">
+<div style="break-inside: avoid;">JSON - index as key with context, header meta data
+<syntaxhighlight lang="json">
+{
+  "@context": {
+    "test": "http://test.voc/",
+    "id": {"@id": "@id",  "@context": {"@base": "http://test.voc/"}},
+    "name": {"@id": "test:name", "@language": "en"},
+    "number": {"@id": "test:number"},
+    "property": {"@id": "test:hasProperty", "@type": "@id"},
+    "unit": {"@id": "test:hasUnit", "@type": "@id"},
+    "header": {"@container": "@index", "@id": "test:hasColumn", "@index": "test:HasId", "@context": {"@base": "http://test.voc/"}},
+    "content": {"@container": "@index", "@id": "test:hasRow", "@index": "test:HasId", "@context": {"@base": "http://test.voc/"}}
+  },
+  "@id": "test:myTable",
+    "header": [
+      {"id": "column1", "name": "id", "property": "test:hasId"},
+      {"id": "column2", "name": "name", "property": "test:hasName"},
+      {"id": "column3", "name": "number", "property": "test:hasNumber", "unit": "test:volt"}
+  ],
+  "content": [
+   {"id": "row1", "name": "test1", "number": "1e12"},
+   {"id": "row2", "name": "test2", "number": 2},
+   {"id": "row3", "name": "test3", "number": 3}
+]
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">Mapping
+{| class="wikitable"
+!Subject
+!Predicate
+!Object
+|-
+|<nowiki>http://test.voc/column1</nowiki>
+|<nowiki>http://test.voc/hasProperty</nowiki>
+|<nowiki>http://test.voc/hasId</nowiki>
+|-
+|<nowiki>http://test.voc/column1</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|id
+|-
+|<nowiki>http://test.voc/column2</nowiki>
+|<nowiki>http://test.voc/hasProperty</nowiki>
+|<nowiki>http://test.voc/hasName</nowiki>
+|-
+|<nowiki>http://test.voc/column2</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|name
+|-
+|<nowiki>http://test.voc/column3</nowiki>
+|<nowiki>http://test.voc/hasProperty</nowiki>
+|<nowiki>http://test.voc/hasNumber</nowiki>
+|-
+|<nowiki>http://test.voc/column3</nowiki>
+|<nowiki>http://test.voc/hasUnit</nowiki>
+|<nowiki>http://test.voc/volt</nowiki>
+|-
+|<nowiki>http://test.voc/column3</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|number
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasColumn</nowiki>
+|<nowiki>http://test.voc/column1</nowiki>
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasColumn</nowiki>
+|<nowiki>http://test.voc/column2</nowiki>
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasColumn</nowiki>
+|<nowiki>http://test.voc/column3</nowiki>
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasRow</nowiki>
+|<nowiki>http://test.voc/row1</nowiki>
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasRow</nowiki>
+|<nowiki>http://test.voc/row2</nowiki>
+|-
+|<nowiki>http://test.voc/myTable</nowiki>
+|<nowiki>http://test.voc/hasRow</nowiki>
+|<nowiki>http://test.voc/row3</nowiki>
+|-
+|<nowiki>http://test.voc/row1</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|test1
+|-
+|<nowiki>http://test.voc/row1</nowiki>
+|<nowiki>http://test.voc/number</nowiki>
+|1e12
+|-
+|<nowiki>http://test.voc/row2</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|test2
+|-
+|<nowiki>http://test.voc/row2</nowiki>
+|<nowiki>http://test.voc/number</nowiki>
+|2
+|-
+|<nowiki>http://test.voc/row3</nowiki>
+|<nowiki>http://test.voc/name</nowiki>
+|test3
+|-
+|<nowiki>http://test.voc/row3</nowiki>
+|<nowiki>http://test.voc/number</nowiki>
+|3
+|}
+</div>
+</div>

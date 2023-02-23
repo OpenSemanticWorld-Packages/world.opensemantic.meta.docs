@@ -12,7 +12,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.1.1",
+            "version": "0.2.0",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
                 {
@@ -127,6 +127,57 @@
                     "urlPath": "File/OSWef6806b8a17f472c9dd34bfe0c1ca6f1.png.slot_main.wikitext",
                     "fileURLPath": "File/OSWef6806b8a17f472c9dd34bfe0c1ca6f1.png",
                     "slots": {}
+                },
+                {
+                    "name": "OSW6df03625b42e4b44bd9f2dfa77387887",
+                    "label": "HandlebarsTemplates",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW6df03625b42e4b44bd9f2dfa77387887.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW6df03625b42e4b44bd9f2dfa77387887.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW6df03625b42e4b44bd9f2dfa77387887.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW6df03625b42e4b44bd9f2dfa77387887.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW18201c9a18f64574a12d97efdeb2f953",
+                    "label": "SchemaTemplateTutorial",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW18201c9a18f64574a12d97efdeb2f953.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW18201c9a18f64574a12d97efdeb2f953.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW18201c9a18f64574a12d97efdeb2f953.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW18201c9a18f64574a12d97efdeb2f953.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW7d3292e5104f45b1be4fc23901fae4fa",
+                    "label": "TabularData",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW7d3292e5104f45b1be4fc23901fae4fa.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW7d3292e5104f45b1be4fc23901fae4fa.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW7d3292e5104f45b1be4fc23901fae4fa.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW7d3292e5104f45b1be4fc23901fae4fa.slot_jsondata.json"
+                        }
+                    }
                 }
             ]
         }
