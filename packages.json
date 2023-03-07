@@ -12,7 +12,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
                 {
@@ -178,6 +178,37 @@
                             "urlPath": "Item/OSW7d3292e5104f45b1be4fc23901fae4fa.slot_jsondata.json"
                         }
                     }
+                },
+                {
+                    "name": "OSW92619b0700984fe7913e5fbbd7f194dc",
+                    "label": "OswSpecialEditors",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW92619b0700984fe7913e5fbbd7f194dc.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW92619b0700984fe7913e5fbbd7f194dc.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW92619b0700984fe7913e5fbbd7f194dc.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW92619b0700984fe7913e5fbbd7f194dc.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "Item-OSW92619b0700984fe7913e5fbbd7f194dc-diagram-01.drawio.svg",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/Item-OSW92619b0700984fe7913e5fbbd7f194dc-diagram-01.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/Item-OSW92619b0700984fe7913e5fbbd7f194dc-diagram-01.drawio.svg",
+                    "slots": {}
+                },
+                {
+                    "name": "Item-OSW92619b0700984fe7913e5fbbd7f194dc-sketch-01.svg",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/Item-OSW92619b0700984fe7913e5fbbd7f194dc-sketch-01.svg.slot_main.wikitext",
+                    "fileURLPath": "File/Item-OSW92619b0700984fe7913e5fbbd7f194dc-sketch-01.svg",
+                    "slots": {}
                 }
             ]
         }
