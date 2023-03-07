@@ -22,7 +22,7 @@
 * How can a JSON document be specified and validated? (json-schema) => [[Item:OSWf4a9514baed04859a4c6c374a7312f10]]
 * How can the meaning of data be defined? (json-ld) => [[Item:OSW911488771ea449a6a34051f8213d7f2f]]
 
-{{Template:ELN/Editor/Graph
+{{Template:Editor/Graph
 | file_name = graph-01
 | page_name = Item:OSW70b4d6464c1d44a887eb86e3b39b8751
 | root = Item:OSW911488771ea449a6a34051f8213d7f2f
