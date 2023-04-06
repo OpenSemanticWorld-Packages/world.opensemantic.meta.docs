@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "7f23cc02-494e-478e-8f82-715701b1d3ec",
+    "label": [
+        {
+            "text": "Visual Editor Format Text",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "name": "VisualEditorFormatText"
+}

@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "13038cdc-2bea-45c7-b9de-e1352931a280",
+    "label": [
+        {
+            "text": "Insert Special Editor Dialog",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "name": "InsertSpecialEditorDialog"
+}

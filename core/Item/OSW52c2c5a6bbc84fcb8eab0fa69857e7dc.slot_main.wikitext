@@ -1,0 +1,34 @@
+== Create ==
+<gallery widths="300">
+File:OSW5f36a59d4bb94ea0bf93f08f7470f609.png|a. Click on "Create Instance" on the Article tile
+File:OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png|b. Add at least a label
+File:OSWd8adafab997746e69864f23e7bfba734.png|c. Additional properties can be added on demand
+</gallery>
+
+== Edit ==
+<gallery widths="300">
+File:OSWe26ed96136a5484baf478d932a12011b.png|a. On the bottom of the page you can upload files as attachment per drag-and-drop or upload button
+File:OSWb2403f06d08d473d949c69703972f813.png|b. You can also copy-paste a file from the clipboard
+File:OSW556c8a9e65374d0180c474b24d826836.png|c. To change the article itself use the icons above the infobox: The pencil leads to visual editing, the three horizontal lines back to the form data editor.
+</gallery>
+
+== Visual Edit ==
+<gallery widths="300">
+File:OSW7f23cc02494e478e8f82715701b1d3ec.png|a. There are various options to format you text...
+File:OSW1a42918d85d942a7a3e9021c5955636d.png|... and to insert lists, tables, formulas, etc. For more details, please have a look at the [[mediawikiwiki:Help:VisualEditor/User_guide|General Userguide]]
+</gallery>
+
+== Special Editors ==
+
+* Diagrams 
+
+* Sketches
+* Spreadsheets
+* Chemical Reactions
+* Wellplate-Setups
+
+<gallery widths="300">
+File:OSW13038cdc2bea45c7b9dee1352931a280.png|a. Special Editors will ask for a file name and render as block within the Visual Editor
+File:OSWa13be5f5ea0c483689f5e70a7c2f68eb.png|b. After saving your edits in the Visual Editor, Special Editors will display a placeholder
+File:OSW857d85031d85425aa94db8b4720e84b7.png|c. Click "Edit" to open the actual Special Editor (in this case DrawIO Diagram Editor)
+</gallery>
