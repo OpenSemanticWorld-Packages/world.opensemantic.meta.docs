@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "e26ed961-36a5-484b-af47-8d932a12011b",
+    "label": [
+        {
+            "text": "Drag-And-Drop File Upload",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "name": "DragAndDropFileUpload"
+}
