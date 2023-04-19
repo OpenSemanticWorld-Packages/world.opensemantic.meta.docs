@@ -3,11 +3,14 @@
         "Category:OSW494f660e6a714a1a9681c517bbb975da"
     ],
     "uuid": "7113f5cf-921a-4c82-ad18-72afeff9d01d",
+    "name": "TranscendWikitextToStoreAndEditStructuredLinkedData",
     "label": [
         {
             "text": "Transcend wikitext to store and edit structured & linked data",
             "lang": "en"
         }
     ],
-    "name": "TranscendWikitextToStoreAndEditStructuredLinkedData"
+    "recommended_successor": [
+        "Item:OSWf1df064239044b8fa3c968339fb93344"
+    ]
 }

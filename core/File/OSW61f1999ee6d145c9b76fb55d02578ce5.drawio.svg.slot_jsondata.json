@@ -1,0 +1,26 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "61f1999e-e6d1-45c9-b76f-b55d02578ce5",
+    "label": [
+        {
+            "text": "Diagram classvars",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier",
+        "User:Matthias Popp"
+    ],
+    "editing_context": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ],
+    "name": "DiagramClassvars"
+}

@@ -12,7 +12,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
                 {
@@ -497,6 +497,24 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW61f1999ee6d145c9b76fb55d02578ce5.drawio.svg",
+                    "label": "DiagramClassvars",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW61f1999ee6d145c9b76fb55d02578ce5.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW61f1999ee6d145c9b76fb55d02578ce5.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW61f1999ee6d145c9b76fb55d02578ce5.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW61f1999ee6d145c9b76fb55d02578ce5.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW61f1999ee6d145c9b76fb55d02578ce5.drawio.svg.slot_jsondata.json"
                         }
                     }
                 },

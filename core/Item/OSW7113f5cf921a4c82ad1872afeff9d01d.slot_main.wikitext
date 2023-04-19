@@ -149,9 +149,17 @@ https://github.com/json-editor/json-editor
 <syntaxhighlight lang="json">
 {
     "type": "object",
+    "title": "My Form",
+    "title*": {"de": "Mein Formular"} ,
     "properties": {
-        "color": { "type": "string", "format": "color" },
-        "number": { "type": "number", "title": "My Number" }
+        "color": { 
+            "type": "string", 
+            "format": "color" 
+        },
+        "number": { 
+            "type": "number", 
+            "description": "not a string!"
+        }
     }
 }
 </syntaxhighlight>
@@ -159,7 +167,7 @@ https://github.com/json-editor/json-editor
 <div style="break-inside: avoid;"> Item:MyInstance <code>jsondata</code> 
 <syntaxhighlight lang="json">
 {
-    "color": "",
+    "color": "#ff0000",
     "number": "123"
 }
 </syntaxhighlight>
@@ -167,9 +175,17 @@ https://github.com/json-editor/json-editor
 <div style="break-inside: avoid;">
 <div class="JsonEditor json-editor-compact" data-config='{"schema": {
     "type": "object",
+            "title": "My Form",
+            "title*": {"de": "Mein Formular"} ,
     "properties": {
-        "color": { "type": "string", "format": "color" },
-        "number": { "type": "number", "title": "My Number" }
+        "color": { 
+            "type": "string", 
+            "format": "color" 
+        },
+        "number": { 
+            "type": "number", 
+            "description": "not a string!"
+        }
     }
 }, "data": {
     "color": "#ff0000",
@@ -178,19 +194,19 @@ https://github.com/json-editor/json-editor
 </div>
 </div>
 
-==Classes, Instances, Inheritance?==
+==Classes, Instances, Inheritance? ==
 Lets add a <code>jsonschema</code> slot for Category pages
 <div style="column-count: 3;">
 <div style="break-inside: avoid;">
 {| class="wikitable"
 |+
-!Slot!!Content Model
+! Slot!!Content Model
 |-
-|main||wikitext
+|main|| wikitext
 |-
-|'''jsondata'''||json
+|'''jsondata'''|| json
 |-
-|'''jsonschema'''||json
+|'''jsonschema'''|| json
 |}
 </div>
 <div style="break-inside: avoid;"> Category:MyCategory <code>jsonschema</code> 
@@ -209,7 +225,7 @@ Lets add a <code>jsonschema</code> slot for Category pages
 <syntaxhighlight lang="json">
 {
     "type": "object",
-    "allOf: "/wiki/Category:MyCategory?action=raw&slot=jsonschema"
+    "allOf": "/wiki/Category:MyCategory?action=raw&slot=jsonschema",
     "properties": {
         "additional_property": { "type": "string" }
     }
@@ -217,3 +233,103 @@ Lets add a <code>jsonschema</code> slot for Category pages
 </syntaxhighlight>
 </div>
 </div>
+
+==Context and Semantic MediaWiki==
+Lets add a json-ld context within the <code>jsonschema</code> slot for Category pages
+<div style="column-count: 2;">
+<div style="break-inside: avoid;">
+{| class="wikitable"
+|+
+!Slot!!Content Model
+|-
+|main||wikitext
+|-
+|jsondata||json
+|-
+|'''jsonschema'''||json
+|}
+</div>
+<div style="break-inside: avoid;"> Category:MySubCategory <code>jsonschema</code> 
+<syntaxhighlight lang="json">
+{
+    "@context": [
+        "/wiki/Category:MyCategory?action=raw&slot=jsonschema",
+       {
+            "schema": "https://schema.org/",
+            "Property": "<my.domain>/id/",
+            "image": "schema:image",
+            "image*": "Property:HasProperty"
+       }
+    ],
+    "allOf": "/wiki/Category:MyCategory?action=raw&slot=jsonschema",
+    "properties": {
+        "additional_property": { "type": "string" }
+    }
+}
+</syntaxhighlight>
+</div>
+</div>
+
+Item:MyInstance <code>jsondata</code> 
+
+=> <nowiki>[[HasProperty:{{{additional_property|}}}]]</nowiki>
+
+==Interconnection with the wikiparser==
+<div style="column-count: 2;">
+<div style="break-inside: avoid;">Additional slots rendered by the wiki parser
+</div>
+{| class="wikitable"
+!Slot
+!Content Model
+!Description
+|-
+|main
+|wikitext
+|default content slot, rendered between the page header and footer
+|-
+|jsondata
+|json
+|structured data
+|-
+|jsonschema
+|json
+|stored within a category (=class) page, defining the schema for the jsondata slot of any category member (instance)
+|-
+|'''header_template'''
+|wikitext
+|stored within a category (=class) page, renders the '''page header''' of any '''category member (instance)'''
+|-
+|'''footer_template'''
+|wikitext
+|stored within a '''category''' (=class) page, renders the '''page footer''' of any '''category member (instance)'''
+|-
+|'''header'''
+|wikitext
+|renders the '''page header'''<nowiki> via {{#invoke: Entity|header}}*</nowiki>
+|-
+|'''footer'''
+|wikitext
+|renders the '''page footer'''<nowiki> via {{#invoke: Entity|footer}}*</nowiki>
+|}<div style="break-inside: avoid;">Footer / Header template<syntaxhighlight lang="text">
+Entries of my_list:
+{{{my_list|}}}
+</syntaxhighlight>Property-specific templates within the schema
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "properties": {
+        "my_list": { 
+            "type": "array", 
+            "eval_template": {
+                "type": "mustache-wikitext",
+                "value": "{{#my_list}} * [[{{{.}}}]] <br> {{/my_list}}"
+            }
+        }
+    }
+}
+</syntaxhighlight>
+</div>
+</div>
+
+*<nowiki>*Wiki-side feature are implemented in Lua => To be rewritten in PHP</nowiki>
+*Why are parser calls needed at all? Currently there seems no options to provide a hook from the core that allows injecting slot-specific content

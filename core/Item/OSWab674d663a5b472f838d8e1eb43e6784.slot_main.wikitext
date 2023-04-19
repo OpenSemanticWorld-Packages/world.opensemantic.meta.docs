@@ -126,19 +126,6 @@ Why are Categories (Classes) different from Items (Instances)?
 [[:Category:Category]] ist the default Metacategory / -class for all categories / classes. Its slot schema_template contains a handlebars template that sets schema attributes like title, allOf, description, etc. from the user generated jsondata. Additional Metacategories can be created as subclasses of  [[:Category:Category]] to simplify the creation of complex schemas, e. g. [[:Category:OSWecff4345b4b049218f8d6628dc2f2f21]]. This feature is compareable to python metaclasses.
 {{Template:ELN/Editor/DrawIO|file_name=meta-schema|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=49d68bb7-a5de-413b-a107-7bc5f459a766|full_width=0|width=1200px}}Matecategories /-classes contain a handlebars template within the schema_template slot. The templated is evaluated with the jsondata-slot content to create / update the jsonschema-slot content of any derivated class on every edit.
 
-=== Aggregation/Composition vs Inheritance + ClassVars===
-If multiple instances share the same attribute values further encapsulation is advised. This can be done by defining defaults for those attributes in the category/class schema (which is supported but defaults are not updated in the instances) or define them as ClassVars (c. p. python ClassVars, currently not supported), but the recommended approach is to create an additional class for the shared attributes.
-
-Example cases:
-
-*Device instances have individual attribute values for location and shared attribute values like manufacturer, manual, etc.
-**=> DeviceInstance(Instance) has attributes location (=> Location) and device_type (=> Device)
-**=> Device(Tool) has attributes manufacturer, manual
-*Material instances ("batches") are comparable to device instances but share an "ideal material"
-**=> MaterialInstance(Instance) has attributes location (=> Location) and material_type (=> MaterialType). Example: NaCl Batch 001
-**=> MaterialType(Item) has attributes manufacturer and material (=> Material). Example: NaCl Merck
-**=> Material has attributes pubchem_id, cas_number, etc. Example: NaCl
-
 
 ===Json-Schema===
 {{Template:ELN/Editor/DrawIO|file_name=diagram-json|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=95a74be1-e22d-4b6e-9e4f-836127d5915a|full_width=0}}
