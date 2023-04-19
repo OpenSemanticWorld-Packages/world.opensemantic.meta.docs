@@ -12,7 +12,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.3.1",
+            "version": "0.4.0",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
                 {
@@ -427,6 +427,23 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW7113f5cf921a4c82ad1872afeff9d01d",
+                    "label": "TranscendWikitextToStoreAndEditStructuredLinkedData",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW7113f5cf921a4c82ad1872afeff9d01d.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW7113f5cf921a4c82ad1872afeff9d01d.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW7113f5cf921a4c82ad1872afeff9d01d.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW7113f5cf921a4c82ad1872afeff9d01d.slot_jsondata.json"
                         }
                     }
                 }

@@ -1,0 +1,219 @@
+==Conventional approach: Using a single slot (main) and multiple pages==
+<div style="column-count: 2;">
+<div style="break-inside: avoid;">You can have <code>content-model = wikitext</code> for pages, templates, forms, etc.
+<syntaxhighlight lang="text">
+Some unstructured text
+{{MyTemplate
+|param1=value1
+}}
+{{#aparserfunction:}}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">or <code>content-model = json</code> without any specific rendering
+<syntaxhighlight lang="json">
+{
+    "param1": "value1"
+}
+</syntaxhighlight>
+</div>
+</div>
+
+Problems:
+
+*you can have rendered page content or structured page content
+*content is distributed over multiple pages
+
+==Conventional approach: Using a single slot (main) and a single page==
+<div style="column-count: 3;">
+<div style="break-inside: avoid;">Store structured data within nested templates in wikitext
+<syntaxhighlight lang="text">
+Some unstructured text
+{{MyDataTemplate
+  |text=some text
+  |number=123
+  |array=1;two;3.0
+  |nested={{MySubDataTemplate
+    |param=value
+  }}
+  watch out, i am a nested string
+  {{MySubDataTemplate
+    |param=value2
+  }}
+}}
+{{#aparserfunction:}}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">json-equivalent
+<syntaxhighlight lang="json">
+{
+    "@type": "MyDataTemplate",
+    "text": "some text",
+    "number": 123,
+    "array": [1,"two",3.0],
+    "nested": [{
+        "@type": "MySubDataTemplate",
+        "param": "value"
+    },
+    "watch out, i am a nested string",
+    {
+        "@type": "MySubDataTemplate",
+        "param": "value"
+    }]
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">Problems
+*Extensions like SMW only cover reading mappend template params as json
+*Extensions like PageForms require a individual form to edit the data
+*=> In general you need a template-parser (e. g. wikitext to json) in your client software at least to edit/write data in general
+*=> Doing so requires guessing of data types and correct interpretation of arrays
+</div>
+</div>
+
+==Luckily we have Multi-Content-Revisions (MCR)==
+Lets add a <code>jsondata</code> slot
+<div style="column-count: 3;">
+<div style="break-inside: avoid;">
+{| class="wikitable"
+|+
+!Slot!!Content Model
+|-
+|main||wikitext
+|-
+|jsondata
+|json
+|}
+</div>
+<div style="break-inside: avoid;"> <code>main</code> 
+<syntaxhighlight lang="text">
+Some unstructured text
+
+{{#aparserfunction:}}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> <code>jsondata</code> 
+<syntaxhighlight lang="json">
+{
+    "@type": "MyDataTemplate",
+    "text": "some text",
+    "number": 123,
+    "array": [1,"two",3.0]
+}
+</syntaxhighlight>
+</div>
+</div>
+
+==Would be nice to validate the json data==
+Lets add a <code>jsonschema</code> slot for Category pages
+<div style="column-count: 3;">
+<div style="break-inside: avoid;">
+{| class="wikitable"
+|+
+!Slot!!Content Model
+|-
+|main||wikitext
+|-
+|'''jsondata'''||json
+|-
+|'''jsonschema'''||json
+|}
+</div>
+<div style="break-inside: avoid;"> Category:MyCategory <code>jsonschema</code> 
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "properties": {
+        "text": { "type": "string" },
+        "number": { "type": "number" },
+        "array": { "type": "array" }
+    }
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Item:MyInstance <code>jsondata</code> 
+<syntaxhighlight lang="json">
+{
+    "@type": "MyDataTemplate",
+    "text": "some text",
+    "number": 123,
+    "array": [1,"two",3.0]
+}
+</syntaxhighlight>
+</div>
+</div>
+
+==If we have a jsonschema, we get the editor & validator for free==
+https://github.com/json-editor/json-editor
+<div style="column-count: 3;">
+<div style="break-inside: avoid;"> Category:MyCategory <code>jsonschema</code> 
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "properties": {
+        "color": { "type": "string", "format": "color" },
+        "number": { "type": "number", "title": "My Number" }
+    }
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Item:MyInstance <code>jsondata</code> 
+<syntaxhighlight lang="json">
+{
+    "color": "",
+    "number": "123"
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;">
+<div class="JsonEditor json-editor-compact" data-config='{"schema": {
+    "type": "object",
+    "properties": {
+        "color": { "type": "string", "format": "color" },
+        "number": { "type": "number", "title": "My Number" }
+    }
+}, "data": {
+    "color": "#ff0000",
+    "number": "one"
+}, "mode":"default"}'></div>
+</div>
+</div>
+
+==Classes, Instances, Inheritance?==
+Lets add a <code>jsonschema</code> slot for Category pages
+<div style="column-count: 3;">
+<div style="break-inside: avoid;">
+{| class="wikitable"
+|+
+!Slot!!Content Model
+|-
+|main||wikitext
+|-
+|'''jsondata'''||json
+|-
+|'''jsonschema'''||json
+|}
+</div>
+<div style="break-inside: avoid;"> Category:MyCategory <code>jsonschema</code> 
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "properties": {
+        "text": { "type": "string" },
+        "number": { "type": "number" },
+        "array": { "type": "array" }
+    }
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Category:MySubCategory <code>jsonschema</code> 
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "allOf: "/wiki/Category:MyCategory?action=raw&slot=jsonschema"
+    "properties": {
+        "additional_property": { "type": "string" }
+    }
+}
+</syntaxhighlight>
+</div>
+</div>
