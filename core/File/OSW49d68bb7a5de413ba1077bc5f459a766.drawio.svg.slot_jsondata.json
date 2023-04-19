@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "49d68bb7-a5de-413b-a107-7bc5f459a766",
+    "label": [
+        {
+            "text": "Meta schema",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ],
+    "name": "MetaSchema"
+}

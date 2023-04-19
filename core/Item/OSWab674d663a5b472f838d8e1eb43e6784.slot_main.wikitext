@@ -1,0 +1,747 @@
+Schema for the dynamical Composition of nested class structures
+
+
+=== Introduction ===
+Transforming Semantic Mediawiki into a knowledge base with structured data used to require PageForms and multiple template per class:
+
+* Template to store the data and render the page
+* Form to edit the page
+* Form to query for instances of the class
+* Template to render the query results
+* Subtemplate to handle complex data
+
+Reusing structures with this approach is difficult and storing data in wikicode leads to a significant lock-in regarding editing those data using existing stardards and tools.
+
+The new concept is based on strictly storing data in json and use wikicode just for structured text and render templates. Insteaf of distributing content among multiple pages all relevent content is stored withing different slots of the same page. Additional, inheritance is highly supported and enables a broad reuse of any structure.
+
+===Overview===
+{{Template:ELN/Editor/DrawIO|file_name=diagram-01|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=2f275e34-41c8-4f63-a6cb-ee2861c488f2}}
+
+{{#mermaid:
+classDiagram
+
+    class Schema_Entity {
+        String uuid
+    }
+    Schema_Entity <-- Category_Entity: schema
+    Schema_Term <-- Category_Entity: type
+
+    class Schema_Item {
+        String type
+    }
+    Schema_Entity <|-- Schema_Item : allOf
+    Schema_Item <-- Category_Item: schema
+    Category_Entity <-- Category_Item: subclassOf
+
+    class Schema_Term {
+        String type
+    }
+    Schema_Item <|-- Schema_Term : allOf
+
+    class Schema_Physical {
+        String type
+    }
+    Schema_Item <|-- Schema_Physical
+
+    Category_Item <-- Category_Device : subclassOf
+    Category_Device <-- Category_MeasurementDevice : subclassOf
+
+    class Schema_DeviceCategory {
+        String purpose
+    }
+    Schema_Term <|-- Schema_DeviceCategory
+
+    class Schema_DeviceType {
+        String manufacturer
+    }
+    Schema_Term <|-- Schema_DeviceType
+    Schema_DeviceCategory o-- Schema_DeviceType : device_category
+
+    class Schema_DeviceInstance {
+        Schema_DeviceType device_type
+        String location
+    }
+    Schema_Physical <|-- Schema_DeviceInstance
+    Schema_DeviceType o-- Schema_DeviceInstance : device_type
+}}
+
+Why are Categories (Classes) different from Items (Instances)?
+
+*Pro
+**Reflects rdf(s) and owl standard
+**Reflects OOP in Python and other programming languages, only (?) Javascript supports a similar concepts with [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes prototypes]
+**Compatible with SMW features like rdf-export and [https://www.semantic-mediawiki.org/wiki/Help:Inferencing#Subcategories Inferencing]
+*Contra
+**User needs to decide before creating a term or move the term later to a different namespace (renaming/redirect)
+
+===Slots===
+{| class="wikitable"
+|+Slots
+!Key
+!Model
+!Description
+|-
+|main
+|wikitext
+|default content slot, rendered between the page header and footer
+|-
+|jsonschema
+|json
+|stored within a category (=class) page, defining the schema for the jsondata slot of any category member (instance)
+|-
+|jsondata
+| json
+|structured data
+|-
+|schema_template
+|text
+|stored within a metacategory/-class, contains a handlebars template to build the jsonschema of a class from its jsondata slot
+|-
+|data_template
+|wikitext
+|stored within a category (=class) page, defining how the jsondata attributes of any category member (instance) are mapped to semantic properties
+|-
+|header_template
+|wikitext
+|stored within a category (=class) page, renders the page header of any category member (instance)
+|-
+|footer_template
+|wikitext
+|stored within a category (=class) page, renders the page footer of any category member (instance)
+|-
+|header
+|wikitext
+|renders the page header
+|-
+|footer
+|wikitext
+|renders the page footer
+|-
+|template/internal
+|wikitext
+|hidden content, not rendered. Can be used to call parser functions or lua modules
+|}
+
+===Meta-Schemas===
+[[:Category:Category]] ist the default Metacategory / -class for all categories / classes. Its slot schema_template contains a handlebars template that sets schema attributes like title, allOf, description, etc. from the user generated jsondata. Additional Metacategories can be created as subclasses of  [[:Category:Category]] to simplify the creation of complex schemas, e. g. [[:Category:OSWecff4345b4b049218f8d6628dc2f2f21]]. This feature is compareable to python metaclasses.
+{{Template:ELN/Editor/DrawIO|file_name=meta-schema|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=49d68bb7-a5de-413b-a107-7bc5f459a766|full_width=0|width=1200px}}Matecategories /-classes contain a handlebars template within the schema_template slot. The templated is evaluated with the jsondata-slot content to create / update the jsonschema-slot content of any derivated class on every edit.
+
+=== Aggregation/Composition vs Inheritance + ClassVars===
+If multiple instances share the same attribute values further encapsulation is advised. This can be done by defining defaults for those attributes in the category/class schema (which is supported but defaults are not updated in the instances) or define them as ClassVars (c. p. python ClassVars, currently not supported), but the recommended approach is to create an additional class for the shared attributes.
+
+Example cases:
+
+*Device instances have individual attribute values for location and shared attribute values like manufacturer, manual, etc.
+**=> DeviceInstance(Instance) has attributes location (=> Location) and device_type (=> Device)
+**=> Device(Tool) has attributes manufacturer, manual
+*Material instances ("batches") are comparable to device instances but share an "ideal material"
+**=> MaterialInstance(Instance) has attributes location (=> Location) and material_type (=> MaterialType). Example: NaCl Batch 001
+**=> MaterialType(Item) has attributes manufacturer and material (=> Material). Example: NaCl Merck
+**=> Material has attributes pubchem_id, cas_number, etc. Example: NaCl
+
+
+===Json-Schema===
+{{Template:ELN/Editor/DrawIO|file_name=diagram-json|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=95a74be1-e22d-4b6e-9e4f-836127d5915a|full_width=0}}
+
+====Base====
+https://json-schema.org/ (Draft 4)
+
+A Jsonschema can reference other schemas. This is equivalent to <code><nowiki>[[Subcategory of::Entity]]</nowiki></code> (Semantic Mediawiki) and <code>owl:subclass_of</code><syntaxhighlight lang="json">
+{
+    "title": "MyEntitySubclass",
+    "type": "object",
+    "allOf": [{"$ref": "/wiki/Category:Entity?action=raw&slot=jsonschema"}]
+}
+</syntaxhighlight>
+
+====Json-Editor====
+https://github.com/json-editor/json-editor, which is used to render edit & query forms based on provided jsonschema, adds additional keywords and options.
+
+*Basic features: see https://github.com/json-editor/json-editor#readme
+*Further details: https://github.com/json-editor/json-editor/blob/master/README_ADDON.md
+*Demos: https://json-editor.github.io/json-editor/, https://pmk65.github.io/jedemov2/dist/demo.html
+* Examples: https://github.com/json-editor/json-editor/tree/master/tests/pages
+
+=====Autocompletion =====
+*https://github.com/trevoreyre/autocomplete
+*https://github.com/corejavascript/typeahead.js/blob/master/doc/jquery_typeahead.md (currently not supported)
+Enables autocompletion in input fields. Configuration see [[Zentrales Wiki/Schema#Additional options|Additional options]]
+
+====Custom Extensions====
+
+=====Embedded i18n support:=====
+keywords <code>title</code> and <code>description</code> can be extended with additional keywords  <code>title*</code> and <code>description*</code>, which hold and object with lang-keys (de, en, etc.) pointing to the translated strings.<syntaxhighlight lang="json">
+{
+    "title": "Default Title",
+    "title*": {"en": "Title (en)", "de": "Titel (de)"}
+}
+</syntaxhighlight>
+
+=====Additional  keywords=====
+
+
+{| class="wikitable"
+|+Special jsonschema attributes ($properties.<property>.*)
+!Key
+!Alias
+!Subkeys
+!Value
+!Description
+!Note
+|-
+|eval_template
+|
+|
+|
+|evaluation template for the current json object (while 'template' is used by jsoneditor in the UI)
+|eval_templates are expanded before the json data is passed to render templates and property mapping
+|-
+|
+|
+|type
+|mediawiki
+|uses the wiki template parser. Cannot handle objects and arrays => non-literals get stripped
+|
+|-
+|
+|
+|"
+|mustache
+|uses the lua mustache template parser https://github.com/OpenSemanticLab/lustache/tree/scribunto-module-pages. Can handle objects and arrays
+|https://mustache.github.io/, https://stackblitz.com/edit/mustache-tester?file=index.js
+|-
+|
+|
+| "
+|mustache-wikitext
+|applies mustache first, then wikitext
+|wikitext parts containing <code><nowiki>{{</nowiki></code> need to be wrapped inside <code><nowiki>{{=<%</nowiki> <nowiki>%>=}}</nowiki></code>  and<code><nowiki><%={{ }}=%></nowiki></code>
+|-
+|
+|
+|mode
+|<none>
+|the given template will be used to render the json object and store it's semantic data
+|
+|-
+|
+|
+|"
+|render
+|the given template will be used to render the json object
+|
+|-
+|
+|
+|"
+|store
+|the given template will be used to store semantic data
+|
+|-
+|
+|
+| value
+|<string>
+|
+|
+|-
+|
+|
+|page
+|<wiki page>
+|
+|
+|-
+|
+|
+|slot
+|
+|
+|
+|-
+|
+|
+|url
+|
+|
+|
+|}
+
+{| class="wikitable"
+|+Special jsondata attributes ($.*)
+!Key
+!Alias
+!Subkeys
+!Value
+!Description
+!Note
+|-
+|type
+|
+| -
+|an array of category pages
+|if defined, the given category will be used to render the json object and store it's semantic data
+|
+|}
+
+=====Additional options=====
+{| class="wikitable"
+|+
+Additional options ($properties.<property>.options.*)
+!Key
+!Subkeys
+!SubSubkeys
+! Value
+! Example
+! Description
+! Note
+|-
+|conditional_visible
+|
+|
+|
+|
+|
+|
+|-
+|
+|modes
+|
+|<array>
+|["default", "query"]
+|Display this field only in the selected modes of the editor
+|
+|-
+|conditional_hide
+|
+|
+|
+|
+|tbd
+|
+|-
+|autocomplete
+|
+|
+|
+|
+|buildin option
+|
+|-
+|
+|mode
+|
+|smw
+|
+|query mode
+|for now only supports semantic mediawiki
+|-
+|
+|query
+|
+|
+|<code><nowiki>[[HasLabel::~*{{input}}*]]|?HasLabel=label</nowiki></code>
+|handlebars query template
+|
+|-
+|
+|range
+|
+|
+|Category:Item
+|creates a static query <code><nowiki>[[Category:Item]][[HasLabel::~*{{input}}*]]|?HasLabel=label</nowiki></code>
+|
+|-
+|
+|property
+|
+|
+|Property:HasLabel
+|existing value of the property <code><nowiki>[[HasLabel::+]]</nowiki><nowiki>[[HasLabel::~*{{input}}*]]</nowiki>?HasLabel=value</code>
+|
+|-
+|
+|render_template
+|
+|
+|
+| how to display query results in the suggestion list
+|
+|-
+|
+|
+|type
+|<array>
+| ["handlebars", "wikitext"]
+|template engines are applied in the specified order. wikitext will result in parse-API calls, which is not recommanded for large result sets
+|
+|-
+|
+|
+|value
+|template string
+|<code><nowiki>[[{{result.fulltext}}]]</nowiki></code>
+|the actual template string. Pure handlebars templates can contain html tags like links (<code><a></code>) and images (<code><img></code>), wikitext templates need to use the wiki-syntax <code>[[ ]]</code>
+|wiki-links to categories need a <code>:</code> prefix: <code><nowiki>[[:{{result.fulltext}}]]</nowiki></code>
+|-
+|
+|label_template
+|
+|
+|
+|how to display the item after getting selected by the user
+|
+|-
+|
+|
+| type
+| <array>
+|["handlebars"]
+| only handlebars supported
+|
+|-
+|
+|
+|value
+| template string
+|<code>result.printouts.label.[0]</code>
+|
+|
+|-
+|role
+| query
+|
+|<nowiki>{"filter": "min|max|eq"}</nowiki>
+| {"filter": "min"}
+|Creates a semantic mediawiki query for a numerical property, e. g. if the property maps to "HasNumber", the filter is "min" and the user provided value is 3 this results in the query "[[HasNumber::>3]]"
+|
+|}
+
+=====Autocomplete =====
+Default setting (planned, see also [[Zentrales Wiki/Schema#Object Properties and Data / Annotation Properties|Object Properties and Data / Annotation Properties]])
+* for data / annotation properties: existing values of the property: <code><nowiki>{{#ask:[[<Property>::+]]|?<Property>=value}}</nowiki></code>
+* for object properties: existing instances of the range category: <code><nowiki>{{#ask:[[Category:<range>]]}}</nowiki></code>
+
+======Shortcuts======
+
+*<code>category</code>: Populates the field with instances of the given category (and its subcategories)
+<syntaxhighlight lang="json">
+{
+    "type": "string",
+    "format": "autocomplete",
+    "options":{	
+        "autocomplete": {
+            "category":"Category:X"
+        }
+    }
+}
+</syntaxhighlight>
+
+=====Remote / external data import=====
+<syntaxhighlight lang="json">
+{
+    "...": {},
+    "data_source_maps": [
+        {
+            "id": "pubchem.ncbi.nlm.nih.gov",
+            "source": "https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/{{pubchem_cid}}/JSON",
+            "label": "PubChem",
+            "required": [
+                "pubchem_cid"
+            ],
+            "object_map": {
+                "cas_numbers": "$..[?(@.TOCHeading==='CAS')].Information..Value.StringWithMarkup..String"
+            }
+        }
+    ],
+    "properties": {
+        "pubchem_cid": {
+            "title": "PubChem CID",
+            "type": "string"
+        },
+        "cas_numbers": {
+            "type": "array",
+            "...": {}
+        },
+        "...": {}
+    }
+}
+</syntaxhighlight>Tests could be run on various playgrounds:
+
+*Handlebars template: [https://handlebarsjs.com/playground.html]
+
+*jsonpath: [https://jsonpath-plus.github.io/JSONPath/demo/]
+*xpath: [http://xpather.com/]
+
+=====Search=====
+Properties can be marked as inputs for the categories query form by adding the conditional_visible option. Therefor a context mapping to a SWM Property is mandatory (see [[#JSON-LD]]). With <code>"hidden": true</code> the property is only visible in the query form. With <code>"hidden": false</code> it's visible both in the edit and in the query form.<syntaxhighlight lang="json-ld">
+{
+    "@context":
+        "...",
+        {
+            "query_label": "Property:HasLabel"
+        }
+    ],
+    "...": {},
+    "properties": {
+        "query_label": {
+            "type": "string",
+            "options": {
+                "hidden": true,
+                "conditional_visible": {
+                    "modes": [
+                        "query"
+                    ]
+                }
+            }
+        }
+    }
+}
+</syntaxhighlight>The default comperator for text properties is <code>~</code> (like), for all other properties <code>=</code> (equal). The comperator can be defined with the role filter option, e. g. <code>"min"</code> for <code>></code>.<syntaxhighlight lang="json-ld">
+{
+    "@context": [
+        {
+            "start_date_min": "Property:HasStartDateAndTime"
+        }
+    ],
+    "...": "...",
+    "properties": {
+        "start_date_min": {
+            "type": "string",
+            "format": "datetime-local",
+            "options": {
+                "flatpickr": {},
+                "conditional_visible": {
+                    "modes": "query"
+                },
+                "role": {
+                    "query": {
+                        "filter": "min"
+                    }
+                }
+            }
+        }
+    }
+}
+</syntaxhighlight>
+
+
+===JSON-LD===
+json-ld jsonschema: https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json
+
+Local playground: https://wiki-dev.open-semantic-lab.org/w/extensions/MwJson/json-ld/playground/index.html
+
+====References====
+
+
+
+json-ld should be embedded into jsonschema, but has its own referencing mechanism:<syntaxhighlight lang="json">
+{
+    "@context": [
+        "/wiki/Category:Entity?action=raw&slot=jsonschema",
+        {
+            "Property": {"@id": "https://wiki-dev.open-semantic-lab.org/id/Property-3A", "@prefix": true},
+            "manufacturer": "Property:HasManufacturer"
+        }
+    ],
+    "title": "MyEntitySubclass",
+    "type": "object",
+    "allOf": [{"$ref": "/wiki/Category:Entity?action=raw&slot=jsonschema"}],
+    "properties": {
+        "manufacturer": {
+            "type": "string"
+        }
+    }
+}
+</syntaxhighlight>Example: [https://json-ld.org/playground/#startTab=tab-expanded&json-ld=%7B%22%40context%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2Fjson-ld%2Fjson-ld.org%2Fmain%2Fexamples%2Fsyntax%2Fexample-031-Combining-external-and-local-contexts.json%22%2C%7B%22pic2%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fxmlns.com%2Fcustom%2F0.1%2Fdepiction%22%2C%22%40type%22%3A%22%40id%22%7D%2C%22lit%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fxmlns.com%2Fcustom%2F0.1%2Fdepiction%22%7D%7D%5D%2C%22name%22%3A%22Manu%20Sporny%22%2C%22homepage%22%3A%22http%3A%2F%2Fmanu.sporny.org%2F%22%2C%22pic%22%3A%22http%3A%2F%2Ftwitter.com%2Faccount%2Fprofile_image%2Fmanusporny%22%2C%22pic2%22%3A%22http%3A%2F%2Ftwitter.com%2Faccount%2Fprofile_image%2Fmanusporny%22%7D&context=%7B%7D]
+
+====Property mapping====
+Properties with a local definition (SMW Property) are automatically mapped. Jsondata of an instance of the category could then be provided with an json-ld context:<syntaxhighlight lang="json">
+{
+    "@context": [
+        {
+          	"@version": 1.1,
+            "wiki": "https://wiki-dev.open-semantic-lab.org/id/",
+          	"Property": {"@id": "wiki:Property-3A", "@prefix": true},
+          	"@vocab": "https://wiki-dev.open-semantic-lab.org/id/Property-3A",
+            "myproperty": "Property:MyProperty",
+            "myproperty2": "wiki:Property-3AMyProperty",
+          	"myproperty3": "MyProperty",
+          	"Item": {"@id": "wiki:Item-3A", "@prefix": true},
+          	"myObjectProperty": {"@id": "Property:MyObjectProperty", "@type": "@id"}
+        }
+    ],
+  	"myproperty": "Works by using '@prefix': true (preferred)",
+  	"myproperty2": "Works by using 'wiki' prefix with terminating '/'",
+  	"myproperty3": "Works by using '@vocab'",
+  	"myObjectProperty": "Item:123456"
+}
+</syntaxhighlight>Currently there seems no way to express that a property has two ids (e. g. with <code>"label": {"@id": ["property:HasLabel", "skos:prefLabel"]}</code>):  https://github.com/json-ld/json-ld.org/issues/160
+
+As a workaround, an additional context notation is provided: <property>* pointing to a list of additional "@id" mappings:<syntaxhighlight lang="json">
+{
+    "@context": [
+        {
+            "@version": 1.1,
+            "skos": "https://www.w3.org/TR/skos-reference/",
+            "wiki": "https://wiki-dev.open-semantic-lab.org/id/",
+          	"Property": {"@id": "wiki:Property-3A", "@prefix": true},
+            "label": "skos:prefLabel",
+            "label*": "Property:HasLabel",
+            "label**": "Property:Display_title_of"
+        }
+    ],
+  	"label": "Maps externally to skos:prefLabel and internally to Property:HasLabel"
+}
+</syntaxhighlight>
+
+===== Object Properties and Data / Annotation Properties=====
+Properties default to data / annotation properties (value is a literal). Object properties (value is an identifier/reference to another object) can by defined by adding <code>"@type": "@id"</code>.
+
+=====Subobjects=====
+If the value of a mapped property is an object (after expanding all eval_templates), it will get stored as a [https://www.semantic-mediawiki.org/wiki/Subobject smw subobject] with an id derivated from the field <code>uuid</code>, a display title from <code>label</code> and a category from <code>type</code> (if provided).
+
+Example: can be selected with <nowiki>[[MyObjectProperty.MyProperty::myvalue]]</nowiki><syntaxhighlight lang="json">
+{
+    "@context": [
+        {
+          	"@version": 1.1,
+            "wiki": "https://wiki-dev.open-semantic-lab.org/id/",
+          	"Property": {"@id": "wiki:Property-3A", "@prefix": true},
+            "myproperty": "Property:MyProperty",
+          	"Item": {"@id": "wiki:Item-3A", "@prefix": true},
+          	"myObjectProperty": {"@id": "Property:MyObjectProperty", "@type": "@id"}
+        }
+    ],
+  	"myObjectProperty": {
+  	    "uuid": "2ea5b605-c91f-4e5a-9559-3dff79fdd4a5",
+  	    "label": "MySubobject",
+  	    "myproperty": "myvalue"
+  	}
+}
+</syntaxhighlight>
+
+====Labels and i18n====
+i18n language keys can be embedded in to an label object to create a language tagged string<syntaxhighlight lang="json">
+{
+    "@context": [
+        {
+          	"@version": 1.1,
+            "skos": "https://www.w3.org/TR/skos-reference/",
+          	"label": {"@id": "skos:prefLabel", "@container": "@language"},
+          	"label2": {"@id": "skos:prefLabel"},
+          	"label_text": {"@id": "@value"},
+          	"label_lang_key": {"@id": "@language"}
+        }
+    ],
+  	"label": {"en": "'Text' gets transformed to 'Text@en' by applying @container"},
+  	"label2": {"label_text": "'Text' gets transformed to 'Text@de' by subkeys @id's", "label_lang_key": "de"}
+}
+</syntaxhighlight>
+===Recursive Parsing===
+
+====Module:Category====
+<s>Called from Category:<UUID>@template</s>
+
+#<s>Synchonize Category:<UUID>@jsondata.subclass_of with Category:<UUID>@jsonschema.allOf</s>
+#<s>Expand Category:Category@header_template with jsondata parameters</s>
+#<s>Render Category:<UUID>@main</s>
+#<s>Expand Category:Category@footer_template with jsondata parameters</s>
+
+====Module:Entity====
+Called from item@template, item = Item:<UUID>
+
+===== Recursion=====
+#For each Item:<UUID>@jsondata.osl_category as category:
+## For each category@jsondata.osl_category or category@jsonschema.allOf as supercategory:
+###For each supercategory@jsondata.osl_category or supercategory@jsonschema.allOf as supersupercategory:
+####...
+###Expand supercategory@header_template with item@jsondata parameters. Fallback: Render infobox
+###Expand supercategory@data_template with item.jsondata parameters. Fallback: Use Json-LD mapping within category:jsonschema
+##If category@header_template: Expand category@header_template with item@jsondata parameters
+##Else: Render infobox with all attribute-value pairs
+##Expand category@data_template with item.jsondata parameters. Fallback: Use Json-LD mapping within category:jsonschema
+#Render item@main
+#footer...
+
+=====Data Storing=====
+
+#template specified: use template
+#category specified:
+## category@data_template specified: use data_template
+## Use Json-LD mapping
+###mapping specified: Store semantic property
+#### Literal value: store value
+####Object value
+#####Property has type text/code: Store json string
+#####osl_category / osl_template specifided: see below
+###Don't store semantic property
+
+Nested objects within item@jsondata are handled
+* osl_category: same handling as the root object, but:
+**Rendering with category@header_template. Fallback: Nested info box
+**Data storing with category@data_template. Fallback: Creating a subobject with Json-LD mapping + (inverse) semantic relation to the root object
+*osl_template: expand the template, return value is asigned to the property
+
+===Python Code Generation===
+see https://github.com/OpenSemanticLab/osw-python
+
+===Statement===
+{| class="wikitable"
+|+
+PCB contains 10% +/- 1% Lead and Gold
+!s
+!p/s
+!o/p/s
+!o/p
+!o...
+|-
+|PCB
+|contains
+|Lead
+|
+|
+|-
+|
+|contains
+|HasMassConcentration
+|10%
+|
+|-
+|
+|
+|HasMassConcentration
+|HasPrecision
+|1%
+|-
+|PCB
+|contains
+|Gold
+|
+|
+|}
+===File Handling===
+
+====Copy-Policy====
+drop: do not copy the file
+
+copy: copy the file and store the reference to it
+
+copy-ref: store the referece to the original file
+
+ask-on-edit: store the reference but ask the user to copy the original file when he tries to edit it (current_page != creation_page)
+
+====Meta-Data====
+HasProject=project inherit: permissions from project 
+
+HasCreationPage=creation_page: wiki page within this file was created 
+
+HasEditPage=edit_page: wiki page within this file was edited 
+
+HasCreator=creator: initial creator of the file 
+
+HasEditor=editor: editors of the file
+===Links===
+
+*https://tdan.com/knowledge-graphs-vs-property-graphs-part-ii/27271
+*https://www.uni-ulm.de/fileadmin/website_uni_ulm/iui.inst.090/Lehre/WS_2011-2012/SemWebGrundlagen/v03_handout.pdf

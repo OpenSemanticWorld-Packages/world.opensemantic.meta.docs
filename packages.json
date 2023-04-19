@@ -12,7 +12,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
                 {
@@ -444,6 +444,77 @@
                         },
                         "jsondata": {
                             "urlPath": "Item/OSW7113f5cf921a4c82ad1872afeff9d01d.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWab674d663a5b472f838d8e1eb43e6784",
+                    "label": "OswSchema",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWab674d663a5b472f838d8e1eb43e6784.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWab674d663a5b472f838d8e1eb43e6784.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWab674d663a5b472f838d8e1eb43e6784.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWab674d663a5b472f838d8e1eb43e6784.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg",
+                    "label": "SchemaDiagram",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg",
+                    "label": "MetaSchema",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg",
+                    "label": "SchemaDiagramJson",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_jsondata.json"
                         }
                     }
                 }

@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "2f275e34-41c8-4f63-a6cb-ee2861c488f2",
+    "label": [
+        {
+            "text": "Schema diagram",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ],
+    "name": "SchemaDiagram"
+}

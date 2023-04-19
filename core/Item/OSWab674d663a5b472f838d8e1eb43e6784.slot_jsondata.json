@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW92cc6b1a2e6b4bb7bad470dfdcfdaf26"
+    ],
+    "uuid": "ab674d66-3a5b-472f-838d-8e1eb43e6784",
+    "label": [
+        {
+            "text": "OSW Schema",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Documentation about to OSW data schema",
+            "lang": "en"
+        }
+    ],
+    "name": "OswSchema",
+    "attachments": [
+        "File:OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg",
+        "File:OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg",
+        "File:OSW61f1999ee6d145c9b76fb55d02578ce5.drawio.svg",
+        "File:OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg"
+    ]
+}
