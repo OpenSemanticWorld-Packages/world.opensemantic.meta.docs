@@ -1,0 +1,23 @@
+{
+    "required_predecessor": [
+        "Item:OSW7113f5cf921a4c82ad1872afeff9d01d",
+        "Item:OSWf4a9514baed04859a4c6c374a7312f10"
+    ],
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "659a8166-2ff4-4af1-b2b6-febeee7c3a25",
+    "name": "OswPythonPackage",
+    "label": [
+        {
+            "text": "OSW Python Package",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Demonstrates Python code generation from Wiki Categories",
+            "lang": "en"
+        }
+    ]
+}

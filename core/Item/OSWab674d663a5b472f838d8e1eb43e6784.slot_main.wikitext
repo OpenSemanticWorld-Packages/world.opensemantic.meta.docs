@@ -15,7 +15,7 @@ Reusing structures with this approach is difficult and storing data in wikicode 
 The new concept is based on strictly storing data in json and use wikicode just for structured text and render templates. Insteaf of distributing content among multiple pages all relevent content is stored withing different slots of the same page. Additional, inheritance is highly supported and enables a broad reuse of any structure.
 
 ===Overview===
-{{Template:ELN/Editor/DrawIO|file_name=diagram-01|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=2f275e34-41c8-4f63-a6cb-ee2861c488f2}}
+{{Template:Editor/DrawIO|file_name=diagram-01|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=2f275e34-41c8-4f63-a6cb-ee2861c488f2}}
 
 {{#mermaid:
 classDiagram
@@ -124,11 +124,11 @@ Why are Categories (Classes) different from Items (Instances)?
 
 ===Meta-Schemas===
 [[:Category:Category]] ist the default Metacategory / -class for all categories / classes. Its slot schema_template contains a handlebars template that sets schema attributes like title, allOf, description, etc. from the user generated jsondata. Additional Metacategories can be created as subclasses of  [[:Category:Category]] to simplify the creation of complex schemas, e. g. [[:Category:OSWecff4345b4b049218f8d6628dc2f2f21]]. This feature is compareable to python metaclasses.
-{{Template:ELN/Editor/DrawIO|file_name=meta-schema|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=49d68bb7-a5de-413b-a107-7bc5f459a766|full_width=0|width=1200px}}Matecategories /-classes contain a handlebars template within the schema_template slot. The templated is evaluated with the jsondata-slot content to create / update the jsonschema-slot content of any derivated class on every edit.
+{{Template:Editor/DrawIO|file_name=meta-schema|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=49d68bb7-a5de-413b-a107-7bc5f459a766|full_width=0|width=1200px}}Matecategories /-classes contain a handlebars template within the schema_template slot. The templated is evaluated with the jsondata-slot content to create / update the jsonschema-slot content of any derivated class on every edit.
 
 
 ===Json-Schema===
-{{Template:ELN/Editor/DrawIO|file_name=diagram-json|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=95a74be1-e22d-4b6e-9e4f-836127d5915a|full_width=0}}
+{{Template:Editor/DrawIO|file_name=diagram-json|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=95a74be1-e22d-4b6e-9e4f-836127d5915a|full_width=0}}
 
 ====Base====
 https://json-schema.org/ (Draft 4)

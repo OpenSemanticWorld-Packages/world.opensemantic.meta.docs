@@ -333,3 +333,9 @@ Entries of my_list:
 
 *<nowiki>*Wiki-side feature are implemented in Lua => To be rewritten in PHP</nowiki>
 *Why are parser calls needed at all? Currently there seems no options to provide a hook from the core that allows injecting slot-specific content
+
+== Further links ==
+
+* https://github.com/OpenSemanticLab (The software stack behind)
+* Google structured data validator: https://search.google.com/test/rich-results/result?id=hbvnEP-_VO0pG-KPPLLkDQ
+* Schema PagePackages: https://github.com/orgs/OpenSemanticWorld-Packages/repositories

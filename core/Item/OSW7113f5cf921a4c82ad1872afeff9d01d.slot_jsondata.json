@@ -1,4 +1,7 @@
 {
+    "recommended_successor": [
+        "Item:OSWf1df064239044b8fa3c968339fb93344"
+    ],
     "type": [
         "Category:OSW494f660e6a714a1a9681c517bbb975da"
     ],
@@ -10,7 +13,11 @@
             "lang": "en"
         }
     ],
-    "recommended_successor": [
-        "Item:OSWf1df064239044b8fa3c968339fb93344"
+    "statements": [
+        {
+            "uuid": "65cb09b2-cbab-4bf0-8e0b-0aa21ec68c2f",
+            "predicate": "Property:IsRelatedTo",
+            "object": "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+        }
     ]
 }

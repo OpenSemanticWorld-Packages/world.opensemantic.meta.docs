@@ -1,0 +1,116 @@
+==Overview==
+{{Template:Editor/DrawIO|file_name=diagram-json|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=95a74be1-e22d-4b6e-9e4f-836127d5915a|full_width=0}}
+
+==JSON-Schema and Data Classes==
+Codegeneration from <code>jsonschema</code> slots for Category pages with [https://github.com/OpenSemanticLab/osw-python osw-python] and [https://github.com/koxudaxi/datamodel-code-generator datamodel-code-generator]
+<div style="column-count: 3;">
+<div style="break-inside: avoid;"> Category:MyCategory <code>jsonschema</code> 
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "properties": {
+        "text": { "type": "string" },
+        "number": { "type": "number" },
+        "array": { "type": "array" }
+    }
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Category:MySubCategory <code>jsonschema</code> 
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "allOf": "/wiki/Category:MyCategory?action=raw&slot=jsonschema",
+    "properties": {
+        "additional_property": { "type": "string" }
+    }
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Generated Python Code
+<syntaxhighlight lang="python3">
+class MyClass():
+    text: str
+    number: float
+    array: List[Any]
+    
+class MySubClass(MyClass):
+    additional_property: str
+</syntaxhighlight>
+</div>
+</div>
+
+==Data Class Instance Serialization==
+JSON generation from python class instances with [https://docs.pydantic.dev/ pydantic] BaseModel
+<div style="column-count: 3;">
+<div style="break-inside: avoid;"> Python Dataclass 
+<syntaxhighlight lang="python3">
+class MyClass(BaseModel):
+    text: str
+    number: float
+    array: List[Any]
+    
+class MySubClass(MyClass):
+    additional_property: str
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Python Class Instance 
+<syntaxhighlight lang="python3">
+my_instance = MySubClass(
+    text="some text",
+    number=1.1,
+    array=[1, "two", 3.0]
+    additional_property = "test2"
+)
+my_instance.json()
+my_instance = osw.store_entity(my_instance) # wiki upload
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Uploaded json by calling <code>my_instance.json()</code>
+<syntaxhighlight lang="json">
+{
+    "text": "some text",
+    "number": 1.0,
+    "array": [1,"two",3.0],
+    "additional_property": "test2"
+}
+</syntaxhighlight>
+</div>
+</div>
+
+==Controller Extension of Data Classes==
+Add functionalities to entities represented by wiki pages
+<div style="column-count: 3;">
+<div style="break-inside: avoid;"> Python Dataclass 
+<syntaxhighlight lang="python3">
+class MyClass():
+    text: str
+    number: float
+    array: List[Any]
+    
+class MySubClass(MyClass):
+    additional_property: str
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Python Controller Class
+<syntaxhighlight lang="python3">
+class MyClassController(MyClass):
+    def print_text(text):
+        print(self.text)
+
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Controller instantiation and execution
+<syntaxhighlight lang="python3">
+my_instance = MySubClass(
+    text="some text",
+    # ...
+)
+# or
+my_instance = osw.load_entity("Item:...")
+
+my_instance = my_instance.cast(MyInstanceController)
+my_instance.print_text() # "some text"
+</syntaxhighlight>
+</div>
+</div>
