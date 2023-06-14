@@ -421,3 +421,6 @@
 |}
 </div>
 </div>
+
+== Data Tables Schema ==
+http://dataprotocols.org/json-table-schema/

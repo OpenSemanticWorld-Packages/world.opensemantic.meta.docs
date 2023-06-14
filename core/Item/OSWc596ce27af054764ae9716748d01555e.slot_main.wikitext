@@ -1,0 +1,19 @@
+== Prerequisites ==
+
+* An up-to-date OpenSemanticLab instance, see [https://github.com/OpenSemanticLab/osl-mw-docker-compose osl-mw-docker-compose]
+** make sure to install the [https://github.com/OpenSemanticWorld-Packages/world.opensemantic.ontology world.opensemantic.ontology] package
+* Latest version of [https://pypi.org/project/osw/ osw-python]
+* The ontology, prefered as a single .ttl file (e. g. created with Protegé)
+
+== Run the import ==
+
+* Adapt and run the [https://github.com/OpenSemanticLab/osw-python/blob/63e26084eca10f66cd479389e912db45d11c16dc/examples/ontology_import.py#L49 import script]
+
+== Customize ==
+
+* You can customize the data schema / template e. g. [[:Category:OSW57beed5e1294434ba77bb6516e461456]] (preferable as a subcategory that doesn't gets overwritten by a package update) by editing the slots with "Edit slots" in the top-right toolbar.
+** Add properties in the <code>jsonschema</code> slot ( => fields in the edit form )
+** Change the <code>header_template</code> or <code>footer_template</code> (must contain a valid [[mediawikiwiki:Help:Templates|mediawiki template]]). 
+*** Attributes of the <code>jsondata</code> slot can be included with <code><nowiki>{{{<name>|}}}</nowiki></code> e. g. <code><nowiki>{{{description|}}}</nowiki></code>
+*** Parser function can create dynamic content, e. g. with [https://www.semantic-mediawiki.org/wiki/Help:Inline_queries Semantic Mediawiki Ask Queries] 
+*Technical Details are explained here [[Item:OSWab674d663a5b472f838d8e1eb43e6784]]

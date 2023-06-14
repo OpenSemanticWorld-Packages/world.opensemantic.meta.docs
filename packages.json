@@ -12,7 +12,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.4.3",
+            "version": "0.5.0",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
                 {
@@ -550,6 +550,23 @@
                         },
                         "jsondata": {
                             "urlPath": "Item/OSW659a81662ff44af1b2b6febeee7c3a25.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWc596ce27af054764ae9716748d01555e",
+                    "label": "OswOntologyImport",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWc596ce27af054764ae9716748d01555e.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWc596ce27af054764ae9716748d01555e.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWc596ce27af054764ae9716748d01555e.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWc596ce27af054764ae9716748d01555e.slot_jsondata.json"
                         }
                     }
                 }

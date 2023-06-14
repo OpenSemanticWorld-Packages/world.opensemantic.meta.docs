@@ -173,7 +173,7 @@ https://github.com/json-editor/json-editor
 </syntaxhighlight>
 </div>
 <div style="break-inside: avoid;">
-<div class="JsonEditor json-editor-compact" data-config='{"schema": {
+<div class="JsonEditor json-editor-compact" style="font-size:medium" data-config='{"schema": {
     "type": "object",
             "title": "My Form",
             "title*": {"de": "Mein Formular"} ,

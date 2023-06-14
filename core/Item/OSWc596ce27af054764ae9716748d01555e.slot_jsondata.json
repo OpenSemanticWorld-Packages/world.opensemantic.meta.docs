@@ -1,0 +1,20 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "c596ce27-af05-4764-ae97-16748d01555e",
+    "name": "OswOntologyImport",
+    "label": [
+        {
+            "text": "OSW Ontology Import",
+            "lang": "en"
+        }
+    ],
+    "statements": [
+        {
+            "uuid": "134e9626-63c9-4cf1-b4a6-bedc8411a71a",
+            "predicate": "Property:IsRelatedTo",
+            "object": "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+        }
+    ]
+}
