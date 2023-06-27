@@ -1,0 +1,51 @@
+== Motivation ==
+{{Template:Editor/DrawIO
+| file_name = OSW Introduction - motivation
+| page_name = Item:OSWdb485a954a88465287b341d2897a84d6
+| uuid = 56878748-dd38-4b7d-8b52-6e7421d9c906
+| width = 50%
+}}
+
+== OSW ==
+{{Template:Editor/DrawIO
+| file_name = OSW Introduction data model
+| page_name = Item:OSWdb485a954a88465287b341d2897a84d6
+| uuid = 96280227-805c-4e4a-8fcf-615359b01672
+| width = 50%
+}}
+
+== Technology Stack ==
+{{Template:Editor/DrawIO
+| file_name = OSW Introduction technology stack
+| page_name = Item:OSWdb485a954a88465287b341d2897a84d6
+| uuid = 95a74be1-e22d-4b6e-9e4f-836127d5915a
+| width = 50%
+}}
+
+== Why (Semantic) MediaWiki? ==
+
+* already powers large public knowledge bases (Wikipedia, Wikidata)
+* Provides fundmental features
+** User management, [[mediawikiwiki:Extension:PluggableAuth|OAuth / OIDC]]
+** [[mediawikiwiki:Localisation|Multi-Language]] / i18n support
+** [[mediawikiwiki:API:Main_page|API]] and [[wikipedia:Help:Creating_a_bot#Programming_languages_and_libraries|botframeworks]] to automate everything
+** [[mediawikiwiki:Multi-Content_Revisions|Multi-Content-Slots]] and [[mediawikiwiki:Help:Tracking_changes|Revisions / Versioning]]
+** Core database (SQL), multiple [https://www.semantic-mediawiki.org/wiki/Help:Using_SPARQL_and_RDF_stores Triplestores] (SPARQL), [[mediawikiwiki:Extension:CirrusSearch|ElasticSearch]]
+** One of the most powerful (yet complex) [[mediawikiwiki:Help:Templates|template language]]
+*** with [[mediawikiwiki:Help:VisualEditor/User_guide|visual editing]]
+*** other options like mustache and markdown
+** > 1000 [[mediawikiwiki:Category:All_extensions|extensions]]: UI, data handling, custom content, etc.
+* ... but it's just a container, the core JSON-based concept is highly portable 
+
+== Ontologies ==
+
+* Ontology classes are just specific schemas
+* Automatic import
+* Combination with data schemas
+* Reexport => Pull request
+
+== Usecases ==
+
+* Ontologies Documentation, Visualization, Demonstration
+* Tool and Workflow Registry
+* Dataspace Catelogue

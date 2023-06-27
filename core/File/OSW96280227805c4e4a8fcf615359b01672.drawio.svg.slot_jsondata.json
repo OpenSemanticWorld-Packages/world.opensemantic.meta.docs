@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "96280227-805c-4e4a-8fcf-615359b01672",
+    "label": [
+        {
+            "text": "OSW Introduction data model",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSWdb485a954a88465287b341d2897a84d6"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSWdb485a954a88465287b341d2897a84d6"
+    ],
+    "name": "OswIntroductionDataModel"
+}

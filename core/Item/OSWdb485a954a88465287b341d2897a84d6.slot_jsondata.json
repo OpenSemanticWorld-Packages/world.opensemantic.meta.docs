@@ -1,0 +1,19 @@
+{
+    "recommended_successor": [
+        "Item:OSW7113f5cf921a4c82ad1872afeff9d01d",
+        "Item:OSW659a81662ff44af1b2b6febeee7c3a25",
+        "Item:OSWc596ce27af054764ae9716748d01555e",
+        "Item:OSW92619b0700984fe7913e5fbbd7f194dc"
+    ],
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "db485a95-4a88-4652-87b3-41d2897a84d6",
+    "name": "OswIntroduction",
+    "label": [
+        {
+            "text": "OSW Introduction",
+            "lang": "en"
+        }
+    ]
+}

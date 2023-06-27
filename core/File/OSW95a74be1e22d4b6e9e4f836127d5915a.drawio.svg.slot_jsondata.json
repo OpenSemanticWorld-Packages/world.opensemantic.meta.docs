@@ -5,6 +5,10 @@
     "uuid": "95a74be1-e22d-4b6e-9e4f-836127d5915a",
     "label": [
         {
+            "text": "OSW Introduction technology stack",
+            "lang": "en"
+        },
+        {
             "text": "diagram-json",
             "lang": "en"
         },
@@ -17,6 +21,7 @@
         "User:Simon Stier"
     ],
     "editing_context": [
+        "Item:OSWdb485a954a88465287b341d2897a84d6",
         "Item:OSW659a81662ff44af1b2b6febeee7c3a25",
         "Item:OSWab674d663a5b472f838d8e1eb43e6784"
     ],

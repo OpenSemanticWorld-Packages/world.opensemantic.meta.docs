@@ -15,54 +15,79 @@ Reusing structures with this approach is difficult and storing data in wikicode 
 The new concept is based on strictly storing data in json and use wikicode just for structured text and render templates. Insteaf of distributing content among multiple pages all relevent content is stored withing different slots of the same page. Additional, inheritance is highly supported and enables a broad reuse of any structure.
 
 ===Overview===
+====General====
 {{Template:Editor/DrawIO|file_name=diagram-01|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=2f275e34-41c8-4f63-a6cb-ee2861c488f2}}
 
+====Dual hierarchy example====
 {{#mermaid:
 classDiagram
 
     class Schema_Entity {
         String uuid
     }
-    Schema_Entity <-- Category_Entity: schema
-    Schema_Term <-- Category_Entity: type
+    class Schema_Class {
+    }
+
+    Schema_Class <-- Schema_Entity: type
+    Schema_Entity <-- Class_Entity: schema
+
+    class Schema_OntologyTerm{
+    }
+    Schema_Class <|-- Schema_OntologyTerm : allOf
+    Schema_OntologyTerm <-- Class_OwlThing : schema
+
+
+    Class_OwlThing <|-- Class_Entity: subclassOf
 
     class Schema_Item {
         String type
+        subclassOf Class_Item category
+    }
+
+    class Class_Entity {
+        Schema_Entity schema
     }
     Schema_Entity <|-- Schema_Item : allOf
-    Schema_Item <-- Category_Item: schema
-    Category_Entity <-- Category_Item: subclassOf
-
-    class Schema_Term {
-        String type
-    }
-    Schema_Item <|-- Schema_Term : allOf
+    Schema_Item <-- Class_Item: schema
+    Class_Entity <|-- Class_Item: subclassOf
 
     class Schema_Physical {
-        String type
-    }
-    Schema_Item <|-- Schema_Physical
-
-    Category_Item <-- Category_Device : subclassOf
-    Category_Device <-- Category_MeasurementDevice : subclassOf
-
-    class Schema_DeviceCategory {
-        String purpose
-    }
-    Schema_Term <|-- Schema_DeviceCategory
-
-    class Schema_DeviceType {
-        String manufacturer
-    }
-    Schema_Term <|-- Schema_DeviceType
-    Schema_DeviceCategory o-- Schema_DeviceType : device_category
-
-    class Schema_DeviceInstance {
-        Schema_DeviceType device_type
         String location
     }
-    Schema_Physical <|-- Schema_DeviceInstance
-    Schema_DeviceType o-- Schema_DeviceInstance : device_type
+    Schema_Item <|-- Schema_Physical : allOf
+
+    Class_Item <|-- Class_Device : subclassOf
+    Class_Device <|-- Class_MeasurementDevice : subclassOf
+    Schema_DeviceClass <-- Class_Device : schema
+
+    class Schema_DeviceClass {
+        String manufacturer
+        subclassOf Class_Device category
+    }
+    Schema_Item <|-- Schema_DeviceClass : allOf
+
+    class Instance_DeviceType1 {
+        manufacturer: CompanyABC
+        category: Class_MeasurementDevice
+    }
+    Schema_Item <|-- Instance_DeviceType1 : type
+    Schema_DeviceClass <-- Instance_DeviceType1 : type
+
+    class Schema_DeviceInstance {
+        Schema_DeviceClass device_type
+        String location
+    }
+    Schema_Physical <|-- Schema_DeviceInstance : allOf
+    Schema_DeviceClass o-- Schema_DeviceInstance : device_type
+
+    class Instance_MyDevice {
+        device_type: Instance_DeviceType1
+        location: somewhere
+    }
+    Schema_DeviceInstance <-- Instance_MyDevice : type
+    Instance_DeviceType1 o-- Instance_MyDevice : device_type
+  |
+  config.theme = neutral
 }}
 
 Why are Categories (Classes) different from Items (Instances)?
