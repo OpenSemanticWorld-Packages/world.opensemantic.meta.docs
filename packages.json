@@ -3,7 +3,8 @@
     "publisherURL": "https://github.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs",
     "author": [
         "Simon Stier",
-        "Lukas Gold"
+        "Lukas Gold",
+        "Andreas R\u00e4der"
     ],
     "language": "en",
     "licenseName": "CC BY-NC 4.0",
@@ -12,7 +13,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.6.0",
+            "version": "0.6.1",
             "baseURL": "https://raw.githubusercontent.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs/main/core/",
             "pages": [
                 {
@@ -461,6 +462,24 @@
                         },
                         "jsondata": {
                             "urlPath": "Item/OSWab674d663a5b472f838d8e1eb43e6784.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW01a9133879e94df19a8e617d91d28f39.drawio.svg",
+                    "label": "OswConceptAndIncludedTechnologies",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW01a9133879e94df19a8e617d91d28f39.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW01a9133879e94df19a8e617d91d28f39.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW01a9133879e94df19a8e617d91d28f39.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW01a9133879e94df19a8e617d91d28f39.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW01a9133879e94df19a8e617d91d28f39.drawio.svg.slot_jsondata.json"
                         }
                     }
                 },

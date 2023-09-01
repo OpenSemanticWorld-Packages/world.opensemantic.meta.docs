@@ -16,7 +16,12 @@ The new concept is based on strictly storing data in json and use wikicode just 
 
 ===Overview===
 ====General====
-{{Template:Editor/DrawIO|file_name=diagram-01|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=2f275e34-41c8-4f63-a6cb-ee2861c488f2}}
+{{Template:Editor/DrawIO
+| file_name = OSW concept and included technologies
+| page_name = Item:OSWab674d663a5b472f838d8e1eb43e6784
+| uuid = 01a91338-79e9-4df1-9a8e-617d91d28f39
+| width = 1000px
+}}{{Template:Editor/DrawIO|file_name=diagram-01|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=2f275e34-41c8-4f63-a6cb-ee2861c488f2}}
 
 ====Dual hierarchy example====
 {{#mermaid:

@@ -348,4 +348,6 @@ A property / the related subobject can have it's own context. The global context
 </div>
 
 ==JSON Documents: Next==
-*[[Item:OSWee501c0fa6a9407d99c058b5ff9d55b4]] [{{fullurl:Item:OSWee501c0fa6a9407d99c058b5ff9d55b4|reveal=true}} Slideshow]
+*[[Item:OSWee501c0fa6a9407d99c058b5ff9d55b4]] [{{fullurl:Item:OSWee501c0fa6a9407d99c058b5ff9d55b4
+|reveal=true
+}} Slideshow]

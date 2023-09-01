@@ -574,4 +574,6 @@ Some JSON-SCHEMA go-to patterns
 </div>
 
 ==JSON Documents: Next==
-*[[Item:OSW911488771ea449a6a34051f8213d7f2f]] [{{fullurl:Item:OSW911488771ea449a6a34051f8213d7f2f|reveal=true}} Slideshow]
+*[[Item:OSW911488771ea449a6a34051f8213d7f2f]] [{{fullurl:Item:OSW911488771ea449a6a34051f8213d7f2f
+|reveal=true
+}} Slideshow]
