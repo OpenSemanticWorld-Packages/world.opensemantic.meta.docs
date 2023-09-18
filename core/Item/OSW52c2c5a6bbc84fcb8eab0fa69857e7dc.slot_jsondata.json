@@ -3,6 +3,7 @@
         "Category:OSW494f660e6a714a1a9681c517bbb975da"
     ],
     "uuid": "52c2c5a6-bbc8-4fcb-8eab-0fa69857e7dc",
+    "name": "HowToCreateANewArticle",
     "label": [
         {
             "text": "How to create a new article",
@@ -13,7 +14,6 @@
             "lang": "de"
         }
     ],
-    "name": "HowToCreateANewArticle",
     "attachments": [
         "File:OSW5f36a59d4bb94ea0bf93f08f7470f609.png",
         "File:OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png",
@@ -29,9 +29,19 @@
         "File:OSWa13be5f5ea0c483689f5e70a7c2f68eb.png",
         "File:OSW857d85031d85425aa94db8b4720e84b7.png"
     ],
+    "description": [
+        {
+            "text": "Describes how to use the visual editor to create text and multimedia content. Please note: This applies for all entity categories/classes, not only Article.",
+            "lang": "en"
+        },
+        {
+            "text": "Beschreibt die Verwendung des visuellen Editors zur Erstellung von Text- und Multimedia-Inhalten. Hinweis: Diese Anleitung gilt f\u00fcr alle Entit\u00e4tskategorien/Klassen, nicht nur f\u00fcr Artikel.",
+            "lang": "de"
+        }
+    ],
     "statements": [
         {
-            "uuid": "c769a12c-6012-4523-bd2b-08eaf36f904d",
+            "uuid": "7386d44b-8b08-4e86-9237-e1e00d64cac5",
             "label": [
                 {
                     "text": ".. IsRelatedTo ..",
