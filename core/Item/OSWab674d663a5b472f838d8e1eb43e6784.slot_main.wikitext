@@ -167,9 +167,9 @@ A Jsonschema can reference other schemas. This is equivalent to <code><nowiki>[[
 {
     "title": "MyEntitySubclass",
     "type": "object",
-    "allOf": [{"$ref": "/wiki/Category:Entity?action=raw&slot=jsonschema"}]
+    "allOf": [{"$ref": "../Category/Entity.slot_jsonschema.json"}]
 }
-</syntaxhighlight>
+</syntaxhighlight>Note: refs were previously noted as <code>"/wiki/Category:Entity?action=raw&slot=jsonschema"</code>but this notation only works if <code>/wiki</code> is actually the root path of the system. Path-relative notations <code>(./)Category:Entity</code> and url-params are problematic so initial absolute and subsequent relative resolving is done via [[Special:SlotResolver]], e. g. [[Special:SlotResolver/JsonSchema/Label.slot_main.json]] or [[Special:SlotResolver/Category/Entity.slot_jsonschema.json]]. To reuse a schema in an external tool you can use e. g. <code>"$schema": "https://opensemantic.world/wiki/Special:SlotResolver/Category/Entity.slot_jsonschema.json"</code>
 
 ====Json-Editor====
 https://github.com/json-editor/json-editor, which is used to render edit & query forms based on provided jsonschema, adds additional keywords and options.
@@ -194,17 +194,213 @@ keywords <code>title</code> and <code>description</code> can be extended with ad
 }
 </syntaxhighlight>
 
-=====Additional  keywords=====
-
-
+=====Handlebars Template Helper =====
+Whenever templates are supported, the following custom handlebars helpers are supported as well:
 {| class="wikitable"
-|+Special jsonschema attributes ($properties.<property>.*)
+|+
+! Key
+!Syntax 
+!Example
+!Example result
+!Description
+!Comment
+|-
+|when
+|<syntaxhighlight lang="handlebars">
+{{#when <operand1> <operator> <operand2>}}...{{/when}}
+</syntaxhighlight>
+| <syntaxhighlight lang="handlebars">
+{{#when 2 'eq' 1}}equal{{else when var1 'gt' var2}}gt{{else}}lt{{/when}}
+</syntaxhighlight>
+| <code>gt</code>
+|compare operator
+| Supported operators: see {{Template:Viewer/Link|page=|url=https://github.com/OpenSemanticLab/mediawiki-extensions-MwJson/blob/7780fa7e67965e05ead3c30c41c12cf397cd1277/modules/ext.MwJson.editor/MwJson_editor.js#L1039-L1058|label=implementation}}
+|-
+|replace
+|<syntaxhighlight lang="handlebars">
+{{#replace <find> <replace>}}{{string}}{{/replace}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+{{#replace "test" "test2"}}_test_{{/replace}}
+</syntaxhighlight>
+|<code>_test2_</code>
+|string replace operator 
+|
+|-
+|split
+|<syntaxhighlight lang="handlebars">
+{{#split <find> <index>}}<string>{{/split}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+{{#split "/" -1}}https://test.com/target{{/split}}
+</syntaxhighlight>
+|<code>target</code>
+|string split operator
+|
+|-
+|each_split
+|<syntaxhighlight lang="handlebars">
+{{#each_split <string> <find>}}...{{/each_split}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+{{#each_split "https://test.com/target" "/"}}{{.}},{{/each_split}}
+</syntaxhighlight>
+|<code>https:,,test.com,target,</code>
+|split result iterator
+|
+|-
+|substring
+| <syntaxhighlight lang="handlebars">
+{{#substring start end}}<string>{{/substring}}
+</syntaxhighlight>
+| <syntaxhighlight lang="handlebars">
+{{#substring 0 -2}}My-test-string{{/substring}} => My-test-stri
+</syntaxhighlight>
+|<code>My-test-stri</code>
+|substring operator
+|negative indices are supported (counted from end-of-string)
+|-
+|calc
+|<syntaxhighlight lang="handlebars">
+{{calc <operand1> <operator> <operand2>}}
+</syntaxhighlight>or <syntaxhighlight lang="handlebars">
+{{#calc <operand1> <operator>}}<operand2>{{/calc}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+a={{calc (calc 1 '+' 1) '*' 10}}
+b={{#calc 3 '*'}}2{{/calc}}
+</syntaxhighlight>
+|<code>a=20 b=6</code>
+|math callback
+|
+|-
+|patternformat
+|<syntaxhighlight lang="handlebars">
+{{#patternformat <pattern>}}<string>{{/patternformat}} 
+</syntaxhighlight> or <syntaxhighlight lang="handlebars">
+{{patternformat <pattern> <value>}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+{{patternformat '00.0000' '1.1' }}
+</syntaxhighlight>
+|<code> 01.1000</code>
+|pattern formator for both numbers and strings
+|
+|-
+|dateformat
+|<syntaxhighlight lang="handlebars">
+{{dateformat <format> <date>}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+{{dateformat 'Y' (_now_)}}
+</syntaxhighlight>
+|<code>2024</code>
+|formats a datetime value
+|supported formats: https://flatpickr.js.org/formatting/
+|-
+|_uuid_
+|<syntaxhighlight lang="handlebars">
+{{_uuid_}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+{{_uuid_}}
+</syntaxhighlight>
+|<code>ad56b31f-9fe5-466a-8be7-89bce58045f1</code>
+|uuidv4
+|
+|-
+|_now_
+|<syntaxhighlight lang="handlebars">
+{{_now_}}
+</syntaxhighlight>
+|<syntaxhighlight lang="handlebars">
+{{_now_}}
+</syntaxhighlight>
+|<code>2024-02-04T04:31:08.050Z</code>
+|current datetime
+|iso-format
+|}
+
+Note on helper and param naming collision: When a helper has the same name as a key in the json params, the helper is prioritized.However, you can use <code>this.<param></code> to enforce the param over the helper.
+
+Example: helper <code>'test'</code> returns <code>'helper'</code>, json data is <code>{"test": "param"}</code>.
+
+Template <code><nowiki>"{{test}} {{#test}}{{/test}} {{this.test}}"</nowiki></code> will be evaluated to <code>helper helper param</code>
+
+=====Special Template Variables=====
+Available in format: dynamic_template
+{| class="wikitable"
+|+
+!Variable
+!Description
+!Example
+!Example result
+!Note
+|-
+|_current_user_
+| The identity of the current active user
+|<syntaxhighlight lang="handlebars">
+{{{_current_user_}}}
+</syntaxhighlight>
+|User:MyUserName
+|
+|-
+|_current_subject_ 
+|The title / OSW-ID of the current page / entry
+|<syntaxhighlight lang="handlebars">
+{{{_current_subject_}}}
+</syntaxhighlight>
+|Item:OSWab674d663a5b472f838d8e1eb43e6784
+|
+|-
+|_array_index_
+|The index of an array item within its parent array
+|<syntaxhighlight lang="handlebars">
+{{{_array_index_}}}
+</syntaxhighlight>
+|1
+|
+|-
+|_global_index_
+|Retrieves the smallest non-existing prefixed index for values of the specified property (default: Property:HasId). See also Additional options / global_index
+|<syntaxhighlight lang="handlebars">
+ID-{{{_global_index_}}}
+</syntaxhighlight>
+|Existing entries: "HasId::ID-0001", "HasId::ID-0002", "HasId::ID-0003"
+Template resolves to "ID-0004"
+|
+|}
+
+=====Additional  keywords=====
+{| class="wikitable"
+|+ Special jsonschema attributes ($properties.<property>.*)
 !Key
 !Alias
 !Subkeys
 !Value
 !Description
 !Note
+|-
+|range
+| -
+| -
+|<category>
+|range of a property in the sense of OWL restricting the class(es) the pointed item could be instance of. Currently supports only a single string. Multiple categories connected with AND or OR: tbd
+| Also used to generate a suitable inline editor to create or edit these items (see also $properties.<property>.options.autocomplete)
+|-
+|template
+|
+|
+|<string>
+|handlebars template string. Available variables: watched values
+|Build-in
+|-
+|dynamic_template
+|
+|
+|
+|handlebars template string. Available variables: watched values
+|Extended template feature
 |-
 |eval_template
 |
@@ -216,8 +412,8 @@ keywords <code>title</code> and <code>description</code> can be extended with ad
 |
 |
 |type
-|mediawiki
-|uses the wiki template parser. Cannot handle objects and arrays => non-literals get stripped
+| mediawiki 
+| uses the wiki template parser. Cannot handle objects and arrays => non-literals get stripped
 |
 |-
 |
@@ -225,7 +421,7 @@ keywords <code>title</code> and <code>description</code> can be extended with ad
 |"
 |mustache
 |uses the lua mustache template parser https://github.com/OpenSemanticLab/lustache/tree/scribunto-module-pages. Can handle objects and arrays
-|https://mustache.github.io/, https://stackblitz.com/edit/mustache-tester?file=index.js
+| https://mustache.github.io/, https://stackblitz.com/edit/mustache-tester?file=index.js 
 |-
 |
 |
@@ -237,6 +433,7 @@ keywords <code>title</code> and <code>description</code> can be extended with ad
 |
 |
 |mode
+
 |<none>
 |the given template will be used to render the json object and store it's semantic data
 |
@@ -251,46 +448,35 @@ keywords <code>title</code> and <code>description</code> can be extended with ad
 |
 |
 |"
-|store
+| store
 |the given template will be used to store semantic data
 |
 |-
 |
 |
-| value
+|value
 |<string>
-|
-|
-|-
-|
-|
-|page
-|<wiki page>
-|
+|the template string
 |
 |-
-|
-|
-|slot
+|data_source_maps
 |
 |
 |
-|-
-|
-|
-|url
-|
-|
+| see section "Remote / external data import"
 |
 |}
-
+Note on default rendering in infoboxes:
+*Properties of <code>@type</code> <code>xds:date</code> and <code>xsd:dateTime</code> are rendered with <code><nowiki>{{dateformat: {{value}} | ymd}}</nowiki></code>, see https://www.mediawiki.org/wiki/Help:Magic_words#dateformat
+*Properites of <code>@type</code> <code>@id</code> are rendered as links as long as they are (arrays of) string literals and no eval_template is defined.
 {| class="wikitable"
 |+Special jsondata attributes ($.*)
 !Key
 !Alias
-!Subkeys
+
+!Subkeys 
 !Value
-!Description
+!Description 
 !Note
 |-
 |type
@@ -303,17 +489,17 @@ keywords <code>title</code> and <code>description</code> can be extended with ad
 
 =====Additional options=====
 {| class="wikitable"
-|+
+|+ 
 Additional options ($properties.<property>.options.*)
 !Key
 !Subkeys
 !SubSubkeys
-! Value
-! Example
-! Description
-! Note
+!Value
+!Example
+!Description
+!Note
 |-
-|conditional_visible
+| conditional_visible
 |
 |
 |
@@ -337,12 +523,28 @@ Additional options ($properties.<property>.options.*)
 |tbd
 |
 |-
+|range
+|
+|
+|string
+|"Category:Item"
+|Shortcut for a static query <code><nowiki>[[Category:Item]][[Display_title_of_normalized::~*{{_user_input_normalized}}*]]|?...</nowiki></code> . Creates an inline editor for the given category
+|
+|-
+|subclassof_range
+|
+|
+|string
+|"Category:Device"
+|Indicates that the target are subclasses of the given device. Inline editor will use the meta class of the given category, e. g. "Category:MetaDeviceCategory", or will use the range if given
+|
+|-
 |autocomplete
 |
 |
 |
 |
-|buildin option
+|buildin option 
 |
 |-
 |
@@ -357,24 +559,25 @@ Additional options ($properties.<property>.options.*)
 |query
 |
 |
-|<code><nowiki>[[HasLabel::~*{{input}}*]]|?HasLabel=label</nowiki></code>
-|handlebars query template
-|
+|<code><nowiki>[[HasLabel::~*{{_user_input}}*]]|?HasLabel=label</nowiki></code>
+|handlebars query template. Available are all keys of the current schema and <code>_user_input</code>, <code>_user_input_lowercase</code>, <code>_user_input_normalized</code>, <code>_user_lang</code>
+|            <code><nowiki>|?Display_title_of=label</nowiki></code>,
+            <code>|?HasImage=image</code>, <code>|?HasDescription=description</code> and <code>|limit=100</code> are appended automatically if not specified
 |-
 |
-|range
+|category
 |
 |
 |Category:Item
-|creates a static query <code><nowiki>[[Category:Item]][[HasLabel::~*{{input}}*]]|?HasLabel=label</nowiki></code>
-|
+|creates a static query <code><nowiki>[[Category:Item]][[Display_title_of_normalized::~*{{_user_input_normalized}}*]]|?...</nowiki></code>. Creates an inline editor for the given category
+|see also $properties.<property>.range
 |-
 |
 |property
 |
 |
 |Property:HasLabel
-|existing value of the property <code><nowiki>[[HasLabel::+]]</nowiki><nowiki>[[HasLabel::~*{{input}}*]]</nowiki>?HasLabel=value</code>
+|query entities with existing value of the specified property <code><nowiki>[[HasLabel::+]]</nowiki><nowiki>[[Display_title_of_normalized::~*{{_user_input_normalized}}*]]</nowiki>?...</code>
 |
 |-
 |
@@ -382,27 +585,29 @@ Additional options ($properties.<property>.options.*)
 |
 |
 |
-| how to display query results in the suggestion list
+|how to display query results in the suggestion list 
+
 |
 |-
 |
 |
 |type
 |<array>
-| ["handlebars", "wikitext"]
-|template engines are applied in the specified order. wikitext will result in parse-API calls, which is not recommanded for large result sets
+|["handlebars", "wikitext"]
+|template engines are applied in the specified order. wikitext will result in parse-API calls, which is not recommanded for large result sets 
 |
 |-
 |
 |
 |value
-|template string
+| template string
 |<code><nowiki>[[{{result.fulltext}}]]</nowiki></code>
-|the actual template string. Pure handlebars templates can contain html tags like links (<code><a></code>) and images (<code><img></code>), wikitext templates need to use the wiki-syntax <code>[[ ]]</code>
+
+|the actual template string. Pure handlebars templates can contain html tags like links (<code><a></code>) and images (<code><img></code>), wikitext templates need to use the wiki-syntax <code>[[ ]]</code> 
 |wiki-links to categories need a <code>:</code> prefix: <code><nowiki>[[:{{result.fulltext}}]]</nowiki></code>
 |-
 |
-|label_template
+|label_template 
 |
 |
 |
@@ -411,35 +616,116 @@ Additional options ($properties.<property>.options.*)
 |-
 |
 |
-| type
-| <array>
+|type
+|<array>
 |["handlebars"]
-| only handlebars supported
+|only handlebars supported
 |
 |-
 |
 |
 |value
-| template string
+|template string
 |<code>result.printouts.label.[0]</code>
 |
 |
 |-
+|
+|field_maps
+|
+|
+|
+|Auto-set editor fields based on the SMW ask-API query result. Example: [[JsonSchema:QuantityStatement]]
+|
+|-
+|
+|
+|source_path
+|<jsonpath>
+|"$"
+|jsonpath to apply on the query result
+|
+|-
+|
+|
+|template
+|template string
+|"{{{result.printouts.label.[0]}}}"
+|handlebars template applied on the json-object retrieved from the source path of the query result
+|
+|-
+|
+|
+|target_path
+|<jsonpath>
+|"$(unit_symbol)"
+|jsonpath of the target field / editor. You can use jsoneditors watch variables (recommended) to auto-generate to expression
+|
+|-
+|dynamic_template
+|
+|
+|
+|
+|options for dynamic_template
+|
+|-
+|
+|override
+|<enum value>
+|<nowiki>unstored|empty|always</nowiki>
+|always
+|Allow the template to override the current value of the field if the current value is undefined or an empty string (<code>empty</code>), was not yet stored (<code>unstored</code>) or <code>always</code>. dynamic_templates with <code>_global_index_</code> default to <code>unsafed</code> (=> do not update the value after initial stored), user editable fields (not hidden and not readonly => only set an initial default) to <code>emtpy</code>, else <code>always</code> is used. 
+|
+|-
+|global_index
+|
+|
+|
+|
+|
+|
+|-
+|
+|property 
+|
+|<property name>
+|Property:HasId
+|The Property to determine the next lowest index of a prefixed value within the dynamic_template option. Currently hardcoded to <code>Property:HasId</code>
+|
+|-
+|
+|number_pattern
+|
+|<string> 
+|0000
+|The pattern of the index.  Index = 2, pattern = 0000 => 0002. Currently hardcoded to 0000
+|
+|-
+|
+|increment
+|
+| <numver>
+|1
+|The increment of the index. Currently hardcoded to 1
+|
+|-
 |role
-| query
+|query
+
 |
 |<nowiki>{"filter": "min|max|eq"}</nowiki>
-| {"filter": "min"}
+|{"filter": "min"}
 |Creates a semantic mediawiki query for a numerical property, e. g. if the property maps to "HasNumber", the filter is "min" and the user provided value is 3 this results in the query "[[HasNumber::>3]]"
 |
 |}
 
-=====Autocomplete =====
+=====Autocomplete=====
 Default setting (planned, see also [[Zentrales Wiki/Schema#Object Properties and Data / Annotation Properties|Object Properties and Data / Annotation Properties]])
-* for data / annotation properties: existing values of the property: <code><nowiki>{{#ask:[[<Property>::+]]|?<Property>=value}}</nowiki></code>
-* for object properties: existing instances of the range category: <code><nowiki>{{#ask:[[Category:<range>]]}}</nowiki></code>
+*for data / annotation properties: existing values of the property: <code><nowiki>{{#ask:[[<Property>::+]]|?<Property>=value}}</nowiki></code>
+*for object properties: existing instances of the range category: <code><nowiki>{{#ask:[[Category:<range>]]}}</nowiki></code>
 
-======Shortcuts======
+======Shortcuts======  
 
 *<code>category</code>: Populates the field with instances of the given category (and its subcategories)
 <syntaxhighlight lang="json">
@@ -455,7 +741,115 @@ Default setting (planned, see also [[Zentrales Wiki/Schema#Object Properties and
 </syntaxhighlight>
 
 =====Remote / external data import=====
-<syntaxhighlight lang="json">
+{| class="wikitable"
+!Key
+!Alias
+!Subkeys
+!SubSubkeys 
+!Value
+!Example 
+!Description
+!Note
+|-
+! data_source_maps 
+! -
+!
+!
+!
+!
+!To fetch data from an external source (by user request) and store it in the edit form
+!
+|-
+!
+!
+!id
+!
+!<string>
+!pub.orcid.org
+!
+!
+|-
+!
+!
+! label 
+!
+!<string>
+!ORCID
+!Label for the data source, displayed on the request button 
+!
+|-
+!
+!
+!required 
+!
+! <array>
+!<code>["orcid"]</code> 
+! Properties of the schema that are required to send the request (typically those occure as template params in <code>source</code>
+!the request button is disabled if required properties are missing
+|-
+!
+!
+! source 
+!
+! <url>
+!<code><nowiki>https://pub.orcid.org/v3.0/{{#split '/' -1}}{{orcid}}{{/split}}</nowiki></code>
+! API endpoint to fetch data
+!supports templates. API must allow request from a foreign domain
+|-
+!
+!
+!format
+!
+!<enum>
+!jsonld 
+!The format of the requested resource. One of <code>json</code> (default), <code>jsonld</code>, <code>xml</code>, <code>html</code>
+!Used to set the correct contentType header field and parse the result
+|-
+!
+!
+!mode
+!
+!<enum>
+! jsonpath
+!The format of the path expression in the object_map. One of <code>jsonpath</code> (default for <code>json</code>, <code>jsonld</code>), <code>xpath</code> (default for <code>xml</code>, <code>html</code>)
+!
+|-
+!
+!
+! object_map
+!
+!<dict>
+!<code>{"first_name": "$.givenName"}</code>
+!Stores the result of the path expression value (right-hand, evaluated on the API result) in the given key (left-hand) 
+!Result of the path expression can be an array or object.
+|-
+!
+!
+!template_map 
+!
+!<dict> 
+!
+!Constructs a value from a handlebars template (left-hand) and asigns it to the given key (right-hand)
+!tbd
+|-
+!
+!
+! request_map
+!
+!
+!
+!
+! tbd 
+|-
+!
+!
+! map 
+!
+!
+!
+!
+!tbd
+|}<syntaxhighlight lang="json">
 {
     "...": {},
     "data_source_maps": [
@@ -483,11 +877,11 @@ Default setting (planned, see also [[Zentrales Wiki/Schema#Object Properties and
         "...": {}
     }
 }
-</syntaxhighlight>Tests could be run on various playgrounds:
+</syntaxhighlight>Tests could be run on various playgrounds:  
 
-*Handlebars template: [https://handlebarsjs.com/playground.html]
+* Handlebars template: [https://handlebarsjs.com/playground.html]  
 
-*jsonpath: [https://jsonpath-plus.github.io/JSONPath/demo/]
+* jsonpath: [https://jsonpath-plus.github.io/JSONPath/demo/]
 *xpath: [http://xpather.com/]
 
 =====Search=====
@@ -543,19 +937,19 @@ Properties can be marked as inputs for the categories query form by adding the c
 </syntaxhighlight>
 
 
-===JSON-LD===
+===JSON-LD ===
 json-ld jsonschema: https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json
 
 Local playground: https://wiki-dev.open-semantic-lab.org/w/extensions/MwJson/json-ld/playground/index.html
 
-====References====
+==== References====
 
 
 
 json-ld should be embedded into jsonschema, but has its own referencing mechanism:<syntaxhighlight lang="json">
 {
     "@context": [
-        "/wiki/Category:Entity?action=raw&slot=jsonschema",
+        "../Category/Entity.slot_jsonschema.json",
         {
             "Property": {"@id": "https://wiki-dev.open-semantic-lab.org/id/Property-3A", "@prefix": true},
             "manufacturer": "Property:HasManufacturer"
@@ -563,7 +957,7 @@ json-ld should be embedded into jsonschema, but has its own referencing mechanis
     ],
     "title": "MyEntitySubclass",
     "type": "object",
-    "allOf": [{"$ref": "/wiki/Category:Entity?action=raw&slot=jsonschema"}],
+    "allOf": [{"$ref": "../Category/Entity.slot_jsonschema.json"}],
     "properties": {
         "manufacturer": {
             "type": "string"
@@ -572,7 +966,9 @@ json-ld should be embedded into jsonschema, but has its own referencing mechanis
 }
 </syntaxhighlight>Example: [https://json-ld.org/playground/#startTab=tab-expanded&json-ld=%7B%22%40context%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2Fjson-ld%2Fjson-ld.org%2Fmain%2Fexamples%2Fsyntax%2Fexample-031-Combining-external-and-local-contexts.json%22%2C%7B%22pic2%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fxmlns.com%2Fcustom%2F0.1%2Fdepiction%22%2C%22%40type%22%3A%22%40id%22%7D%2C%22lit%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fxmlns.com%2Fcustom%2F0.1%2Fdepiction%22%7D%7D%5D%2C%22name%22%3A%22Manu%20Sporny%22%2C%22homepage%22%3A%22http%3A%2F%2Fmanu.sporny.org%2F%22%2C%22pic%22%3A%22http%3A%2F%2Ftwitter.com%2Faccount%2Fprofile_image%2Fmanusporny%22%2C%22pic2%22%3A%22http%3A%2F%2Ftwitter.com%2Faccount%2Fprofile_image%2Fmanusporny%22%7D&context=%7B%7D]
 
-====Property mapping====
+For a remote context the same mechanism are used as in json-schema $refs. To reuse a context in external tools you can use e. g. <code>"@context": "https://opensemantic.world/wiki/Special:SlotResolver/Category/Entity.slot_jsonschema.json"</code> .
+
+====Property mapping ====
 Properties with a local definition (SMW Property) are automatically mapped. Jsondata of an instance of the category could then be provided with an json-ld context:<syntaxhighlight lang="json">
 {
     "@context": [
@@ -610,13 +1006,13 @@ As a workaround, an additional context notation is provided: <property>* pointin
     ],
   	"label": "Maps externally to skos:prefLabel and internally to Property:HasLabel"
 }
-</syntaxhighlight>
+</syntaxhighlight>OSW allows mapping to external (<code><any_prefix>:<property></code>) and internal vocabs (<code>Property:<property></code>). Please note that properties mapped to an external vocab are currently not available in Semantic MediaWiki and the related query interfaces. Using the * notation it is possible to map to both external vocab  (<code>"property": "<any_prefix>:<property>"</code>) and internal (<code>"property*": "Property:<property>"</code>, <code>"property**": "Property:<another_property>"</code>).
 
 ===== Object Properties and Data / Annotation Properties=====
 Properties default to data / annotation properties (value is a literal). Object properties (value is an identifier/reference to another object) can by defined by adding <code>"@type": "@id"</code>.
 
 =====Subobjects=====
-If the value of a mapped property is an object (after expanding all eval_templates), it will get stored as a [https://www.semantic-mediawiki.org/wiki/Subobject smw subobject] with an id derivated from the field <code>uuid</code>, a display title from <code>label</code> and a category from <code>type</code> (if provided).
+If the value of a mapped property is an object (after expanding all eval_templates), it will get stored as a [https://www.semantic-mediawiki.org/wiki/Subobject smw subobject] with an id derivated from the field <code>uuid</code>, a display title from <code>label</code> and a category from <code>type</code> (if provided). Subobjects also support JSON-LD <code>@reverse</code> notation, allowing to store properties pointing from the subobject to the superordinated or root object.
 
 Example: can be selected with <nowiki>[[MyObjectProperty.MyProperty::myvalue]]</nowiki><syntaxhighlight lang="json">
 {
@@ -656,26 +1052,26 @@ i18n language keys can be embedded in to an label object to create a language ta
 }
 </syntaxhighlight>
 
-==== Ontology term import/export ====
+====Ontology term import/export====
 Existing ontology terms can be imported/exported via json-ld directly or ttl by defining the corresponding context, e. g. for EMMO-Terms: [https://json-ld.org/playground/#startTab=tab-table&json-ld=%7B%22%40context%22%3A%7B%22owl%22%3A%22http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%22%2C%22rdf%22%3A%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%2C%22rdfs%22%3A%22http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%22%2C%22xsd%22%3A%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%22%2C%22skos%22%3A%22http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%22%2C%22dc%22%3A%22http%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%22%2C%22uri%22%3A%7B%22%40id%22%3A%22%40id%22%7D%2C%22rdf_type%22%3A%7B%22%40id%22%3A%22%40type%22%7D%2C%22label%22%3A%7B%22%40id%22%3A%22skos%3AprefLabel%22%7D%2C%22altLabel%22%3A%7B%22%40id%22%3A%22skos%3AaltLabel%22%7D%2C%22text%22%3A%7B%22%40id%22%3A%22%40value%22%7D%2C%22lang%22%3A%7B%22%40id%22%3A%22%40language%22%7D%2C%22subClassOf%22%3A%7B%22%40id%22%3A%22rdfs%3AsubClassOf%22%2C%22%40type%22%3A%22%40id%22%7D%2C%22source%22%3A%22dc%3Asource%22%2C%22disjointUnionOf%22%3A%22owl%3AdisjointUnionOf%22%2C%22disjointWith%22%3A%22owl%3AdisjointWith%22%2C%22equivalentClass%22%3A%22owl%3AequivalentClass%22%2C%22unionOf%22%3A%7B%22%40id%22%3A%22owl%3AunionOf%22%2C%22%40container%22%3A%22%40list%22%2C%22%40type%22%3A%22%40id%22%7D%2C%22comment%22%3A%22rdfs%3Acomment%22%2C%22isDefinedBy%22%3A%22rdfs%3AisDefinedBy%22%2C%22seeAlso%22%3A%22rdfs%3AseeAlso%22%2C%22qudtReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc%22%2C%22omReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_209ba1b3_149f_4ff0_b672_941610eafd72%22%2C%22wikidataReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54%22%2C%22ISO9000Reference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_3aa37f92_8dc5_4ee4_8438_e41e6ae20c62%22%2C%22IEVReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f%22%2C%22dbpediaReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25%22%2C%22etymology%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_705f27ae_954c_4f13_98aa_18473fc52b25%22%2C%22definition%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84%22%2C%22ISO80000Reference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578%22%2C%22ISO14040Reference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_964568dd_64d2_454b_a12f_ac389f1c5e7f%22%2C%22elucidation%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9%22%2C%22example%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a%22%2C%22VIMTerm%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6%22%2C%22emmo_comment%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f%22%2C%22wikipediaReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d%22%2C%22iupacReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_fe015383_afb3_44a6_ae86_043628697aa2%22%2C%22Item%22%3A%22https%3A%2F%2Fwiki-dev.open-semantic-lab.org%2Fwiki%22%2C%22uuid%22%3A%22wiki%3AHasUuid%22%2C%22name%22%3A%22wiki%3AHasName%22%7D%2C%22type%22%3A%5B%22Category%3AOSW57beed5e1294434ba77bb6516e461456%22%5D%2C%22uuid%22%3A%22ba3f3fd5-bf6d-4aea-9563-a2c7b88b2e6b%22%2C%22label%22%3A%5B%7B%22text%22%3A%22Net%20Faradaic%20Current%22%2C%22lang%22%3A%22en%22%7D%5D%2C%22name%22%3A%22NetFaradaicCurrent%22%2C%22%40id%22%3A%22http%3A%2F%2Femmo.info%2Felectrochemistry%23electrochemistry_14577b99_a8a9_4358_9bc5_ab8c401dd34b%22%2C%22%40type%22%3A%22owl%3AClass%22%2C%22elucidation%22%3A%7B%22lang%22%3A%22en%22%2C%22text%22%3A%22Algebraic%20sum%20of%20faradaic%20currents%20flowing%20through%20an%20electrode.%22%7D%2C%22comment%22%3A%7B%22lang%22%3A%22en%22%2C%22text%22%3A%22I%22%7D%2C%22subClassOf%22%3A%5B%22http%3A%2F%2Femmo.info%2Felectrochemistry%23electrochemistry_2a2f59b7_aa16_40aa_9c8b_0de8a2720456%22%5D%2C%22prefLabel%22%3A%7B%22lang%22%3A%22en%22%2C%22text%22%3A%22NetFaradaicCurrent%22%7D%7D]
 
 ===Recursive Parsing===
 
 ====Module:Category====
-<s>Called from Category:<UUID>@template</s>
+<s>Called from Category:<UUID>@template</s> 
 
 #<s>Synchonize Category:<UUID>@jsondata.subclass_of with Category:<UUID>@jsonschema.allOf</s>
 #<s>Expand Category:Category@header_template with jsondata parameters</s>
 #<s>Render Category:<UUID>@main</s>
-#<s>Expand Category:Category@footer_template with jsondata parameters</s>
+# <s>Expand Category:Category@footer_template with jsondata parameters</s>
 
 ====Module:Entity====
 Called from item@template, item = Item:<UUID>
 
-===== Recursion=====
+=====Recursion=====
 #For each Item:<UUID>@jsondata.osl_category as category:
-## For each category@jsondata.osl_category or category@jsonschema.allOf as supercategory:
-###For each supercategory@jsondata.osl_category or supercategory@jsonschema.allOf as supersupercategory:
+##For each category@jsondata.osl_category or category@jsonschema.allOf as supercategory:
+###For each supercategory@jsondata.osl_category or supercategory@jsonschema.allOf as supersupercategory: 
 ####...
 ###Expand supercategory@header_template with item@jsondata parameters. Fallback: Render infobox
 ###Expand supercategory@data_template with item.jsondata parameters. Fallback: Use Json-LD mapping within category:jsonschema
@@ -689,17 +1085,17 @@ Called from item@template, item = Item:<UUID>
 
 #template specified: use template
 #category specified:
-## category@data_template specified: use data_template
-## Use Json-LD mapping
+##category@data_template specified: use data_template
+##Use Json-LD mapping
 ###mapping specified: Store semantic property
-#### Literal value: store value
+####Literal value: store value
 ####Object value
 #####Property has type text/code: Store json string
 #####osl_category / osl_template specifided: see below
 ###Don't store semantic property
 
 Nested objects within item@jsondata are handled
-* osl_category: same handling as the root object, but:
+*osl_category: same handling as the root object, but: 
 **Rendering with category@header_template. Fallback: Nested info box
 **Data storing with category@data_template. Fallback: Creating a subobject with Json-LD mapping + (inverse) semantic relation to the root object
 *osl_template: expand the template, return value is asigned to the property
@@ -762,7 +1158,7 @@ HasEditPage=edit_page: wiki page within this file was edited
 HasCreator=creator: initial creator of the file 
 
 HasEditor=editor: editors of the file
-===Links===
+===Links=== 
 
 *https://tdan.com/knowledge-graphs-vs-property-graphs-part-ii/27271
 *https://www.uni-ulm.de/fileadmin/website_uni_ulm/iui.inst.090/Lehre/WS_2011-2012/SemWebGrundlagen/v03_handout.pdf
