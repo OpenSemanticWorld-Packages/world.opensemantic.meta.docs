@@ -9,7 +9,7 @@
             "lang": "en"
         }
     ],
-    "name": "AboutTheReusePlatform",
+    "name": "AboutThisPlatform",
     "attachments": [
         "File:OSW32477b21abef40f483084e46e2430624.png",
         "File:OSW420279d1be9640ad96e6685277a3f29b.png",
@@ -34,8 +34,6 @@
         "File:OSW17fd79810755437287c0bc98f5ce6d25.png"
     ],
     "required_predecessor": [],
-    "optional_predecessor": [
-        "Item:OSW0bb6891746b647e3a785e8aba2431636"
-    ],
+    "optional_predecessor": [],
     "recommended_successor": []
 }

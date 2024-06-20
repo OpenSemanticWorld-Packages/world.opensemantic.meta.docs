@@ -13,7 +13,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "requiredPackages": [
                 "world.opensemantic.base"
             ],
