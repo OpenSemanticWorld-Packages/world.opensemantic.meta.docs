@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "0089126a-d0cc-46d3-95f2-b93f6037352d",
+    "label": [
+        {
+            "text": "Form Editor - Example Person Lukas Gold",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Admin"
+    ],
+    "editing_context": [
+        "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc"
+    ],
+    "creator": [
+        "User:Admin"
+    ],
+    "creation_context": [
+        "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc"
+    ],
+    "name": "FormEditorExamplePersonLukasGold"
+}

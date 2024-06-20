@@ -1,0 +1,41 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "8bccb1f0-123f-47d1-831a-1348ecbe63cc",
+    "label": [
+        {
+            "text": "About this platform",
+            "lang": "en"
+        }
+    ],
+    "name": "AboutTheReusePlatform",
+    "attachments": [
+        "File:OSW32477b21abef40f483084e46e2430624.png",
+        "File:OSW420279d1be9640ad96e6685277a3f29b.png",
+        "File:OSW0024d7c0a0d64642bf51f5facfe85d42.png",
+        "File:OSW841b61b5996340fa81c3163bcea87482.png",
+        "File:OSWe8c6b659eab14cca927835ccd6baef15.png",
+        "File:OSWc0df6b35cc964307bbf3d18c78e5cb3e.png",
+        "File:OSWd173625534d04fe6aab90a7bee4008e2.png",
+        "File:OSWc34ced55461949a59f950283e905b5fc.png",
+        "File:OSW281775863c06445c91b9788a0117cd91.png",
+        "File:OSW31dc99e0dfa44dee9a5e7dde5357570b.png",
+        "File:OSW9bf259dea97e45d2a25344e6afadef32.png",
+        "File:OSWcd2bd1d74aaa4367bb7fd13d939869dd.png",
+        "File:OSWb701155d41ad44ab9ad719edc3a2480a.png",
+        "File:OSW6f7bab35a8714881be7c6e7ecff9a3a2.png",
+        "File:OSW51ad8f9d660641f9880006c40f41cb56.png",
+        "File:OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG",
+        "File:OSW486215598a1f4993b063804775d70716.png",
+        "File:OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG",
+        "File:OSW0089126ad0cc46d395f2b93f6037352d.PNG",
+        "File:OSW7916a148a68541c38a10769c739dfd64.PNG",
+        "File:OSW17fd79810755437287c0bc98f5ce6d25.png"
+    ],
+    "required_predecessor": [],
+    "optional_predecessor": [
+        "Item:OSW0bb6891746b647e3a785e8aba2431636"
+    ],
+    "recommended_successor": []
+}
