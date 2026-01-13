@@ -1,0 +1,28 @@
+{
+    "type": [
+        "Category:OSW92cc6b1a2e6b4bb7bad470dfdcfdaf26"
+    ],
+    "author": [],
+    "uuid": "3ab37481-1116-45a0-bb8d-3348d57d462a",
+    "label": [
+        {
+            "text": "OpenSemanticLab Manual",
+            "lang": "en"
+        },
+        {
+            "text": "OpenSemanticLab Bedienungsanleitung",
+            "lang": "de"
+        }
+    ],
+    "description": [
+        {
+            "text": "Tutorials and guidelines for end users, advanced users and developers",
+            "lang": "en"
+        },
+        {
+            "text": "Tutorials and guidelines for end users, advanced users and developers",
+            "lang": "de"
+        }
+    ],
+    "name": "OpensemanticlabManual"
+}

@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "5d3b1db1-160a-4117-8c66-d47140da3ebd",
+    "label": [
+        {
+            "text": "special_editor_insert",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSW92619b0700984fe7913e5fbbd7f194dc"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSW92619b0700984fe7913e5fbbd7f194dc"
+    ],
+    "name": "SpecialEditorInsert"
+}

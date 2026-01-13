@@ -1,4 +1,17 @@
-== Motivation ==
+<div class="QrCodeGenerator" data-config='{"text": "{{fullurl:{{FULLPAGENAME}}}}", "image": true, "print": false, "print_format": [29,42], "print_scale": 0.12}' style="height: 250px; width: 200px;">
+</div> doi: https://doi.org/10.5281/zenodo.8086418 
+
+github: https://github.com/OpenSemanticLab
+
+==Background==
+[[File:OSWa81f4a8b552e4057888796a9a496dad3.png|none|thumb|1200x1000px|from: https://github.com/General-Process-Ontology/ontology]]
+
+==KIproBatt Project Usecase==
+[[File:OSWb620db8af84847acabf76a88633f980c.png|none|thumb|1200x1000px|from: https://kiprobatt.de]]
+<!-- <img src="/w/index.php?title=Special:Redirect/file/OSWb620db8af84847acabf76a88633f980c.png" style="width:70%"></img> -->
+
+
+==Motivation==
 {{Template:Editor/DrawIO
 | file_name = OSW Introduction - motivation
 | page_name = Item:OSWdb485a954a88465287b341d2897a84d6
@@ -6,15 +19,27 @@
 | width = 50%
 }}
 
-== OSW ==
+==OpenSemanticWorld Concept==
+Note: Read [[Item:OSW7113f5cf921a4c82ad1872afeff9d01d]] first if you are already familiar with mediawiki
+
+
+==OpenSemanticWorld Concept==
 {{Template:Editor/DrawIO
 | file_name = OSW Introduction data model
 | page_name = Item:OSWdb485a954a88465287b341d2897a84d6
 | uuid = 96280227-805c-4e4a-8fcf-615359b01672
+| width = 30%
+}}
+
+==Link to related technologies==
+see also https://github.com/OO-LD/schema<nowiki/>{{Template:Editor/DrawIO
+| file_name = OSW concept and included technologies
+| page_name = Item:OSWdb485a954a88465287b341d2897a84d6
+| uuid = 01a91338-79e9-4df1-9a8e-617d91d28f39
 | width = 50%
 }}
 
-== Technology Stack ==
+==Technology Stack==
 {{Template:Editor/DrawIO
 | file_name = OSW Introduction technology stack
 | page_name = Item:OSWdb485a954a88465287b341d2897a84d6
@@ -35,17 +60,125 @@
 *** with [[mediawikiwiki:Help:VisualEditor/User_guide|visual editing]]
 *** other options like mustache and markdown
 ** > 1000 [[mediawikiwiki:Category:All_extensions|extensions]]: UI, data handling, custom content, etc.
-* ... but it's just a container, the core JSON-based concept is highly portable 
+* ... but it's just a container, the core JSON-based concept is highly portable
 
-== Ontologies ==
+== What is different to Vanilla (Semantic) MediaWiki? ==
 
-* Ontology classes are just specific schemas
-* Automatic import
-* Combination with data schemas
-* Reexport => Pull request
+* All titles are UUIDs to make same global unique and stable + to allow changing the labels easily
+** Requires custom search interface (based on Skin:Citizen)
+** Requires replacements for some VE tools (Links, Media, Gallery)
+* Additional tools to place custom and inline editable content
+* Categories become nestable dataschemas (accessable for third-party tools) and render templates for their instances (also supporting metaschemas)
+* All structured data lives in the jsondata slot, templates are only used for rendering
+* All semantic annotations are done per json-ld context, which can be processed by many third-party tools without any SMW knowledge
 
-== Usecases ==
+==Link to Ontologies==
 
-* Ontologies Documentation, Visualization, Demonstration
-* Tool and Workflow Registry
-* Dataspace Catelogue
+* Ontology classes are just specific schemas / schemas represent "icons" of "real objects"
+*Automatic import via python (see: [https://github.com/OpenSemanticLab/osw-python/blob/main/examples/ontology_import.py Python Examples])
+*Combination with data schemas, e. g. to populate autocomplete fields
+*''Not just a static documentation'': Planned community interaction features 
+**Comments => Github Issues,
+**Edits => Re-export => Github Pull request
+
+<!-- == Link to Ontologies: Dual hierarchy ==
+
+{{#mermaid:
+classDiagram
+
+    class Schema_Entity {
+        String uuid
+    }
+    class Schema_Class {
+    }
+
+    Schema_Class <-- Schema_Entity: type
+    Schema_Entity <-- Class_Entity: schema
+
+    class Schema_OntologyTerm{
+    }
+    Schema_Class <|-- Schema_OntologyTerm : allOf
+    Schema_OntologyTerm <-- Class_OwlThing : schema
+
+
+    Class_OwlThing <|-- Class_Entity: subclassOf
+
+    class Schema_Item {
+        String type
+        subclassOf Class_Item category
+    }
+
+    class Class_Entity {
+        Schema_Entity schema
+    }
+    Schema_Entity <|-- Schema_Item : allOf
+    Schema_Item <-- Class_Item: schema
+    Class_Entity <|-- Class_Item: subclassOf
+
+    class Schema_Physical {
+        String location
+    }
+    Schema_Item <|-- Schema_Physical : allOf
+
+    Class_Item <|-- Class_Device : subclassOf
+    Schema_DeviceClass <-- Class_Device : schema
+
+    class Schema_DeviceClass {
+        String manufacturer
+        subclassOf Class_Device category
+    }
+    Schema_Item <|-- Schema_DeviceClass : allOf
+  |
+  config.theme = neutral
+}}  -->
+
+<!-- == Link to Ontologies: Example ==
+{{#mermaid:
+classDiagram
+    class Schema_Physical {
+        String location
+    }
+    Schema_Item <|-- Schema_Physical : allOf
+
+    Class_Item <|-- Class_Device : subclassOf
+    Class_Device <|-- Class_MeasurementDevice : subclassOf
+    Schema_DeviceClass <-- Class_Device : schema
+
+    class Schema_DeviceClass {
+        String manufacturer
+        subclassOf Class_Device category
+    }
+    Schema_Item <|-- Schema_DeviceClass : allOf
+
+    class Instance_DeviceType1 {
+        manufacturer: CompanyABC
+        category: Class_MeasurementDevice
+    }
+    Schema_Item <|-- Instance_DeviceType1 : type
+    Schema_DeviceClass <-- Instance_DeviceType1 : type
+
+    class Schema_DeviceInstance {
+        Schema_DeviceClass device_type
+        String location
+    }
+    Schema_Physical <|-- Schema_DeviceInstance : allOf
+    Schema_DeviceClass o-- Schema_DeviceInstance : device_type
+
+    class Instance_MyDevice {
+        device_type: Instance_DeviceType1
+        location: somewhere
+    }
+    Schema_DeviceInstance <-- Instance_MyDevice : type
+    Instance_DeviceType1 o-- Instance_MyDevice : device_type
+  |
+  config.theme = neutral
+}}
+ -->
+==Usecases and Applications==
+
+*Schema / Dataspace Catalogue
+*Ontologies Documentation, Visualization, Demonstration (s. a. [https://onto-wiki.eu/wiki/Main_Page Onto-Wiki])
+*Driver (=> CAMELS) , Tool and Workflow Registry ([https://demo.open-semantic-lab.org/wiki/Item:OSWd94b2ac3a2194dab8f9873d495752a24 Early Demo])
+*Easy access to data science workflows: [https://onterface.open-semantic-lab.org/wiki/ Onterface]
+*LIMS, ELN ([https://demo.open-semantic-lab.org Demo]), etc. in connection with ELN Standard Format, NOMAD, etc.
+*... whatever you want it to be

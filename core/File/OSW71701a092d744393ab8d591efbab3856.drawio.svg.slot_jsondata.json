@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "71701a09-2d74-4393-ab8d-591efbab3856",
+    "label": [
+        {
+            "text": "OSW Python Package core concepts",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSW659a81662ff44af1b2b6febeee7c3a25"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSW659a81662ff44af1b2b6febeee7c3a25"
+    ],
+    "name": "OswPythonPackageCoreConcepts"
+}

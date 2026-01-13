@@ -5,6 +5,10 @@
     "uuid": "61f1999e-e6d1-45c9-b76f-b55d02578ce5",
     "label": [
         {
+            "text": "diagram-classvars",
+            "lang": "en"
+        },
+        {
             "text": "Diagram classvars",
             "lang": "en"
         }
@@ -14,6 +18,7 @@
         "User:Matthias Popp"
     ],
     "editing_context": [
+        "Item:OSW8c854b4e826344ff9a7390f4cf612f0e",
         "Item:OSWab674d663a5b472f838d8e1eb43e6784"
     ],
     "creator": [

@@ -1,0 +1,22 @@
+{
+    "type": [
+        "Category:OSW92cc6b1a2e6b4bb7bad470dfdcfdaf26"
+    ],
+    "author": [],
+    "uuid": "8a9c73cb-a7c6-4234-bda7-1e1b682a641c",
+    "label": [
+        {
+            "text": "OpenSemanticLab for end users",
+            "lang": "en"
+        },
+        {
+            "text": "OpenSemanticLab for end users",
+            "lang": "de"
+        }
+    ],
+    "description": [],
+    "part_of": [
+        "Item:OSW3ab37481111645a0bb8d3348d57d462a"
+    ],
+    "name": "OpensemanticlabForEndUsers"
+}

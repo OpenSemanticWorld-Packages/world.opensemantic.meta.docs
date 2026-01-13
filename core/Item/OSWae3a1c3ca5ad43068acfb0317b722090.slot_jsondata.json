@@ -1,0 +1,63 @@
+{
+    "type": [
+        "Category:OSW31a9c96c1f444f84b944d49afbce409b"
+    ],
+    "uuid": "ae3a1c3c-a5ad-4306-8acf-b0317b722090",
+    "name": "WorldOpensemanticMetaDocsCore",
+    "label": [
+        {
+            "text": "world.opensemantic.meta.docs.core",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Provides core documentation of OpenSemanticWorld / -Lab",
+            "lang": "en"
+        }
+    ],
+    "meta": {
+        "uuid": "6e7ef5f6-836a-473e-8801-aa5bbfd58e79",
+        "wiki_page": {
+            "title": "OSWae3a1c3ca5ad43068acfb0317b722090",
+            "namespace": "Item"
+        },
+        "change_id": [
+            "4ab0a426-c7f5-4de1-8735-a0060f1157af",
+            "6337c457-113f-473d-a7af-221e8e66ff14",
+            "b497d96f-f4a0-40a4-9593-8fa8684dd569",
+            "ca6c317b-f30a-48ee-a188-1b02a19e446e",
+            "ec968402-b171-4d24-b740-2c5de3a94c39",
+            "fa3bfbf6-1445-499b-9ac1-f18eb9a63d69",
+            "79d10857-652d-4581-97d7-f36d67bbd944"
+        ]
+    },
+    "global_id": "world.opensemantic.meta.docs.core",
+    "version": "0.8.0",
+    "url": [
+        "https://github.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs"
+    ],
+    "parts": [
+        "Item:OSWae3a1c3ca5ad43068acfb0317b722090",
+        "Item:OSW3ab37481111645a0bb8d3348d57d462a",
+        "Item:OSW8a9c73cba7c64234bda71e1b682a641c",
+        "Item:OSWae8546dad40e487fa837db9c5ab07a5f",
+        "Item:OSWe0cbdc9c1e0e4a53b21bd83e6c6d99ad",
+        "Item:OSW70b4d6464c1d44a887eb86e3b39b8751",
+        "Item:OSWf1df064239044b8fa3c968339fb93344",
+        "Item:OSWf4a9514baed04859a4c6c374a7312f10",
+        "Item:OSW911488771ea449a6a34051f8213d7f2f",
+        "Item:OSWee501c0fa6a9407d99c058b5ff9d55b4",
+        "Item:OSW6df03625b42e4b44bd9f2dfa77387887",
+        "Item:OSW18201c9a18f64574a12d97efdeb2f953",
+        "Item:OSW7d3292e5104f45b1be4fc23901fae4fa",
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc",
+        "Item:OSW7113f5cf921a4c82ad1872afeff9d01d",
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784",
+        "Item:OSW659a81662ff44af1b2b6febeee7c3a25",
+        "Item:OSWc596ce27af054764ae9716748d01555e",
+        "Item:OSWdb485a954a88465287b341d2897a84d6",
+        "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc",
+        "Item:OSW92619b0700984fe7913e5fbbd7f194dc"
+    ]
+}

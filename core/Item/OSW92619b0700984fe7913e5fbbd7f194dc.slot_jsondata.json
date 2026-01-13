@@ -1,0 +1,32 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "92619b07-0098-4fe7-913e-5fbbd7f194dc",
+    "name": "OswSpecialEditors",
+    "label": [
+        {
+            "text": "OSW Special Editors and Viewer",
+            "lang": "en"
+        },
+        {
+            "text": "OSW Spezial-Editoren und -Ansichten",
+            "lang": "de"
+        }
+    ],
+    "description": [
+        {
+            "text": "Shows additional multi-media-editors",
+            "lang": "en"
+        },
+        {
+            "text": "Zeigt zusätzliche Multimedia-Editoren",
+            "lang": "de"
+        }
+    ],
+    "attachments": [
+        "File:OSW0e08c0030bda4f799de12c1d7fde4ac4.png",
+        "File:OSW975e6d5e63fc45f998d6b75c0f0fa0ae.png",
+        "File:OSW5d3b1db1160a41178c66d47140da3ebd.png"
+    ]
+}

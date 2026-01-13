@@ -62,7 +62,14 @@ JSON-LD allows the definition of prefixes
 == JSON-LD: Mapping (3) - Remote context==
 JSON-LD allows the import of context(s) from other JSON documents
 * Prefixes and mappings can be moved to a remote context 
-<syntaxhighlight lang="json-ld">
+<nowiki>http://myschema.org/allmyquantitites.jsonld</nowiki><syntaxhighlight lang="json-ld">
+{
+    "@context": {
+        "qudt": "http://qudt.org/vocab/quantitykind/",
+        "cap": "qudt:Capacitance",        
+    }
+}
+</syntaxhighlight><syntaxhighlight lang="json-ld">
 {
     "@context": [
         "http://myschema.org/allmyquantitites.jsonld"
@@ -73,9 +80,44 @@ JSON-LD allows the import of context(s) from other JSON documents
     "cap": 1.0,
     "current": 10.0 
 }
-</syntaxhighlight><div></div>
+</syntaxhighlight>
 
-== JSON-LD: Mapping (3) - Nested context==
+== JSON-LD: Mapping (4) - Full example ==
+Actually this example was oversimplified. A full semantic representation would be
+
+<nowiki>http://myschema.org/allmyquantitites.jsonld</nowiki><syntaxhighlight lang="json-ld">
+{
+    "@context": {
+        "qudt": "http://qudt.org/schema/qudt/",
+        "qunit": "http://qudt.org/vocab/unit/",
+        "qkind": "http://qudt.org/vocab/quantkind/",
+        "unit": {
+          "@id": "qudt:hasUnit",
+          "@type": "@id"
+        },
+        "value": "qudt:value"   
+    }
+}
+</syntaxhighlight><syntaxhighlight lang="json-ld">
+{
+  "@context": "http://myschema.org/allmyquantitites.jsonld",
+  "value": 4.0,
+  "unit": "qunit:CentiM"
+}
+</syntaxhighlight>which would translate to <code><pint.Quantity(4.0, 'centimeter')></code> in python, see [https://github.com/hampusnasstrom/ontopint]<div>
+== JSON-LD: Advanced concepts==
+There are many more feature of JSON-LD - see specification [https://www.w3.org/TR/json-ld/]
+
+* Property types, object properties
+* Reverse Properties
+* Arrays and containers
+* Multi-language strings
+* Framing
+* ...
+
+In general JSON-LD is not only about annotation but also transformation and normalization
+
+== JSON-LD: Scopes ==
 A property / the related subobject can have it's own context. The global context is inherited. [https://json-ld.org/playground/#startTab=tab-expanded&json-ld=%7B%22%40context%22%3A%7B%22test%22%3A%22http%3A%2F%2Ftest.org%2F%22%2C%22id%22%3A%22test%3AHasId%22%2C%22name%22%3A%22test%3AHasName%22%2C%22subobject%22%3A%7B%22%40id%22%3A%22test%3AHasSubobject%22%2C%22%40context%22%3A%7B%22id%22%3A%22test%3AHasSubId%22%7D%7D%7D%2C%22name%22%3A%22Test%201%22%2C%22id%22%3A%221%22%2C%22subobject%22%3A%7B%22name%22%3A%22Test%201.1%22%2C%22id%22%3A%221.1%22%7D%7D&context=%7B%7D Playground]
 <syntaxhighlight lang="json-ld">
 {
@@ -98,6 +140,7 @@ A property / the related subobject can have it's own context. The global context
   }
 }
 </syntaxhighlight><div></div>
+</div>
 
 ==JSON-LD: Flatten a hierarchy==
 [https://json-ld.org/playground/#startTab=tab-flattened&json-ld=%7B%22%40context%22%3A%7B%22%40version%22%3A1.1%2C%22%40vocab%22%3A%22http%3A%2F%2Fexample.org%2F%22%2C%22id%22%3A%22%40id%22%7D%2C%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FSM1%22%2C%22%40type%22%3A%22Model%22%2C%22contains%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FSM2%22%2C%22%40type%22%3A%22Submodel%22%2C%22contains%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FSM3%22%2C%22%40type%22%3A%22Submodel%22%2C%22contains%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FSM4%22%2C%22%40type%22%3A%22Submodel%22%2C%22hasParameter%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FP2%22%2C%22%40type%22%3A%22Parameter%22%2C%22title%22%3A%22P2%22%2C%22value%22%3A2%7D%2C%22title%22%3A%22Submodel%204%22%7D%2C%22hasParameter%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FP3%22%2C%22%40type%22%3A%22Parameter%22%2C%22title%22%3A%22P3%22%2C%22value%22%3A3%7D%2C%22title%22%3A%22Submodel%203%22%7D%2C%22hasParameter%22%3Anull%2C%22title%22%3A%22Submodel%202%22%7D%2C%22hasParameter%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FP1%22%2C%22%40type%22%3A%22Parameter%22%2C%22title%22%3A%22P1%22%2C%22value%22%3A1%7D%7D&frame=%7B%7D&context=%7B%7D Playground]<div style=" column-count: 3;">

@@ -125,7 +125,7 @@ How to define a JSON-SCHEMA?
 
 ==JSON-SCHEMA: Reference==
 How to define a JSON-SCHEMA?
-*We want to levearge the power of typing and validation
+*We want to leverage the power of typing and validation
 *Therefore, our defined key(word):value pairs need to become JSON objects, specifying a type!
 *JSON (object) properties posses a keyword, which is used for reference
 <syntaxhighlight lang="json">
@@ -571,6 +571,50 @@ Some JSON-SCHEMA go-to patterns
     ]
 }
 </syntaxhighlight>
+</div>
+
+==JSON-SCHEMA: References and Pointers ==
+JSON Pointers and References can be used to reuse schema definitions [https://json-schema.org/understanding-json-schema/structuring]
+<div style="column-count: 3;">
+<div style="break-inside: avoid;"> MyCommonSchema.json
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "properties": {
+        "text": { "type": "string" },
+        "number": { "type": "number" },
+        "array": { "type": "array" }
+    }
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> MySchema.json
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "allOf": {"$ref": "MyCommonSchema.json"},
+    "$defs": {
+        "name": { "type": "string" }
+    },
+    "properties": {
+        "my_property": { "$ref": "#/$defs/name" }
+    }
+}
+</syntaxhighlight>
+</div>
+<div style="break-inside: avoid;"> Result
+<syntaxhighlight lang="json">
+{
+    "type": "object",
+    "properties": {
+        "text": { "type": "string" },
+        "number": { "type": "number" },
+        "array": { "type": "array" },
+        "my_property": { "type": "string" }
+    }
+}
+</syntaxhighlight>
+</div>
 </div>
 
 ==JSON Documents: Next==

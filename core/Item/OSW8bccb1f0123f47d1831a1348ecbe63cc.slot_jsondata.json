@@ -9,6 +9,12 @@
             "lang": "en"
         }
     ],
+    "description": [
+        {
+            "text": "Onboarding tutorial and user guide",
+            "lang": "en"
+        }
+    ],
     "name": "AboutThisPlatform",
     "attachments": [
         "File:OSW32477b21abef40f483084e46e2430624.png",
@@ -35,5 +41,8 @@
     ],
     "required_predecessor": [],
     "optional_predecessor": [],
-    "recommended_successor": []
+    "recommended_successor": [],
+    "part_of": [
+        "Item:OSW8a9c73cba7c64234bda71e1b682a641c"
+    ]
 }

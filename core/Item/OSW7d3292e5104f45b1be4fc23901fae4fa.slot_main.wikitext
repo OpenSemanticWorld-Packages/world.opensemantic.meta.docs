@@ -422,5 +422,9 @@
 </div>
 </div>
 
-== Data Tables Schema ==
-http://dataprotocols.org/json-table-schema/
+== Data Tables Schema and Tools ==
+
+* http://dataprotocols.org/json-table-schema/
+* [https://rml.io/yarrrml/https://www.w3.org/TR/csv2json/#examples Generating JSON from Tabular Data on the Web (w3.org)]
+* [https://rml.io/yarrrml/ YARRRML]
+* [https://github.com/Mat-O-Lab/CSVToCSVW Mat-O-Lab/CSVToCSVW: Generates JSON-LD for various types CSVs (github.com)]

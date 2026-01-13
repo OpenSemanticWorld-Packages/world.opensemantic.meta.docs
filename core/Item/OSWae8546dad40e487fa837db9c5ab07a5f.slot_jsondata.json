@@ -1,0 +1,31 @@
+{
+    "type": [
+        "Category:OSW92cc6b1a2e6b4bb7bad470dfdcfdaf26"
+    ],
+    "author": [],
+    "uuid": "ae8546da-d40e-487f-a837-db9c5ab07a5f",
+    "label": [
+        {
+            "text": "OpenSemanticLab for advanced users",
+            "lang": "en"
+        },
+        {
+            "text": "OpenSemanticLab für fortgeschrittene Nutzer",
+            "lang": "de"
+        }
+    ],
+    "description": [
+        {
+            "text": "Shows how to define own categories and schemas",
+            "lang": "en"
+        },
+        {
+            "text": "Shows how to define own categories and schemas",
+            "lang": "de"
+        }
+    ],
+    "part_of": [
+        "Item:OSW3ab37481111645a0bb8d3348d57d462a"
+    ],
+    "name": "OpensemanticlabForAdvancedUsers"
+}

@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "c4171917-ea09-4d98-823a-6af8282a6d50",
+    "label": [
+        {
+            "text": "Semantic triple schematic",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Lukas Gold"
+    ],
+    "editing_context": [
+        "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc"
+    ],
+    "creator": [
+        "User:Lukas Gold"
+    ],
+    "creation_context": [
+        "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc"
+    ],
+    "name": "SemanticTripleSchematic"
+}

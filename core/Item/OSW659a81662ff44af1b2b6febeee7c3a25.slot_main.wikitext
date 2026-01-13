@@ -1,5 +1,31 @@
 ==Overview==
-{{Template:Editor/DrawIO|file_name=diagram-json|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=95a74be1-e22d-4b6e-9e4f-836127d5915a|full_width=0}}
+osw-python aims to simplify the application of linked data and linked data schemas stored in knowledge graphs in python{{Template:Editor/DrawIO|file_name=diagram-json|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=95a74be1-e22d-4b6e-9e4f-836127d5915a|full_width=0}}
+
+
+In a nutshell, it only requires a few lines to
+
+* build required data classes from the knowledge graph
+* load instances explicit or on demand from the knowledge graph
+* call function through bound controller classes
+* store created instances in the knowledge graph
+<syntaxhighlight lang="python" line="1">
+# illustrative example
+
+osw.load("<schema iri or query>")
+
+foo : model.Foo = osw.get("<instance iri or query>")
+
+print(foo.bar.id)
+
+baz = foo.cast(controller.Foo).calc()
+
+osw.put(baz)
+</syntaxhighlight>{{Template:Editor/DrawIO
+| file_name = OSW Python Package core concepts
+| page_name = Item:OSW659a81662ff44af1b2b6febeee7c3a25
+| uuid = 71701a09-2d74-4393-ab8d-591efbab3856
+| full_width = 0
+}}
 
 ==JSON-Schema and Data Classes==
 Codegeneration from <code>jsonschema</code> slots for Category pages with [https://github.com/OpenSemanticLab/osw-python osw-python] and [https://github.com/koxudaxi/datamodel-code-generator datamodel-code-generator]

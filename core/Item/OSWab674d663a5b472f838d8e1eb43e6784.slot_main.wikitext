@@ -154,7 +154,7 @@ Why are Categories (Classes) different from Items (Instances)?
 
 ===Meta-Schemas===
 [[:Category:Category]] ist the default Metacategory / -class for all categories / classes. Its slot schema_template contains a handlebars template that sets schema attributes like title, allOf, description, etc. from the user generated jsondata. Additional Metacategories can be created as subclasses of  [[:Category:Category]] to simplify the creation of complex schemas, e. g. [[:Category:OSWecff4345b4b049218f8d6628dc2f2f21]]. This feature is compareable to python metaclasses.
-{{Template:Editor/DrawIO|file_name=meta-schema|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=49d68bb7-a5de-413b-a107-7bc5f459a766|full_width=0|width=1200px}}Matecategories /-classes contain a handlebars template within the schema_template slot. The templated is evaluated with the jsondata-slot content to create / update the jsonschema-slot content of any derivated class on every edit.
+{{Template:Editor/DrawIO|file_name=meta-schema|page_name=Item:OSWab674d663a5b472f838d8e1eb43e6784|uuid=49d68bb7-a5de-413b-a107-7bc5f459a766|full_width=0|width=1200px}}Matecategories /-classes contain a handlebars template within the schema_template slot. The templated is evaluated with the jsondata-slot content to create / update the jsonschema-slot content of any derivated class on every edit. [[#Handlebars_Template_Helper]] and [[#Special_Template_Variables]] apply here. 
 
 
 ===Json-Schema===
@@ -193,6 +193,9 @@ keywords <code>title</code> and <code>description</code> can be extended with ad
     "title*": {"en": "Title (en)", "de": "Titel (de)"}
 }
 </syntaxhighlight>
+
+===== Property Order =====
+Extending {{Template:Viewer/Link|page=|url=https://github.com/json-editor/json-editor?tab=readme-ov-file#property-ordering|label=json-editors definition}}, <code>propertyOrder</code> can be set to the render order of properties in the edit form. In general smaller values are on the top, larger values below. The value range <code>0 - 1000</code> is reserved for the local order of properties within the same schema. Values <code>< 0</code> will move the property globally on top, values <code>> 1000</code> globally to the bottom of the form. See also {{Template:Viewer/Link|page=|url=https://github.com/OpenSemanticLab/mediawiki-extensions-MwJson/blob/e26c7fe62059fbd68c974c57cdb2e988e84de380/modules/ext.MwJson.util/MwJson_schema.js#L276|label=implementation}}.
 
 =====Handlebars Template Helper =====
 Whenever templates are supported, the following custom handlebars helpers are supported as well:
@@ -321,14 +324,17 @@ b={{#calc 3 '*'}}2{{/calc}}
 |iso-format
 |}
 
-Note on helper and param naming collision: When a helper has the same name as a key in the json params, the helper is prioritized.However, you can use <code>this.<param></code> to enforce the param over the helper.
+'''Note on helper and param naming collision''': When a helper has the same name as a key in the json params, the helper is prioritized. However, you can use <code>this.<param></code> to enforce the param over the helper.{{Template:Viewer/Link|page=|url=https://handlebarsjs.com/guide/expressions.html#disambiguating-helpers-calls-and-property-lookup|label=}}
 
 Example: helper <code>'test'</code> returns <code>'helper'</code>, json data is <code>{"test": "param"}</code>.
 
 Template <code><nowiki>"{{test}} {{#test}}{{/test}} {{this.test}}"</nowiki></code> will be evaluated to <code>helper helper param</code>
 
+'''Note on escaping curly brackets''': You can escape single blocks, e.g. <code>\<nowiki>{{escaped}}</nowiki> \<nowiki>{{also_escaped}}</nowiki> <nowiki>{{not_escaped}}</nowiki></code> will be evaluated to <code><nowiki>{{escaped}}</nowiki> <nowiki>{{also_escaped}}</nowiki> some value...</code> .{{Template:Viewer/Link|page=|url=https://handlebarsjs.com/guide/expressions.html#escaping-handlebars-expressions|label=}}
+
 =====Special Template Variables=====
-Available in format: dynamic_template
+
+====== Available in format: dynamic_template ======
 {| class="wikitable"
 |+
 !Variable
@@ -369,6 +375,59 @@ ID-{{{_global_index_}}}
 |Existing entries: "HasId::ID-0001", "HasId::ID-0002", "HasId::ID-0003"
 Template resolves to "ID-0004"
 |
+|}
+
+====== Available in slot schema_template: ======
+{| class="wikitable"
+!Variable
+!Description
+!Example
+!Example result
+!Note
+|-
+|_page_title
+| The title / OSW-ID of the current page / entry
+|<syntaxhighlight lang="handlebars">
+{{{_page_title}}}
+</syntaxhighlight>
+|Category:Entity
+|deprecated, use <code>_current_subject_</code> 
+|-
+|_current_subject_ 
+|The title / OSW-ID of the current page / entry
+|<syntaxhighlight lang="handlebars">
+{{{_current_subject_}}}
+</syntaxhighlight>
+|Category:Entity
+|replaces <code>_page_title</code>
+|-
+|self
+|The template itself as partial
+|<syntaxhighlight lang="json">
+{
+    "name": "Object",
+    "subobjects": [{
+        "name": "Subobject",
+        "subobjects": [{
+            "name": "Subsubobject",
+            "subobjects": "..."
+        }]
+    }]
+}
+</syntaxhighlight><syntaxhighlight lang="handlebars">
+name: {{name}}
+{{#each subobject}}
+  {{> self}}
+{{/each}}
+
+</syntaxhighlight>
+|<syntaxhighlight lang="text">
+name: Object
+  name: Subobject
+   name: Subsubobject
+    ...
+</syntaxhighlight>
+|allows recursive templates, see also https://handlebarsjs.com/guide/partials.html
 |}
 
 =====Additional  keywords=====
@@ -651,7 +710,7 @@ Additional options ($properties.<property>.options.*)
 |template
 |template string
 |"{{{result.printouts.label.[0]}}}"
-|handlebars template applied on the json-object retrieved from the source path of the query result
+|optional handlebars template applied on the json-object retrieved from the source path of the query result
 |
 |-
 |
@@ -659,7 +718,7 @@ Additional options ($properties.<property>.options.*)
 |target_path
 |<jsonpath>
 |"$(unit_symbol)"
-|jsonpath of the target field / editor. You can use jsoneditors watch variables (recommended) to auto-generate to expression
+|jsonpath of the target field in the editor. You can use jsoneditors watch variables (recommended) to auto-generate the expression
 |
 |-
 |dynamic_template
@@ -737,6 +796,98 @@ Default setting (planned, see also [[Zentrales Wiki/Schema#Object Properties and
             "category":"Category:X"
         }
     }
+}
+</syntaxhighlight>
+
+===== Reverse properties =====
+There are many cases were relation are summetric, e.g. Organization employees Person <=> Person worksFor Organization.
+
+However, usually we do not want to store this information in different schemas but allow users to edit it from both sides.
+
+For this usecase the additional keywords <code>x-oold-reverse-properties</code>, <code>x-oold-reverse-default-properties</code> and <code>x-oold-reverse-required</code> are introduced
+
+To make <code>employees</code> the reverse property of <code>organization</code> we have to
+
+* define <code>employees</code> in the schema section   <code>x-oold-reverse-properties</code> of Organization
+* define <code>works_for</code> in the schema section   <code>x-oold-reverse-properties</code> of Person
+* map <code>employees</code> to a semantic property, e.g. <code>Property:worksFor</code> in the <code>@context</code> of Person
+* map <code>employees</code> with <code>@reverse</code> in the <code>@context</code> of Organization to the same property, compliant to {{Template:Viewer/Link|page=|url=https://www.w3.org/TR/json-ld11/#reverse-properties|label=JSON-LD @reverse}}
+
+When loading the editor for an Organization, the editor will now prepopulate the field <code>employees</code> by executing the query "Which persons work for this organization"?
+
+When storing an Organization, the editor will also load the Persons referenced in <code>employees</code>and stores the current Organization in their <code>organization</code> field, following the <code>@context</code> mappings of both schemas. 
+
+Deleting a Person in <code>employees</code> will also delete the Organization from the corresponding field.
+
+====== Example ======
+Category:Organization<syntaxhighlight lang="json">
+{
+  "@context": [
+    {
+      "employees": {
+        "@reverse": "Property:WorksFor",
+        "@type": "@id"
+      }
+    }
+  ],
+  "title": "OrganizationalUnit",
+  "uuid": "3cb8cef2-225e-4030-92f0-98f99bc4c472",
+  "id": "OSW3cb8cef2225e403092f098f99bc4c472",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "...": {}
+  },
+  "x-oold-reverse-required": [],
+  "x-oold-reverse-defaultProperties": [
+    "employees"
+  ],
+  "x-oold-reverse-properties": {
+    "employees": {
+      "type": "array",
+      "title": "Employees",
+      "items": {
+        "type": "string",
+        "format": "autocomplete",
+        "title": "Person",
+        "$comment": "range is Person",
+        "range": "Category:OSW44deaa5b806d41a2a88594f562b110e9"
+      }
+    }
+  }
+}
+</syntaxhighlight>Category:Person<syntaxhighlight lang="json">
+{
+  "@context": [
+    {
+      "organization": {
+        "@id": "Property:WorksFor",
+        "@type": "@id"
+      }
+    }
+  ],
+  "title": "Person",
+  "type": "object",
+  "uuid": "44deaa5b-806d-41a2-a885-94f562b110e9",
+  "defaultProperties": [
+    "organization"
+  ],
+  "properties": {
+    "organization": {
+      "title": "Organization",
+      "description": "Organization(s) the person is affiliated with. E.g., university, research institute, company, etc.",
+      "type": "array",
+      "format": "table",
+      "items": {
+        "type": "string",
+        "title": "Organization",
+        "format": "autocomplete",
+        "range": "Category:OSW3cb8cef2225e403092f098f99bc4c472"
+      }
+    }
+  }
 }
 </syntaxhighlight>
 
@@ -1012,7 +1163,7 @@ As a workaround, an additional context notation is provided: <property>* pointin
 Properties default to data / annotation properties (value is a literal). Object properties (value is an identifier/reference to another object) can by defined by adding <code>"@type": "@id"</code>.
 
 =====Subobjects=====
-If the value of a mapped property is an object (after expanding all eval_templates), it will get stored as a [https://www.semantic-mediawiki.org/wiki/Subobject smw subobject] with an id derivated from the field <code>uuid</code>, a display title from <code>label</code> and a category from <code>type</code> (if provided). Subobjects also support JSON-LD <code>@reverse</code> notation, allowing to store properties pointing from the subobject to the superordinated or root object.
+If the value of a mapped property is an object (after expanding all eval_templates), it will get stored as a [https://www.semantic-mediawiki.org/wiki/Subobject smw subobject] with an id derivated from the field <code>uuid</code>, a display title from mapped <code>Property:HasLabel</code>, <code>Property:HasName</code> or <code>Property:Display title</code> of (fallback values of keywords<code>label</code> or <code>name</code> or the schema <code>title</code> of the property pointing to the object) and a category from <code>type</code> (if provided). Subobjects also support JSON-LD <code>@reverse</code> notation, allowing to store properties pointing from the subobject to the superordinated or root object.
 
 Example: can be selected with <nowiki>[[MyObjectProperty.MyProperty::myvalue]]</nowiki><syntaxhighlight lang="json">
 {
@@ -1028,7 +1179,7 @@ Example: can be selected with <nowiki>[[MyObjectProperty.MyProperty::myvalue]]</
     ],
   	"myObjectProperty": {
   	    "uuid": "2ea5b605-c91f-4e5a-9559-3dff79fdd4a5",
-  	    "label": "MySubobject",
+  	    "name": "MySubobject",
   	    "myproperty": "myvalue"
   	}
 }
@@ -1055,6 +1206,62 @@ i18n language keys can be embedded in to an label object to create a language ta
 ====Ontology term import/export====
 Existing ontology terms can be imported/exported via json-ld directly or ttl by defining the corresponding context, e. g. for EMMO-Terms: [https://json-ld.org/playground/#startTab=tab-table&json-ld=%7B%22%40context%22%3A%7B%22owl%22%3A%22http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%22%2C%22rdf%22%3A%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%2C%22rdfs%22%3A%22http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%22%2C%22xsd%22%3A%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%22%2C%22skos%22%3A%22http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%22%2C%22dc%22%3A%22http%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%22%2C%22uri%22%3A%7B%22%40id%22%3A%22%40id%22%7D%2C%22rdf_type%22%3A%7B%22%40id%22%3A%22%40type%22%7D%2C%22label%22%3A%7B%22%40id%22%3A%22skos%3AprefLabel%22%7D%2C%22altLabel%22%3A%7B%22%40id%22%3A%22skos%3AaltLabel%22%7D%2C%22text%22%3A%7B%22%40id%22%3A%22%40value%22%7D%2C%22lang%22%3A%7B%22%40id%22%3A%22%40language%22%7D%2C%22subClassOf%22%3A%7B%22%40id%22%3A%22rdfs%3AsubClassOf%22%2C%22%40type%22%3A%22%40id%22%7D%2C%22source%22%3A%22dc%3Asource%22%2C%22disjointUnionOf%22%3A%22owl%3AdisjointUnionOf%22%2C%22disjointWith%22%3A%22owl%3AdisjointWith%22%2C%22equivalentClass%22%3A%22owl%3AequivalentClass%22%2C%22unionOf%22%3A%7B%22%40id%22%3A%22owl%3AunionOf%22%2C%22%40container%22%3A%22%40list%22%2C%22%40type%22%3A%22%40id%22%7D%2C%22comment%22%3A%22rdfs%3Acomment%22%2C%22isDefinedBy%22%3A%22rdfs%3AisDefinedBy%22%2C%22seeAlso%22%3A%22rdfs%3AseeAlso%22%2C%22qudtReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc%22%2C%22omReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_209ba1b3_149f_4ff0_b672_941610eafd72%22%2C%22wikidataReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54%22%2C%22ISO9000Reference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_3aa37f92_8dc5_4ee4_8438_e41e6ae20c62%22%2C%22IEVReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f%22%2C%22dbpediaReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25%22%2C%22etymology%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_705f27ae_954c_4f13_98aa_18473fc52b25%22%2C%22definition%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84%22%2C%22ISO80000Reference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578%22%2C%22ISO14040Reference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_964568dd_64d2_454b_a12f_ac389f1c5e7f%22%2C%22elucidation%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9%22%2C%22example%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a%22%2C%22VIMTerm%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6%22%2C%22emmo_comment%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f%22%2C%22wikipediaReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d%22%2C%22iupacReference%22%3A%22http%3A%2F%2Femmo.info%2Femmo%23EMMO_fe015383_afb3_44a6_ae86_043628697aa2%22%2C%22Item%22%3A%22https%3A%2F%2Fwiki-dev.open-semantic-lab.org%2Fwiki%22%2C%22uuid%22%3A%22wiki%3AHasUuid%22%2C%22name%22%3A%22wiki%3AHasName%22%7D%2C%22type%22%3A%5B%22Category%3AOSW57beed5e1294434ba77bb6516e461456%22%5D%2C%22uuid%22%3A%22ba3f3fd5-bf6d-4aea-9563-a2c7b88b2e6b%22%2C%22label%22%3A%5B%7B%22text%22%3A%22Net%20Faradaic%20Current%22%2C%22lang%22%3A%22en%22%7D%5D%2C%22name%22%3A%22NetFaradaicCurrent%22%2C%22%40id%22%3A%22http%3A%2F%2Femmo.info%2Felectrochemistry%23electrochemistry_14577b99_a8a9_4358_9bc5_ab8c401dd34b%22%2C%22%40type%22%3A%22owl%3AClass%22%2C%22elucidation%22%3A%7B%22lang%22%3A%22en%22%2C%22text%22%3A%22Algebraic%20sum%20of%20faradaic%20currents%20flowing%20through%20an%20electrode.%22%7D%2C%22comment%22%3A%7B%22lang%22%3A%22en%22%2C%22text%22%3A%22I%22%7D%2C%22subClassOf%22%3A%5B%22http%3A%2F%2Femmo.info%2Felectrochemistry%23electrochemistry_2a2f59b7_aa16_40aa_9c8b_0de8a2720456%22%5D%2C%22prefLabel%22%3A%7B%22lang%22%3A%22en%22%2C%22text%22%3A%22NetFaradaicCurrent%22%7D%7D]
 
+====Matching external vocabularies and ontologies====
+As explained above, JSON-LD's <code>@context</code> allows to map properties to external vocabularies and ontologies. 
+
+In order to map classes and instances, additional annotation properties are provided: 
+
+* <code>rdf_type</code> - stating this entity is instance of an additional rdf class, see also https://schema.org/additionalType
+
+*<code>exact_ontology_match</code> - stating an exact match, expressed by mapping to <code>owl:sameAs | owl:equivalentClass | owl:equivalentProperty</code> (see below) and <code>skos:exactMatch</code> externally, as well as internally to <code>Property:Equivalent_URI</code> and <code>Property:HasExactOntologyMatch</code>
+*<code>close_ontology_match</code> - stating a close exact match, expressed by mapping to <code>skos:closeMatch</code> externally, as well as internally to <code>Property:Equivalent_URI</code> and <code>Property:HasCloseOntologyMatch</code>
+
+This properties were originally available via a Characteristic type, called {{Template:Viewer/Link|page=Category:OSW6ef70c808fb54abbbacb059c285713d4|url=|label=Ontology related}}, that can be mixed in by inheritance via an <code>allOf</code> in the respective schema. However, they are now integrated in the common <code>Category:Entity</code> for general availability.
+
+=====rdf_type - Asserting additional types on instances =====
+
+
+<code>rdf_type</code> has direct implication on the type system. The value must be a full IRI, e.g. https://schema.org/Person. Defined in Category:Entity it states additional RDF types for an Entity, which are directly applied. 
+
+<code>rdf_type</code> is mapped to <code>rdfs:type</code>, implying that an Item has additional RDF types, as stated by the JSON data on this property. A JSON-LD export of the JSON-data of this "Item" will contain a respective <code>@type</code> entry.
+
+=====Ontology annotation - annotating conceptual proximity of an instance or class=====
+To provide an annotation, e.g. to state that an Entity (Item or Category) matches a concept within an external ontology (closely), we have two properties <code>exact_ontology_match</code> and <code>close_ontology_match</code>. 
+
+The value must be a full IRI, e.g. https://schema.org/Person
+
+While the meaning of <code>close_ontology_match</code> is constantly defined as stated above,  the <code>@context</code> mapping of <code>exact_ontology_match</code> differs depending on the inheriting Category (Class) Schema:
+
+'''Category:Entity'''
+
+Abstract definition of the property. 
+
+'''Category:Item'''
+
+Definition of the property for instances of the class (category) or its subclasses = Entities within the <code>Item</code> namespace. 
+
+<code>exact_ontology_match</code>  is here mapped to <code>owl:sameAs</code>, implying that an Item has the same meaning as an external concept.
+
+'''Category:Category (Class)'''
+
+Definition of the property for instances of the class Category (Class) or its subclasses = Entities within the <code>Category</code> namespace, which themselves are categories.
+
+<code>exact_ontology_match</code> maps to <code>owl:equivalentClass</code>, thereby stating that this Category is a concept equivalent to a class defined in an external vocabulary. '''Note:''' Instances of this class or category will only contain the additional <code>@type</code> if additional reasoning was applied by the export algorithm.   
+
+'''Category:Property'''   
+
+Definition of the property for instances of the class Property or its subclasses = Entities within the <code>Property</code> namespace, which are Semantic MediaWiki properties.   
+
+<code>exact_ontology_match</code> maps to <code>owl:equivalentProperty</code>, implying that a Property is equivalent to a property in an external vocabulary, e.g. {{Template:Viewer/Link|page=|url=https://schema.org/address|label=https://schema.org/address}} which is an attribute of {{Template:Viewer/Link|page=|url=https://schema.org/Person|label=https://schema.org/Person}}.   
+
+=====Examples=====
+
+====== Asserting equivalent class ======
+The Category {{Template:Viewer/Link|page=Category:OSW44deaa5b806d41a2a88594f562b110e9|url=|label=}} has a property <code>exact_ontology_match</code> with value https://schema.org/Person  thereby stating that this concept is equivalent to the concept Person in schema.org.
+
+====== Annotating equivalent instance ======
+The instance of {{Template:Viewer/Link|page=Category:OSWd2520fa016844e01af0097a85bb25b25|url=|label=Quantity Unit}} "kilo gram" can state that it is equivalent to {{Template:Viewer/Link|page=|url=https://qudt.org/vocab/unit/KiloGM|label=https://qudt.org/vocab/unit/KiloGM}}.
+
 ===Recursive Parsing===
 
 ====Module:Category====
@@ -1063,7 +1270,7 @@ Existing ontology terms can be imported/exported via json-ld directly or ttl by 
 #<s>Synchonize Category:<UUID>@jsondata.subclass_of with Category:<UUID>@jsonschema.allOf</s>
 #<s>Expand Category:Category@header_template with jsondata parameters</s>
 #<s>Render Category:<UUID>@main</s>
-# <s>Expand Category:Category@footer_template with jsondata parameters</s>
+#<s>Expand Category:Category@footer_template with jsondata parameters</s>
 
 ====Module:Entity====
 Called from item@template, item = Item:<UUID>

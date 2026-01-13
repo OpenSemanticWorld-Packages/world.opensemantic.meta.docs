@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "a81f4a8b-552e-4057-8887-96a9a496dad3",
+    "label": [
+        {
+            "text": "process_schema_annotated.png",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Admin"
+    ],
+    "editing_context": [
+        "Item:OSWdb485a954a88465287b341d2897a84d6"
+    ],
+    "creator": [
+        "User:Admin"
+    ],
+    "creation_context": [
+        "Item:OSWdb485a954a88465287b341d2897a84d6"
+    ],
+    "name": "ProcessSchemaAnnotatedPng"
+}

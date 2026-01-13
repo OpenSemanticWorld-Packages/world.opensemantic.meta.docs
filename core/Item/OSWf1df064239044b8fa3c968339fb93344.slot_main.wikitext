@@ -77,7 +77,7 @@ What is a JSON?
 }
 </syntaxhighlight>
 
-==JSON Documents: Pointer (1)==
+==JSON Documents: Pointer==
 
 Pointer allow reference to
 *An object within the JSON document
@@ -99,10 +99,10 @@ Syntax [https://www.rfc-editor.org/rfc/rfc6901]:
 <nowiki>#</nowiki>/kids   - the value of the key "kids"
 
 <nowiki>#</nowiki>/kids/0 - the first item within the array "kids"
-==JSON Documents: Pointer (2)==
-Pointer allow reference to
-*An object within the JSON document
+==JSON Documents: Reference==
+References allow reference to
 *An external JSON document
+*Combined with a pointer: An object within the external JSON document
 
 <syntaxhighlight lang="json">
 {
@@ -110,9 +110,74 @@ Pointer allow reference to
     "surname": "Birch",
     "partner": {
         "$ref": "http://www.personaldata.com/walter.birch.json"
+    },
+    "partner_firstname": {
+        "$ref": "http://www.personaldata.com/walter.birch.json#firstname"
     }
 }
+</syntaxhighlight>Specification: [http://jsonref.org/]
+
+==JSON Documents: Path==
+Paths allow query / filter values within a JSON document<syntaxhighlight lang="json">
+{
+  "store": {
+    "book": [
+      { "author": "Nigel Rees",
+        "title": "Sayings of the Century",
+        "price": 8.95
+      },
+      { "author": "J. R. R. Tolkien",
+        "title": "The Lord of the Rings",
+        "isbn": "0-395-19395-8",
+        "price": 22.99
+      }
+    ]
+  }
+}
 </syntaxhighlight>
+*$.store.book[*].price => [8.95, 22.99]
+*$.store.book[?(@.title == 'The Lord of the Rings')].price => 22.99
+Specification: [https://datatracker.ietf.org/doc/html/rfc9535]
+
+Conceptually also available as AWS S3 Select[https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-select-sql-reference-select.html] and Postgres JSONB [https://www.postgresql.org/docs/current/datatype-json.html#JSON-CONTAINMENT]
+
+== JSON vs. YAML ==
+YAML version 1.2 is a superset of JSON with a simplified syntax
+<div style=" column-count: 2;">
+<div>JSON (more machine-friendly)
+<syntaxhighlight lang="json">
+{
+  "store": {
+    "book": [
+      { "author": "Nigel Rees",
+        "title": "Sayings of the Century",
+        "price": 8.95
+      },
+      { "author": "J. R. R. Tolkien",
+        "title": "The Lord of the Rings",
+        "isbn": "0-395-19395-8",
+        "price": 22.99
+      }
+    ]
+  }
+}
+</syntaxhighlight>
+</div>
+<div>YAML (more human-friendly)
+<syntaxhighlight lang="yaml">
+# comments are allowed
+store:
+  book:
+  - author: Nigel Rees
+    title: Sayings of the Century
+    price: 8.95
+  - author: J. R. R. Tolkien
+    title: The Lord of the Rings
+    isbn: 0-395-19395-8 
+    price: 22.99
+</syntaxhighlight>
+</div>
+</div>
 
 ==JSON Documents: Next==
 

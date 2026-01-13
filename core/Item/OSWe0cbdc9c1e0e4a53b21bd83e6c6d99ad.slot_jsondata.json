@@ -1,0 +1,31 @@
+{
+    "type": [
+        "Category:OSW92cc6b1a2e6b4bb7bad470dfdcfdaf26"
+    ],
+    "author": [],
+    "uuid": "e0cbdc9c-1e0e-4a53-b21b-d83e6c6d99ad",
+    "label": [
+        {
+            "text": "OpenSemanticLab for developers",
+            "lang": "en"
+        },
+        {
+            "text": "OpenSemanticLab für Entwickler",
+            "lang": "de"
+        }
+    ],
+    "description": [
+        {
+            "text": "Documentation for deployment, programmatic access, bugfixing and feature development",
+            "lang": "en"
+        },
+        {
+            "text": "Documentation for deployment, programmatic access, bugfixing and feature development",
+            "lang": "de"
+        }
+    ],
+    "name": "OpensemanticlabForDevelopers",
+    "part_of": [
+        "Item:OSW3ab37481111645a0bb8d3348d57d462a"
+    ]
+}

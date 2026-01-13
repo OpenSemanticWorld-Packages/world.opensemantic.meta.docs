@@ -1,9 +1,86 @@
-==JSON Application Tutorial==
-Table of contents:
-* context --> Mapping of JSON object properties to semantic properties
-* defaultProperties --> properties that are shown in the JSON editor by default
-* array use cases
-** format: selectbox / checkbox
-** format: table
-** table with autocomplete
-* Inheritance with "allOf": {"type": "object", "$ref": "..."}
+==OO-LD==
+Meta-Standards that combines JSON-SCHEMA and JSON-LD [https://github.com/OO-LD/schema]
+
+{{Template:Editor/DrawIO
+| file_name = diagram-json
+| page_name = Item:OSWab674d663a5b472f838d8e1eb43e6784
+| uuid = 95a74be1-e22d-4b6e-9e4f-836127d5915a
+| width = 50%
+}}
+
+
+<!-- Does not render in Reveal: ==OO-LD Schema (1)==
+{{#mermaid:
+classDiagram
+    class OOLD_Class_A {
+        JSON-SCHEMA + JSON-LD
+        @context: ...
+        properties: a...
+    }
+
+    class OOLD_Class_B {
+        JSON-SCHEMA + JSON-LD
+        @context: ./A
+        allOf: ./A
+        properties: b...
+    }
+
+    class OOLD_Instance_B {
+        JSON
+        @context: ./B
+        $schema: ./B
+        a: ...
+        b: ...
+    }
+
+    OOLD_Class_A <-- OOLD_Class_B: extends
+
+    OOLD_Class_B <-- OOLD_Instance_B: type
+|theme=neutral
+}} -->
+== Playground (UI) ==
+[https://oo-ld.github.io/playground-yaml/?data=N4Ig9gDgLglmB2BnEAuUMDGCA2MBGqIAZglAIYDuApomALZUCsIANOHgFZUZQD62ZAJ5gArlELwwAJzplsrEIgwALKrNSgAAlnhQqAD3FpFKtWULKoUCCgD0tpatkA6aQHNbC%2BGQaFHZlG9fNjwYKShlABMhP1NZFFDw5QARMj0QAF82WChsKkIABSopWngFKEEIfJR2Lh4FKSoARxEwqkjUAG0QIPyQsIjowRAAXTYIKUhi2BoNHp9q0AqqvygpGHg3BUiaDHXoODKagDEwxCgAAjJ4SIuAGTJzi96FOg27qk2I1AAWNh2iGQRNgjCAAFLFNSCC7JaRlLIgRKDGLGZbVRRrDZbNgkGRpQjRdL%2FXb7WAIQgAFVUFyRUSEFzARAuESoFyqJXJGS5bEQyjAFF4xUmJUIGz0UjIPEO5Sc6LwYDAUHOEogPwUZA4ZH0qDWIiobAA1lQqBBeAgqIzeAA3OR65AoQHYRBUBEcUpzF41CGNOjQ2FSMr9JJDQgAJgADKGfgBacMADljAE5MhkgA%3D (open in new tab)]
+<iframe height=900 key="github.io" level="oo-ld" path="playground-yaml/?data=N4Ig9gDgLglmB2BnEAuUMDGCA2MBGqIAZglAIYDuApomALZUCsIANOHgFZUZQD62ZAJ5gArlELwwAJzplsrEIgwALKrNSgAAlnhQqAD3FpFKtWULKoUCCgD0tpatkA6aQHNbC%2BGQaFHZlG9fNjwYKShlABMhP1NZFFDw5QARMj0QAF82WChsKkIABSopWngFKEEIfJR2Lh4FKSoARxEwqkjUAG0QIPyQsIjowRAAXTYIKUhi2BoNHp9q0AqqvygpGHg3BUiaDHXoODKagDEwxCgAAjJ4SIuAGTJzi96FOg27qk2I1AAWNh2iGQRNgjCAAFLFNSCC7JaRlLIgRKDGLGZbVRRrDZbNgkGRpQjRdL%2FXb7WAIQgAFVUFyRUSEFzARAuESoFyqJXJGS5bEQyjAFF4xUmJUIGz0UjIPEO5Sc6LwYDAUHOEogPwUZA4ZH0qDWIiobAA1lQqBBeAgqIzeAA3OR65AoQHYRBUBEcUpzF41CGNOjQ2FSMr9JJDQgAJgADKGfgBacMADljAE5MhkgA%3D" />
+
+== Playground (Code) ==
+[https://oo-ld.github.io/playground-python-yaml/?data=N4Ig9gDgLglmB2BnEAuUMDGCA2MBGqIAZglAIYDuApomALZUCsIANOHgFZUZQD62ZAJ5gArlELwwAJzplsrEIgwALKrNSgAAlnhQqAD3FpFKtWULKoUCCgD0tpatkA6aQHNbC%2BGQaFHZlG9fAF82WChsKkIABSopWngFKEEIKJR2Lh4FKSoARxEYHIATVABtECCogF02CClIONgaDQqfNNBk1L8oKRh4NwUimgxe6DhE9IAxQsQoAAIyeCK5gBkyWbnKwaoiMhFsIxAAKTi1QTmAEWlE4Nu2RGUwCl44%2BvjCPr0pMh5xpKc0iA8GAwFBZt8IAAWBRkDhkfSoHoiKhsADWVCoEF4CCoYCIvAAbnJkcgULtsIgqKEQBwEi0tulooIoI94HMAOJUeBxMh6Eq3IA (open in new tab)]
+<iframe height=900 key="github.io" level="oo-ld" path="playground-python-yaml/?data=N4Ig9gDgLglmB2BnEAuUMDGCA2MBGqIAZglAIYDuApomALZUCsIANOHgFZUZQD62ZAJ5gArlELwwAJzplsrEIgwALKrNSgAAlnhQqAD3FpFKtWULKoUCCgD0tpatkA6aQHNbC%2BGQaFHZlG9fNjwYKShlABMhP1NZFFDw5QARMj0QAF82WChsKkIABSopWngFKEEIfJR2Lh4FKSoARxEwqkjUAG0QIPyQsIjowRAAXTYIKUhi2BoNHp9q0AqqvygpGHg3BUiaDHXoODKagDEwxCgAAjJ4SIuAGTJzi96FOg27qk2I1AAWNh2iGQRNgjCAAFLFNSCC7JaRlLIgRKDGLGZbVRRrDZbNgkGRpQjRdL%2FXb7WAIQgAFVUFyRUSEFzARAuESoFyqJXJGS5bEQyjAFF4xUmJUIGz0UjIPEO5Sc6LwYDAUHOEogPwUZA4ZH0qDWIiobAA1lQqBBeAgqIzeAA3OR65AoQHYRBUBEcUpzF41CGNOjQ2FSMr9JJDQgAJgADKGfgBacMADljAE5MhkgA%3D" />
+
+==Try it yourself==
+<div style=" column-count: 2;">
+<div>[https://oo-ld.github.io/playground-yaml/?data=N4Ig9gDgLglmB2BnEAuUMDGCA2MBGqIAZglAIYDuApomALZUCsIANOHgFZUZQD62ZAJ5gArlELwwAJzplsrEIgwALKrNSgAAlnhQqAD3FpFKtWULKoUCCgD0tpatkA6aQHNbC%2BGQaFHZlG9fNjwYKShlABMhP1NZFFDw5QARMj0QAF82WChsKkIABSopWngFKEEIfJR2Lh4FKSoARxEwqkjUAG0QIPyQsIjowRAAXTYIKUhi2BoNHp9q0AqqvygpGHg3BUiaDHXoODKagDEwxCgAAjJ4SIuAGTJzi96FOg27qk2I1AAWNh2iGQRNgjCAAFLFNSCC7JaRlLIgRKDGLGZbVRRrDZbNgkGRpQjRdL%2FXb7WAIQgAFVUFyRUSEFzARAuESoFyqJXJGS5bEQyjAFF4xUmJUIGz0UjIPEO5Sc6LwYDAUHOEogPwUZA4ZH0qDWIiobAA1lQqBBeAgqIzeAA3OR65AoQHYRBUBEcUpzF41CGNOjQ2FSMr9JJDQgAJgADKGfgBacMADljAE5MhkgA%3D OO-LD Playground]
+<div class="QrCodeGenerator" data-config="{
+    &quot;text&quot;: &quot;https://t1p.de/oz6pr&quot;, 
+    &quot;image&quot;: true
+}"></div>
+</div>
+<div>[https://oo-ld.github.io/playground-python-yaml/?data=N4Ig9gDgLglmB2BnEAuUMDGCA2MBGqIAZglAIYDuApomALZUCsIANOHgFZUZQD62ZAJ5gArlELwwAJzplsrEIgwALKrNSgAAlnhQqAD3FpFKtWULKoUCCgD0tpatkA6aQHNbC%2BGQaFHZlG9fAF82WChsKkIABSopWngFKEEIKJR2Lh4FKSoARxEYHIATVABtECCogF02CClIONgaDQqfNNBk1L8oKRh4NwUimgxe6DhE9IAxQsQoAAIyeCK5gBkyWbnKwaoiMhFsIxAAKTi1QTmAEWlE4Nu2RGUwCl44%2BvjCPr0pMh5xpKc0iA8GAwFBZt8IAAWBRkDhkfSoHoiKhsADWVCoEF4CCoYCIvAAbnJkcgULtsIgqKEQBwEi0tulooIoI94HMAOJUeBxMh6Eq3IA OO-LD Python Playground]
+<div class="QrCodeGenerator" data-config="{
+    &quot;text&quot;: &quot;https://t1p.de/mlt5v&quot;, 
+    &quot;image&quot;: true
+}"></div>
+</div>
+</div>
+
+<div style=" column-count: 2;">
+<div>[https://oo-ld.github.io/playground-yaml Advanced OO-LD Playground]
+<div class="QrCodeGenerator" data-config="{
+    &quot;text&quot;: &quot;https://oo-ld.github.io/playground-yaml&quot;, 
+    &quot;image&quot;: true
+}"></div>
+</div>
+<div>[https://oo-ld.github.io/playground-python-yaml Advanced OO-LD Python Playground]
+<div class="QrCodeGenerator" data-config="{
+    &quot;text&quot;: &quot;https://oo-ld.github.io/playground-python-yaml&quot;, 
+    &quot;image&quot;: true
+}"></div>
+</div>
+</div>
+
+== Use case: Data collection ==
+Create datasets and export them directly as linked data / RDF - and vice versa. (Hint: Select overwrite to load the latest version)
+<iframe height=900 key="github.io" level="repolab" path="jupyterlite-playground/lab/index.html?fromURL=https://raw.githubusercontent.com/OO-LD/oold-python/refs/heads/main/examples/linked_data_editor.ipynb" />
+
+== Use case: Workflow provenance ==
+Define workflows with full provenance based on [https://github.com/OO-LD/awl-schema]. (Hint: Select overwrite to load the latest version)
+<iframe height=900 key="github.io" level="repolab" path="jupyterlite-playground/lab/index.html?fromURL=https://raw.githubusercontent.com/OO-LD/awl-python/refs/heads/main/examples/human_in_the_loop_async.ipynb" />

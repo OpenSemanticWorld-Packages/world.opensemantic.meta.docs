@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "uuid": "6d683320-0938-4d18-9708-37e0b7536d89",
+    "label": [
+        {
+            "text": "VisualEditorExitEditor",
+            "lang": "en"
+        }
+    ],
+    "editor": [
+        "User:Simon Stier"
+    ],
+    "editing_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "creator": [
+        "User:Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSW52c2c5a6bbc84fcb8eab0fa69857e7dc"
+    ],
+    "name": "VisualEditorExitEditor"
+}

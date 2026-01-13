@@ -3,17 +3,27 @@
         "Category:OSW494f660e6a714a1a9681c517bbb975da"
     ],
     "uuid": "52c2c5a6-bbc8-4fcb-8eab-0fa69857e7dc",
-    "name": "HowToCreateANewArticle",
     "label": [
         {
-            "text": "How to create a new article",
+            "text": "Artikel erstellen und bearbeiten",
+            "lang": "de"
+        },
+        {
+            "text": "Article - Creation and Editing",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Describes how to use the visual editor to create text and multimedia content. Please note: This applies for all entity categories/classes, not only Article.",
             "lang": "en"
         },
         {
-            "text": "Wie man einen neuen Artikel erstellt",
+            "text": "Beschreibt die Verwendung des visuellen Editors zur Erstellung von Text- und Multimedia-Inhalten. Hinweis: Diese Anleitung gilt für alle Entitätskategorien/Klassen, nicht nur für Artikel.",
             "lang": "de"
         }
     ],
+    "name": "HowToCreateANewArticle",
     "attachments": [
         "File:OSW5f36a59d4bb94ea0bf93f08f7470f609.png",
         "File:OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png",
@@ -27,29 +37,31 @@
         "File:OSW1a42918d85d942a7a3e9021c5955636d.png",
         "File:OSW13038cdc2bea45c7b9dee1352931a280.png",
         "File:OSWa13be5f5ea0c483689f5e70a7c2f68eb.png",
-        "File:OSW857d85031d85425aa94db8b4720e84b7.png"
-    ],
-    "description": [
-        {
-            "text": "Describes how to use the visual editor to create text and multimedia content. Please note: This applies for all entity categories/classes, not only Article.",
-            "lang": "en"
-        },
-        {
-            "text": "Beschreibt die Verwendung des visuellen Editors zur Erstellung von Text- und Multimedia-Inhalten. Hinweis: Diese Anleitung gilt für alle Entitätskategorien/Klassen, nicht nur für Artikel.",
-            "lang": "de"
-        }
+        "File:OSW857d85031d85425aa94db8b4720e84b7.png",
+        "File:OSW2cdfab70f75d430ea1833967deea5260.png",
+        "File:OSW6d68332009384d18970837e0b7536d89.png",
+        "File:OSWa8dde9a874314b20a9e6050b2321f8fc.gif",
+        "File:OSW0de6a9182efb4b7e8fabcc7b0782ba20.gif",
+        "File:OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif",
+        "File:OSW43a9a2c9afff4830a032ec5f79a6cf77.gif",
+        "File:OSW88f0f3a3a14d4c898839c5f2796dc642.gif",
+        "File:OSWb3ac0e72469944759d674f1e23914786.gif"
     ],
     "statements": [
         {
             "uuid": "7386d44b-8b08-4e86-9237-e1e00d64cac5",
+            "predicate": "Property:IsRelatedTo",
+            "object": "Category:OSW92cc6b1a2e6b4bb7bad470dfdcfdaf26",
+            "rdf_type": "rdf:Statement",
             "label": [
                 {
                     "text": ".. IsRelatedTo ..",
                     "lang": "en"
                 }
-            ],
-            "predicate": "Property:IsRelatedTo",
-            "object": "Category:OSW92cc6b1a2e6b4bb7bad470dfdcfdaf26"
+            ]
         }
+    ],
+    "part_of": [
+        "Item:OSW8a9c73cba7c64234bda71e1b682a641c"
     ]
 }

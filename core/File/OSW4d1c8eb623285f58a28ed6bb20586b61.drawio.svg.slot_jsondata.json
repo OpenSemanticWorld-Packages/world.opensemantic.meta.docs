@@ -1,0 +1,33 @@
+{
+    "uuid": "4d1c8eb6-2328-5f58-a28e-d6bb20586b61",
+    "name": "Diagram01",
+    "label": [
+        {
+            "text": "diagram-01",
+            "lang": "en"
+        }
+    ],
+    "short_name": null,
+    "query_label": null,
+    "description": null,
+    "image": null,
+    "based_on": null,
+    "statements": null,
+    "attachments": null,
+    "type": [
+        "Category:OSW11a53cdfbdc24524bf8ac435cbf65d9d"
+    ],
+    "entry_access": null,
+    "creator": [
+        "Simon Stier"
+    ],
+    "editor": [
+        "Simon Stier"
+    ],
+    "creation_context": [
+        "Item:OSW92619b0700984fe7913e5fbbd7f194dc"
+    ],
+    "editing_context": [
+        "Item:OSW92619b0700984fe7913e5fbbd7f194dc"
+    ]
+}

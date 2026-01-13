@@ -1,0 +1,57 @@
+== Diagram-Editor ==
+{{Template:Editor/DrawIO
+|file_name=diagram-01
+|page_name=Item:OSW92619b0700984fe7913e5fbbd7f194dc
+|uuid=4d1c8eb6-2328-5f58-a28e-d6bb20586b61
+}}
+
+== Sketch-Editor ==
+{{Template:Editor/SvgEdit
+| file_name =sketch-01
+| page_name =Item:OSW92619b0700984fe7913e5fbbd7f194dc
+}}
+
+== Spreadsheet-Editor ==
+{{Template:Editor/Spreadsheet
+|file_name=spreadsheet-01
+|page_name=Item:OSW92619b0700984fe7913e5fbbd7f194dc
+|width=100%
+}}
+
+
+== Chem-Viewer ==
+{{Template:Viewer/Kekule
+|cid=2244
+|mode=2D
+}}{{Template:Viewer/Kekule
+|cid=2244
+|mode=3D
+}}
+
+== Chem-Editor ==
+{{Template:Editor/Kekule
+|file_name=chemdoc-01
+|page_name=Item:OSW92619b0700984fe7913e5fbbd7f194dc
+|format=json
+}}
+
+== Github Codeblock ==
+<nowiki>Select Insert => Template from the toolbar (or type "{{" directly in the text), then type "Viewer/Github/Code" in the search bar and select the template.</nowiki>
+
+Documentation see [[Template:Viewer/Github/Code]]
+{{Viewer/Github/Code
+| url =https://github.com/OpenSemanticLab/osw-python/blob/b83d590553231dcc74d849af7f40239ef43546e0/src/osw/core.py#L63-L76
+| show_line_numbers =0
+| highlight =63,72-76
+| uuid =935cec37-eb79-41a3-bda2-16bffb2a9382
+}}
+
+== Github Readme / Markdown ==
+<nowiki>Select Insert => Template from the toolbar (or type "{{" directly in the text), then type "Viewer/Github/Code" in the search bar and select the template. Specify a link to a markdown file (.md).</nowiki>
+
+Documentation see [[Template:Viewer/Github/Code]]
+{{Viewer/Github/Code
+| url =https://github.com/General-Process-Ontology/ontology/blob/master/README.md
+| end_line =20
+| uuid =a7393b39-c694-47bd-857f-9b82e6453f5d
+}}
