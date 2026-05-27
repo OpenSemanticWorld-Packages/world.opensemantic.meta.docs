@@ -1,0 +1,50 @@
+=== Foreword ===
+
+* By filling out forms in OSL, a knowledge graph is built based on the edits you make
+* Forms are based on JSON-Schema
+* JSON-Schema is a web standard for structured documents (JSON)
+* In Open Semantic Lab (OSL), JSON-Schema is combined with JSON-LD, which makes assigning semantic properties to JSON properties possible
+* A background engine builds the graph database from these assignments and from JSON documents that adhere to these JSON-Schemas 
+* The graph created in this process is described by basic building block, as discussed in {{Template:Viewer/Link|page=Item:OSW8bccb1f0123f47d1831a1348ecbe63cc#Semantic_triples|url=|label=About this platform: semantic triples}}
+** Nodes: Entities or values within the OSL platform
+** Edges: Semantic properties that connect nodes
+** Semantic triples essentially are three-word-sentences that make a semantic statement, e.g. John Doe --isA-> Person
+
+=== The Graph tool ===
+The graph tool is displayed on each entry in OSL. You can find it attached to the bottom of the page, just above the attachments section. It looks like this (example: {{Template:Viewer/Link|page=Item:OSW8bccb1f0123f47d1831a1348ecbe63cc#Graph|url=|label=About this platform - graph}}):
+[[File:About this platform - graph default view.png|thumb|A screenshot of the graph tool in default view as shown on the tutorial "About this platform"]]
+
+==== Editor elements ====
+
+===== Nodes and edges =====
+The screenshot shows the node of the page itself in dark green. This node is connected via arrows carrying semantic properties like "HasSchema" or "SubClassOf". This shows that the entry "About this platform" follows the JSON-Schema of the category "Tutorial", which it self follows the Schema "Category" and is a subclass of "Article". 
+
+===== Property selectors =====
+At the bottom of the graph editor, you can find buttons for the active semantic properties in the graph in the same colors as the arrows that carry these properties. A click on one of these buttons hides or shows the respective property and all connected nodes in the graph.
+
+===== View menu =====
+On the top right corner you can find three buttons to 
+
+* Reset the view to the original view, either the default or the one saved to the page
+* Copy a permalink to the page with the state of the graph as you see now
+* Save changes - allows you to preserve the changes that you made to the view within the page
+
+===== Edit menu =====
+With the edit menu you can make semantical statements within the graph independently of the form editor. A click on edit opens two options:
+
+* Add node
+* Add edge
+
+With these you can add a node from the OSL by searching for its name in a popup search bar and you can create edges via click-drag-and-drop from one node to another. Again a popup search bar opens for you to look for an existing semantic property to use here.
+
+===== Right-click menu =====
+[[File:About this platform - Graph right-click menu.png|thumb|Right-click menu shown when clicking on the node of "About this platform"]]
+Right-clicking on one of the nodes opens a list that shows, as in beside image,
+
+* A link to the page corresponding to the node
+* All semantic properties that are outgoing and incoming (prefixed with a "-")
+
+Left-clicking on one of these properties unfolds a part of the graph, making the nodes connected via this property visible. The process can be repeated several time to follow a property chain and thereby explore the graph. 
+
+In that way you can for example explore which article collection "About this platform" is part of and where this collection is contained in as shown in the next image below.
+[[File:Exploring the graph of "About this platform".png|thumb|Example of exploring the graph of "About this platform"]]

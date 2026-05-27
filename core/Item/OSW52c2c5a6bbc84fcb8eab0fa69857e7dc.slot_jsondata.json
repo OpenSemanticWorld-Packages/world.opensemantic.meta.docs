@@ -5,12 +5,12 @@
     "uuid": "52c2c5a6-bbc8-4fcb-8eab-0fa69857e7dc",
     "label": [
         {
-            "text": "Artikel erstellen und bearbeiten",
-            "lang": "de"
-        },
-        {
             "text": "Article - Creation and Editing",
             "lang": "en"
+        },
+        {
+            "text": "Artikel erstellen und bearbeiten",
+            "lang": "de"
         }
     ],
     "description": [

@@ -135,7 +135,7 @@ These properties can also be explored using the graph tool, which can be found u
 #Description - A header line that is always present. This is a collapsible section, as indicated by the ^ next to the text. Description diplays what has been entered through the form editor als (language specific) description, which is stored in the JSON data of the category.
 #Instances - An example for a header line, creates a collapsible section.
 #Content of this section, here a filterable datatable.
-#Graph - An expandable section for the graph tool, which can be used to explore the knowledge graph as shown above and in the image gallery below.
+#Graph - An expandable section for the graph tool, which can be used to explore the knowledge graph as shown above and in the image gallery below. A detailed manual can be found {{Template:Viewer/Link|page=Item:OSWd25678c7abf9484d8e80ea5c295bb9c6|url=|label=here}}.
 
 '''Remark:''' More details on the Form editor can be found [[#The form editor|below]].
 
@@ -190,7 +190,7 @@ There are only few elements, which haven't been discussed already.
 
 6.-8. Infobox parts inherited along the hierarchy "Entity" > "Item" > "Person" > "User" > "IscUser".
 
-9. Expanded "Graph" section showing a link to the respective "Category" page "IscUser" by the semantic property "HasSchema" and the relation of the instance to an instance of "IscSite" via the  semantic property "IsLocatedIn".
+9. Expanded "Graph" section showing a link to the respective "Category" page "IscUser" by the semantic property "HasSchema" and the relation of the instance to an instance of "IscSite" via the  semantic property "IsLocatedIn". A detailed manual for the graph tool can be found {{Template:Viewer/Link|page=Item:OSWd25678c7abf9484d8e80ea5c295bb9c6|url=|label=here}}.
 
 10. Expanded "QR Code" section, which is available on every instance page (which is an instance of a subcategory of "Item")
 

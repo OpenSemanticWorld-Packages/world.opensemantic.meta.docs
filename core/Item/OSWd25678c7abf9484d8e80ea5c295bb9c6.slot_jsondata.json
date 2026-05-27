@@ -1,0 +1,33 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "author": [
+        "Item:OSW8dca6aaebe005c5faca05bac33264e4d"
+    ],
+    "uuid": "d25678c7-abf9-484d-8e80-ea5c295bb9c6",
+    "label": [
+        {
+            "text": "How to use the graph tool",
+            "lang": "en"
+        },
+        {
+            "text": "Wie man das Graph-Werkzeug nutzt",
+            "lang": "de"
+        }
+    ],
+    "description": [
+        {
+            "text": "A primer on how to use the graph tool in Open Semantic Lab to navigate the knowledge graph built inside the platform",
+            "lang": "en"
+        },
+        {
+            "text": "Eine Einführung in die Verwendung des Graph-Tools in Open Semantic Lab zur Navigation durch den in der Plattform integrierten Wissensgraphen",
+            "lang": "de"
+        }
+    ],
+    "name": "HowToUseTheGraphTool",
+    "required_predecessor": [
+        "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc"
+    ]
+}

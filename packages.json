@@ -13,7 +13,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.8.0",
+            "version": "0.8.1",
             "requiredPackages": [
                 "world.opensemantic.base"
             ],
@@ -1463,6 +1463,23 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSW975e6d5e63fc45f998d6b75c0f0fa0ae.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWd25678c7abf9484d8e80ea5c295bb9c6",
+                    "label": "HowToUseTheGraphTool",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_jsondata.json"
                         }
                     }
                 }
