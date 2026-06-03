@@ -13,7 +13,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.8.1",
+            "version": "0.8.2",
             "requiredPackages": [
                 "world.opensemantic.base"
             ],
@@ -286,20 +286,20 @@
                     }
                 },
                 {
-                    "name": "OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif",
-                    "label": "SpecialEditorDrawIO",
+                    "name": "OSWb3ac0e72469944759d674f1e23914786.gif",
+                    "label": "ArticleAttachment",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_main.wikitext",
-                    "fileURLPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif",
+                    "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_main.wikitext",
+                    "fileURLPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_footer.wikitext"
+                            "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_header.wikitext"
+                            "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_jsondata.json"
+                            "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_jsondata.json"
                         }
                     }
                 },
@@ -322,78 +322,6 @@
                     }
                 },
                 {
-                    "name": "OSW11c9638f372240cf9a4166de0d532616.png",
-                    "label": "InsertMediaGallery",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW11c9638f372240cf9a4166de0d532616.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW7f23cc02494e478e8f82715701b1d3ec.png",
-                    "label": "VisualEditorFormatText",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW88f0f3a3a14d4c898839c5f2796dc642.gif",
-                    "label": "VisualEditText",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_main.wikitext",
-                    "fileURLPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW13038cdc2bea45c7b9dee1352931a280.png",
-                    "label": "InsertSpecialEditorDialog",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
                     "name": "OSW5f36a59d4bb94ea0bf93f08f7470f609.png",
                     "label": "NewArticleTile",
                     "namespace": "NS_FILE",
@@ -408,60 +336,6 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSW5f36a59d4bb94ea0bf93f08f7470f609.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWb2403f06d08d473d949c69703972f813.png",
-                    "label": "ClipboardFileUpload",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWb2403f06d08d473d949c69703972f813.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWe26ed96136a5484baf478d932a12011b.png",
-                    "label": "DragAndDropFileUpload",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWe26ed96136a5484baf478d932a12011b.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWa13be5f5ea0c483689f5e70a7c2f68eb.png",
-                    "label": "SpecialEditorDrawioPlaceholder",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_jsondata.json"
                         }
                     }
                 },
@@ -484,38 +358,56 @@
                     }
                 },
                 {
-                    "name": "OSW6d68332009384d18970837e0b7536d89.png",
-                    "label": "VisualEditorExitEditor",
+                    "name": "OSW1a42918d85d942a7a3e9021c5955636d.png",
+                    "label": "VisualEditInsert",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW6d68332009384d18970837e0b7536d89.png",
+                    "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_footer.wikitext"
+                            "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_header.wikitext"
+                            "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_jsondata.json"
+                            "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_jsondata.json"
                         }
                     }
                 },
                 {
-                    "name": "OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png",
-                    "label": "ArticleDataEditor",
+                    "name": "OSWa13be5f5ea0c483689f5e70a7c2f68eb.png",
+                    "label": "SpecialEditorDrawioPlaceholder",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png",
+                    "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_footer.wikitext"
+                            "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_header.wikitext"
+                            "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_jsondata.json"
+                            "urlPath": "File/OSWa13be5f5ea0c483689f5e70a7c2f68eb.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif",
+                    "label": "SpecialEditorDrawIO",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_main.wikitext",
+                    "fileURLPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWc97ee7d5dc7e4b34875bafb4b24ee44e.gif.slot_jsondata.json"
                         }
                     }
                 },
@@ -538,24 +430,6 @@
                     }
                 },
                 {
-                    "name": "OSWb3ac0e72469944759d674f1e23914786.gif",
-                    "label": "ArticleAttachment",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_main.wikitext",
-                    "fileURLPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWb3ac0e72469944759d674f1e23914786.gif.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
                     "name": "OSW857d85031d85425aa94db8b4720e84b7.png",
                     "label": "DrawioEditorEdit",
                     "namespace": "NS_FILE",
@@ -570,42 +444,6 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSW857d85031d85425aa94db8b4720e84b7.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW1a42918d85d942a7a3e9021c5955636d.png",
-                    "label": "VisualEditInsert",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW1a42918d85d942a7a3e9021c5955636d.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW0365cbb17a164607ad08287d35eb024d.png",
-                    "label": "InsertMediaRecentUploads",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_jsondata.json"
                         }
                     }
                 },
@@ -628,6 +466,60 @@
                     }
                 },
                 {
+                    "name": "OSWb2403f06d08d473d949c69703972f813.png",
+                    "label": "ClipboardFileUpload",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWb2403f06d08d473d949c69703972f813.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWb2403f06d08d473d949c69703972f813.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW13038cdc2bea45c7b9dee1352931a280.png",
+                    "label": "InsertSpecialEditorDialog",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW13038cdc2bea45c7b9dee1352931a280.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWe26ed96136a5484baf478d932a12011b.png",
+                    "label": "DragAndDropFileUpload",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWe26ed96136a5484baf478d932a12011b.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWe26ed96136a5484baf478d932a12011b.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
                     "name": "OSW0de6a9182efb4b7e8fabcc7b0782ba20.gif",
                     "label": "EditDataAddImg",
                     "namespace": "NS_FILE",
@@ -646,6 +538,78 @@
                     }
                 },
                 {
+                    "name": "OSW6d68332009384d18970837e0b7536d89.png",
+                    "label": "VisualEditorExitEditor",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW6d68332009384d18970837e0b7536d89.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW6d68332009384d18970837e0b7536d89.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW11c9638f372240cf9a4166de0d532616.png",
+                    "label": "InsertMediaGallery",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW11c9638f372240cf9a4166de0d532616.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW11c9638f372240cf9a4166de0d532616.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png",
+                    "label": "ArticleDataEditor",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWd1c24f1c4b014ebe99c2a83672e3dfc7.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW7f23cc02494e478e8f82715701b1d3ec.png",
+                    "label": "VisualEditorFormatText",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW7f23cc02494e478e8f82715701b1d3ec.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
                     "name": "OSWd8adafab997746e69864f23e7bfba734.png",
                     "label": "ArticleDataEditorAdditionalProperties ",
                     "namespace": "NS_FILE",
@@ -660,6 +624,42 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSWd8adafab997746e69864f23e7bfba734.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW0365cbb17a164607ad08287d35eb024d.png",
+                    "label": "InsertMediaRecentUploads",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW0365cbb17a164607ad08287d35eb024d.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW88f0f3a3a14d4c898839c5f2796dc642.gif",
+                    "label": "VisualEditText",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_main.wikitext",
+                    "fileURLPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW88f0f3a3a14d4c898839c5f2796dc642.gif.slot_jsondata.json"
                         }
                     }
                 },
@@ -698,6 +698,24 @@
                     }
                 },
                 {
+                    "name": "OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg",
+                    "label": "SchemaDiagramJson",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
                     "name": "OSW01a9133879e94df19a8e617d91d28f39.drawio.svg",
                     "label": "OswConceptAndIncludedTechnologies",
                     "namespace": "NS_FILE",
@@ -716,20 +734,20 @@
                     }
                 },
                 {
-                    "name": "OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg",
-                    "label": "SchemaDiagram",
+                    "name": "OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg",
+                    "label": "MetaSchema",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_main.wikitext",
-                    "fileURLPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg",
+                    "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_footer.wikitext"
+                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_header.wikitext"
+                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_jsondata.json"
+                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_jsondata.json"
                         }
                     }
                 },
@@ -752,38 +770,20 @@
                     }
                 },
                 {
-                    "name": "OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg",
-                    "label": "SchemaDiagramJson",
+                    "name": "OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg",
+                    "label": "SchemaDiagram",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_main.wikitext",
-                    "fileURLPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg",
+                    "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_footer.wikitext"
+                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_header.wikitext"
+                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSW95a74be1e22d4b6e9e4f836127d5915a.drawio.svg.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg",
-                    "label": "MetaSchema",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_main.wikitext",
-                    "fileURLPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW49d68bb7a5de413ba1077bc5f459a766.drawio.svg.slot_jsondata.json"
+                            "urlPath": "File/OSW2f275e3441c84f63a6cbee2861c488f2.drawio.svg.slot_jsondata.json"
                         }
                     }
                 },
@@ -875,20 +875,20 @@
                     }
                 },
                 {
-                    "name": "OSWb620db8af84847acabf76a88633f980c.png",
-                    "label": "KiprobattKnowledgeGraphPng",
+                    "name": "OSWa81f4a8b552e4057888796a9a496dad3.png",
+                    "label": "ProcessSchemaAnnotatedPng",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWb620db8af84847acabf76a88633f980c.png",
+                    "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_footer.wikitext"
+                            "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_header.wikitext"
+                            "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_jsondata.json"
+                            "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_jsondata.json"
                         }
                     }
                 },
@@ -911,20 +911,20 @@
                     }
                 },
                 {
-                    "name": "OSWa81f4a8b552e4057888796a9a496dad3.png",
-                    "label": "ProcessSchemaAnnotatedPng",
+                    "name": "OSWb620db8af84847acabf76a88633f980c.png",
+                    "label": "KiprobattKnowledgeGraphPng",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png",
+                    "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWb620db8af84847acabf76a88633f980c.png",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_footer.wikitext"
+                            "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_header.wikitext"
+                            "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSWa81f4a8b552e4057888796a9a496dad3.png.slot_jsondata.json"
+                            "urlPath": "File/OSWb620db8af84847acabf76a88633f980c.png.slot_jsondata.json"
                         }
                     }
                 },
@@ -942,78 +942,6 @@
                         },
                         "jsondata": {
                             "urlPath": "Item/OSW8bccb1f0123f47d1831a1348ecbe63cc.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW31dc99e0dfa44dee9a5e7dde5357570b.png",
-                    "label": "UserCategoryPagePart2Png",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW32477b21abef40f483084e46e2430624.png",
-                    "label": "ReuseMainpagePng",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW32477b21abef40f483084e46e2430624.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWc4171917ea094d98823a6af8282a6d50.drawio.svg",
-                    "label": "SemanticTripleSchematic",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_main.wikitext",
-                    "fileURLPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG",
-                    "label": "WikifilePagePart3Footer",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_main.wikitext",
-                    "fileURLPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_jsondata.json"
                         }
                     }
                 },
@@ -1036,96 +964,6 @@
                     }
                 },
                 {
-                    "name": "OSWc34ced55461949a59f950283e905b5fc.png",
-                    "label": "PersonalMenuPng",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWc34ced55461949a59f950283e905b5fc.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW51ad8f9d660641f9880006c40f41cb56.png",
-                    "label": "SemanticLinksExamplePublicationAuthorAffiliatePng",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW7916a148a68541c38a10769c739dfd64.PNG",
-                    "label": "InstancePageExamplePersonLukasGold",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_main.wikitext",
-                    "fileURLPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWe8c6b659eab14cca927835ccd6baef15.png",
-                    "label": "WikiPreferencesPng",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG",
-                    "label": "WikifilePagePart2Infobox",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_main.wikitext",
-                    "fileURLPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
                     "name": "OSW420279d1be9640ad96e6685277a3f29b.png",
                     "label": "NavigationMenuPng",
                     "namespace": "NS_FILE",
@@ -1144,128 +982,20 @@
                     }
                 },
                 {
-                    "name": "OSW841b61b5996340fa81c3163bcea87482.png",
-                    "label": "ThreePointsMenuPng",
+                    "name": "OSW32477b21abef40f483084e46e2430624.png",
+                    "label": "ReuseMainpagePng",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW841b61b5996340fa81c3163bcea87482.png",
+                    "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW32477b21abef40f483084e46e2430624.png",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_footer.wikitext"
+                            "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_header.wikitext"
+                            "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSWcd2bd1d74aaa4367bb7fd13d939869dd.png",
-                    "label": "UserCategoryJsondataPng",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW486215598a1f4993b063804775d70716.png",
-                    "label": "WikifilePagePart1",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW486215598a1f4993b063804775d70716.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW0024d7c0a0d64642bf51f5facfe85d42.png",
-                    "label": "SearchBarPng",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg",
-                    "label": "BasicBuildingBlocksOfObjectOrientationDiagramm",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_main.wikitext",
-                    "fileURLPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW6f7bab35a8714881be7c6e7ecff9a3a2.png",
-                    "label": "ExploreHierarchyWithGraphToolPng",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW17fd79810755437287c0bc98f5ce6d25.png",
-                    "label": "FormEditorClickPassiveArea",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_jsondata.json"
+                            "urlPath": "File/OSW32477b21abef40f483084e46e2430624.png.slot_jsondata.json"
                         }
                     }
                 },
@@ -1288,20 +1018,110 @@
                     }
                 },
                 {
-                    "name": "OSW0089126ad0cc46d395f2b93f6037352d.PNG",
-                    "label": "FormEditorExamplePersonLukasGold",
+                    "name": "OSWe8c6b659eab14cca927835ccd6baef15.png",
+                    "label": "WikiPreferencesPng",
                     "namespace": "NS_FILE",
-                    "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_main.wikitext",
-                    "fileURLPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG",
+                    "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png",
                     "slots": {
                         "footer": {
-                            "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_footer.wikitext"
+                            "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_header.wikitext"
+                            "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_jsondata.json"
+                            "urlPath": "File/OSWe8c6b659eab14cca927835ccd6baef15.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW0024d7c0a0d64642bf51f5facfe85d42.png",
+                    "label": "SearchBarPng",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW0024d7c0a0d64642bf51f5facfe85d42.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWc4171917ea094d98823a6af8282a6d50.drawio.svg",
+                    "label": "SemanticTripleSchematic",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWc4171917ea094d98823a6af8282a6d50.drawio.svg.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWcd2bd1d74aaa4367bb7fd13d939869dd.png",
+                    "label": "UserCategoryJsondataPng",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWcd2bd1d74aaa4367bb7fd13d939869dd.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW841b61b5996340fa81c3163bcea87482.png",
+                    "label": "ThreePointsMenuPng",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW841b61b5996340fa81c3163bcea87482.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW841b61b5996340fa81c3163bcea87482.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG",
+                    "label": "WikifilePagePart2Infobox",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_main.wikitext",
+                    "fileURLPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWb4f81db0862d4430b45e6fcbda9fc1ff.PNG.slot_jsondata.json"
                         }
                     }
                 },
@@ -1324,6 +1144,42 @@
                     }
                 },
                 {
+                    "name": "OSW17fd79810755437287c0bc98f5ce6d25.png",
+                    "label": "FormEditorClickPassiveArea",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW17fd79810755437287c0bc98f5ce6d25.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWc34ced55461949a59f950283e905b5fc.png",
+                    "label": "PersonalMenuPng",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSWc34ced55461949a59f950283e905b5fc.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWc34ced55461949a59f950283e905b5fc.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
                     "name": "OSW58baa09ec00b42ccb0779fe4d58ccf82.drawio.svg",
                     "label": "ObjectOrientedLinkedDataInOslDiagramm",
                     "namespace": "NS_FILE",
@@ -1338,6 +1194,96 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSW58baa09ec00b42ccb0779fe4d58ccf82.drawio.svg.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW486215598a1f4993b063804775d70716.png",
+                    "label": "WikifilePagePart1",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW486215598a1f4993b063804775d70716.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW486215598a1f4993b063804775d70716.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW0089126ad0cc46d395f2b93f6037352d.PNG",
+                    "label": "FormEditorExamplePersonLukasGold",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_main.wikitext",
+                    "fileURLPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW0089126ad0cc46d395f2b93f6037352d.PNG.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW51ad8f9d660641f9880006c40f41cb56.png",
+                    "label": "SemanticLinksExamplePublicationAuthorAffiliatePng",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW51ad8f9d660641f9880006c40f41cb56.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG",
+                    "label": "WikifilePagePart3Footer",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_main.wikitext",
+                    "fileURLPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSWb6115f4d5b414a3f8b3dffd420c82c2e.PNG.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg",
+                    "label": "BasicBuildingBlocksOfObjectOrientationDiagramm",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW0bea84d54c074374a4b45dc84d9ba302.drawio.svg.slot_jsondata.json"
                         }
                     }
                 },
@@ -1360,6 +1306,60 @@
                     }
                 },
                 {
+                    "name": "OSW31dc99e0dfa44dee9a5e7dde5357570b.png",
+                    "label": "UserCategoryPagePart2Png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW31dc99e0dfa44dee9a5e7dde5357570b.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW7916a148a68541c38a10769c739dfd64.PNG",
+                    "label": "InstancePageExamplePersonLukasGold",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_main.wikitext",
+                    "fileURLPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW7916a148a68541c38a10769c739dfd64.PNG.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW6f7bab35a8714881be7c6e7ecff9a3a2.png",
+                    "label": "ExploreHierarchyWithGraphToolPng",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW6f7bab35a8714881be7c6e7ecff9a3a2.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
                     "name": "OSW281775863c06445c91b9788a0117cd91.png",
                     "label": "UserCategoryPagePart1Png",
                     "namespace": "NS_FILE",
@@ -1378,6 +1378,23 @@
                     }
                 },
                 {
+                    "name": "OSWd25678c7abf9484d8e80ea5c295bb9c6",
+                    "label": "HowToUseTheGraphTool",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
                     "name": "OSW92619b0700984fe7913e5fbbd7f194dc",
                     "label": "OswSpecialEditors",
                     "namespace": "NS_ITEM",
@@ -1391,60 +1408,6 @@
                         },
                         "jsondata": {
                             "urlPath": "Item/OSW92619b0700984fe7913e5fbbd7f194dc.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW0e08c0030bda4f799de12c1d7fde4ac4.png",
-                    "label": "SpecialEditorSpreadsheet",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW5d3b1db1160a41178c66d47140da3ebd.png",
-                    "label": "SpecialEditorInsert",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_main.wikitext",
-                    "fileURLPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_jsondata.json"
-                        }
-                    }
-                },
-                {
-                    "name": "OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg",
-                    "label": "Diagram01",
-                    "namespace": "NS_FILE",
-                    "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_main.wikitext",
-                    "fileURLPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg",
-                    "slots": {
-                        "footer": {
-                            "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_footer.wikitext"
-                        },
-                        "header": {
-                            "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_header.wikitext"
-                        },
-                        "jsondata": {
-                            "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_jsondata.json"
                         }
                     }
                 },
@@ -1467,19 +1430,56 @@
                     }
                 },
                 {
-                    "name": "OSWd25678c7abf9484d8e80ea5c295bb9c6",
-                    "label": "HowToUseTheGraphTool",
-                    "namespace": "NS_ITEM",
-                    "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_main.wikitext",
+                    "name": "OSW5d3b1db1160a41178c66d47140da3ebd.png",
+                    "label": "SpecialEditorInsert",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png",
                     "slots": {
                         "footer": {
-                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_footer.wikitext"
+                            "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_footer.wikitext"
                         },
                         "header": {
-                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_header.wikitext"
+                            "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_header.wikitext"
                         },
                         "jsondata": {
-                            "urlPath": "Item/OSWd25678c7abf9484d8e80ea5c295bb9c6.slot_jsondata.json"
+                            "urlPath": "File/OSW5d3b1db1160a41178c66d47140da3ebd.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW0e08c0030bda4f799de12c1d7fde4ac4.png",
+                    "label": "SpecialEditorSpreadsheet",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_main.wikitext",
+                    "fileURLPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg",
+                    "label": "Diagram01",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_main.wikitext",
+                    "fileURLPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_jsondata.json"
                         }
                     }
                 }
