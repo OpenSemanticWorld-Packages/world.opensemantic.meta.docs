@@ -145,7 +145,7 @@ Clicking a property expands the graph by showing connected nodes. This can be re
 ---
 
 ===== Example: Exploring relationships =====
-[[File:Exploring the graph of "About this platform".png|thumb|Example graph exploration]]
+[[File:Exploring the graph of About this platform.png|thumb|Example graph exploration]]
 
 To reproduce the example:
 

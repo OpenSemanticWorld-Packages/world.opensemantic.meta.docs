@@ -13,7 +13,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.8.2",
+            "version": "0.8.3",
             "requiredPackages": [
                 "world.opensemantic.base"
             ],
@@ -1482,6 +1482,27 @@
                             "urlPath": "File/OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg.slot_jsondata.json"
                         }
                     }
+                },
+                {
+                    "name": "About_this_platform_-_graph_default_view.png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/About_this_platform_-_graph_default_view.png.slot_main.wikitext",
+                    "fileURLPath": "File/About_this_platform_-_graph_default_view.png",
+                    "slots": {}
+                },
+                {
+                    "name": "About_this_platform_-_Graph_right-click_menu.png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/About_this_platform_-_Graph_right-click_menu.png.slot_main.wikitext",
+                    "fileURLPath": "File/About_this_platform_-_Graph_right-click_menu.png",
+                    "slots": {}
+                },
+                {
+                    "name": "Exploring_the_graph_of_About_this_platform.png",
+                    "namespace": "NS_FILE",
+                    "urlPath": "File/Exploring_the_graph_of_About_this_platform.png.slot_main.wikitext",
+                    "fileURLPath": "File/Exploring_the_graph_of_About_this_platform.png",
+                    "slots": {}
                 }
             ]
         }
