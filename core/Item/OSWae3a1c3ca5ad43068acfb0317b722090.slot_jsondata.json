@@ -2,38 +2,8 @@
     "type": [
         "Category:OSW31a9c96c1f444f84b944d49afbce409b"
     ],
-    "uuid": "ae3a1c3c-a5ad-4306-8acf-b0317b722090",
-    "name": "WorldOpensemanticMetaDocsCore",
-    "label": [
-        {
-            "text": "world.opensemantic.meta.docs.core",
-            "lang": "en"
-        }
-    ],
-    "description": [
-        {
-            "text": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "lang": "en"
-        }
-    ],
-    "meta": {
-        "uuid": "6e7ef5f6-836a-473e-8801-aa5bbfd58e79",
-        "wiki_page": {
-            "title": "OSWae3a1c3ca5ad43068acfb0317b722090",
-            "namespace": "Item"
-        },
-        "change_id": [
-            "4ab0a426-c7f5-4de1-8735-a0060f1157af",
-            "6337c457-113f-473d-a7af-221e8e66ff14",
-            "b497d96f-f4a0-40a4-9593-8fa8684dd569",
-            "ca6c317b-f30a-48ee-a188-1b02a19e446e",
-            "ec968402-b171-4d24-b740-2c5de3a94c39",
-            "fa3bfbf6-1445-499b-9ac1-f18eb9a63d69",
-            "79d10857-652d-4581-97d7-f36d67bbd944"
-        ]
-    },
     "global_id": "world.opensemantic.meta.docs.core",
-    "version": "0.8.0",
+    "version": "0.8.3",
     "url": [
         "https://github.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs"
     ],
@@ -58,6 +28,30 @@
         "Item:OSWc596ce27af054764ae9716748d01555e",
         "Item:OSWdb485a954a88465287b341d2897a84d6",
         "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc",
-        "Item:OSW92619b0700984fe7913e5fbbd7f194dc"
-    ]
+        "Item:OSWd25678c7abf9484d8e80ea5c295bb9c6",
+        "Item:OSW92619b0700984fe7913e5fbbd7f194dc",
+        "File:About_this_platform_-_graph_default_view.png",
+        "File:About_this_platform_-_Graph_right-click_menu.png",
+        "File:Exploring_the_graph_of_About_this_platform.png"
+    ],
+    "uuid": "ae3a1c3c-a5ad-4306-8acf-b0317b722090",
+    "label": [
+        {
+            "text": "world.opensemantic.meta.docs.core",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Provides core documentation of OpenSemanticWorld / -Lab",
+            "lang": "en"
+        }
+    ],
+    "name": "WorldOpensemanticMetaDocsCore",
+    "meta": {
+        "uuid": "a8659728-4e8a-4ea5-8615-bc39241bc8fd",
+        "change_id": [
+            "bba25fad-fb3a-4f75-b82c-f55d1a22eb0d"
+        ]
+    }
 }
