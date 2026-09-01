@@ -225,7 +225,7 @@ Lets add a <code>jsonschema</code> slot for Category pages
 <syntaxhighlight lang="json">
 {
     "type": "object",
-    "allOf": "/wiki/Category:MyCategory?action=raw&slot=jsonschema",
+    "allOf": [{"$ref": "/wiki/Category:MyCategory?action=raw&slot=jsonschema"}],
     "properties": {
         "additional_property": { "type": "string" }
     }
@@ -261,7 +261,7 @@ Lets add a json-ld context within the <code>jsonschema</code> slot for Category 
             "image*": "Property:HasProperty"
        }
     ],
-    "allOf": "/wiki/Category:MyCategory?action=raw&slot=jsonschema",
+    "allOf": [{"$ref": "/wiki/Category:MyCategory?action=raw&slot=jsonschema"}],
     "properties": {
         "additional_property": { "type": "string" }
     }

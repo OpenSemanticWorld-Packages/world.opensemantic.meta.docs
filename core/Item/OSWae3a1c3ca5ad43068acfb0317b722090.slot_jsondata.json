@@ -3,7 +3,7 @@
         "Category:OSW31a9c96c1f444f84b944d49afbce409b"
     ],
     "global_id": "world.opensemantic.meta.docs.core",
-    "version": "0.8.3",
+    "version": "0.9.0",
     "url": [
         "https://github.com/OpenSemanticWorld-Packages/world.opensemantic.meta.docs"
     ],
@@ -30,6 +30,8 @@
         "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc",
         "Item:OSWd25678c7abf9484d8e80ea5c295bb9c6",
         "Item:OSW92619b0700984fe7913e5fbbd7f194dc",
+        "Item:OSW65734d3a98b1441da5ae8528107e9a5e",
+        "Item:OSWe03dc32cf6b747e4b49c5fe54db3ba1d",
         "File:About_this_platform_-_graph_default_view.png",
         "File:About_this_platform_-_Graph_right-click_menu.png",
         "File:Exploring_the_graph_of_About_this_platform.png"
@@ -49,9 +51,9 @@
     ],
     "name": "WorldOpensemanticMetaDocsCore",
     "meta": {
-        "uuid": "a8659728-4e8a-4ea5-8615-bc39241bc8fd",
+        "uuid": "5b86102b-89dc-4c17-a335-0c131b14539f",
         "change_id": [
-            "bba25fad-fb3a-4f75-b82c-f55d1a22eb0d"
+            "d66c463e-9b39-4404-9e78-57daa0854512"
         ]
     }
 }

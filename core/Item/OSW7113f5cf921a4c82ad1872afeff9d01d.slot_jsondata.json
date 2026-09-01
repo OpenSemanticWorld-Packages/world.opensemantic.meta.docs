@@ -19,5 +19,8 @@
             "predicate": "Property:IsRelatedTo",
             "object": "Item:OSWab674d663a5b472f838d8e1eb43e6784"
         }
+    ],
+    "part_of": [
+        "Item:OSWae8546dad40e487fa837db9c5ab07a5f"
     ]
 }

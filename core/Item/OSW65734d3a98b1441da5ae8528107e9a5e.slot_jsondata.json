@@ -1,0 +1,28 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "65734d3a-98b1-441d-a5ae-8528107e9a5e",
+    "name": "CharacteristicBuildingBlocks",
+    "label": [
+        {
+            "text": "The characteristic building block system",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "How characteristics define reusable typed values, how their schema is generated, and how they are reused across categories",
+            "lang": "en"
+        }
+    ],
+    "part_of": [
+        "Item:OSWae8546dad40e487fa837db9c5ab07a5f"
+    ],
+    "required_predecessor": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ],
+    "recommended_successor": [
+        "Item:OSWe03dc32cf6b747e4b49c5fe54db3ba1d"
+    ]
+}

@@ -10,5 +10,8 @@
         }
     ],
     "image": "",
-    "name": "StructedDataWorkshop"
+    "name": "StructedDataWorkshop",
+    "part_of": [
+        "Item:OSWe0cbdc9c1e0e4a53b21bd83e6c6d99ad"
+    ]
 }

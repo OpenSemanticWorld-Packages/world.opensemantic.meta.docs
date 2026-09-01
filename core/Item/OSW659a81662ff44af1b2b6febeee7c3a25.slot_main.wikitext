@@ -46,7 +46,7 @@ Codegeneration from <code>jsonschema</code> slots for Category pages with [https
 <syntaxhighlight lang="json">
 {
     "type": "object",
-    "allOf": "/wiki/Category:MyCategory?action=raw&slot=jsonschema",
+    "allOf": [{"$ref": "/wiki/Category:MyCategory?action=raw&slot=jsonschema"}],
     "properties": {
         "additional_property": { "type": "string" }
     }

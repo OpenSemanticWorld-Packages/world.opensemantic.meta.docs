@@ -27,5 +27,8 @@
     "name": "HowToUseTheGraphTool",
     "required_predecessor": [
         "Item:OSW8bccb1f0123f47d1831a1348ecbe63cc"
+    ],
+    "part_of": [
+        "Item:OSW8a9c73cba7c64234bda71e1b682a641c"
     ]
 }

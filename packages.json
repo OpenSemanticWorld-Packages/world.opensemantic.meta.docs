@@ -13,7 +13,7 @@
             "globalID": "world.opensemantic.meta.docs.core",
             "label": "OSW Docs - Core",
             "description": "Provides core documentation of OpenSemanticWorld / -Lab",
-            "version": "0.8.3",
+            "version": "0.9.0",
             "requiredPackages": [
                 "world.opensemantic.base"
             ],
@@ -1444,6 +1444,40 @@
                         },
                         "jsondata": {
                             "urlPath": "File/OSW0e08c0030bda4f799de12c1d7fde4ac4.png.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSW65734d3a98b1441da5ae8528107e9a5e",
+                    "label": "CharacteristicBuildingBlocks",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSW65734d3a98b1441da5ae8528107e9a5e.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSW65734d3a98b1441da5ae8528107e9a5e.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSW65734d3a98b1441da5ae8528107e9a5e.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSW65734d3a98b1441da5ae8528107e9a5e.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
+                    "name": "OSWe03dc32cf6b747e4b49c5fe54db3ba1d",
+                    "label": "QuantitiesAndUnits",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWe03dc32cf6b747e4b49c5fe54db3ba1d.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWe03dc32cf6b747e4b49c5fe54db3ba1d.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWe03dc32cf6b747e4b49c5fe54db3ba1d.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWe03dc32cf6b747e4b49c5fe54db3ba1d.slot_jsondata.json"
                         }
                     }
                 },

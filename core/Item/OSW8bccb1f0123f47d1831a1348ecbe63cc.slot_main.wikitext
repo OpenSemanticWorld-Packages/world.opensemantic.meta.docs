@@ -132,7 +132,7 @@ These properties can also be explored using the graph tool, which can be found u
 # Create - Opens the form editor to create a new instance of the category page you are on. The new page will be in the "Item" namespace. Here you edit the the data that will be displayed in the infobox of the new instance and that will be stored as JSON data.
 #Search - Opens a form to apply filters while searching for instances of the category.
 #Infobox - Displays the some of the information stored as JSON data. What and how it is displayed has been designed by the creator of the JSON schema of the category and higher hierarchy categories. The infobox has a section for each of the parent categories of the category.
-#Description - A header line that is always present. This is a collapsible section, as indicated by the ^ next to the text. Description diplays what has been entered through the form editor als (language specific) description, which is stored in the JSON data of the category.
+#Description - Shown in italics directly below the infobox, as a subtitle of the page. It displays what has been entered through the form editor as (language specific) description, which is stored in the JSON data of the category. It is only rendered when a description exists, so pages without one show nothing here.
 #Instances - An example for a header line, creates a collapsible section.
 #Content of this section, here a filterable datatable.
 #Graph - An expandable section for the graph tool, which can be used to explore the knowledge graph as shown above and in the image gallery below. A detailed manual can be found {{Template:Viewer/Link|page=Item:OSWd25678c7abf9484d8e80ea5c295bb9c6|url=|label=here}}.
@@ -144,7 +144,7 @@ These properties can also be explored using the graph tool, which can be found u
 | image_size = 600
 | mode = default
 | textdata = File:OSW31dc99e0dfa44dee9a5e7dde5357570b.png{{!}}User category page, bottom half;
-}}10. Attachments - Another standard section (like Description) that hosts a button to either drag and drop or open a file dialogue to upload one or more files as attachment. After uploading, the page you are on, will be reloaded and will list the file as attachment. For this file, the page you were on will be set as creation context.
+}}10. Attachments - A standard collapsible section that hosts a button to either drag and drop or open a file dialogue to upload one or more files as attachment. After uploading, the page you are on, will be reloaded and will list the file as attachment. For this file, the page you were on will be set as creation context.
 
 11. jsondata - This field can be expanded to show the JSON data stored on this page. JSON data is used to store the information. An example is shown in the image gallery below.
 
@@ -275,7 +275,9 @@ Some (primary) autocomplete fields have an effect on other (secondary) fields. F
 JSON Schema provides a number of {{Template:Viewer/Link|page=|url=https://json-schema.org/understanding-json-schema/reference/type|label=types}} and {{Template:Viewer/Link|page=|url=https://json-schema.org/understanding-json-schema/reference/string#built-in-formats|label=(string) formats}}, which are used within the Form Editor. 
 
 ====The graph tool====
-...
+Every entry carries a graph section that visualizes the entry and its semantic relations as an interactive knowledge graph. Nodes are entries or values, edges are the semantic properties connecting them. The graph can be explored by expanding neighbouring nodes along a chosen property, and edges can be created directly in the graph to record new statements.
+
+A detailed manual is available in {{Template:Viewer/Link|page=Item:OSWd25678c7abf9484d8e80ea5c295bb9c6|url=|label=How to use the graph tool}}.
 
 =Background information=
 

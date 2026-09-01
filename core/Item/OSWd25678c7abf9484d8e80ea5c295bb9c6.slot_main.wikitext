@@ -48,8 +48,6 @@ Use the graph tool when you want to:
 
 The following sections explain how this structure is visualized and explored using the graph tool.
 
----
-
 === The Graph tool ===
 The graph tool is displayed on each entry in OSL. It is located at the bottom of the page, just above the attachments section.
 
@@ -57,17 +55,13 @@ Example: {{Template:Viewer/Link|page=Item:OSW8bccb1f0123f47d1831a1348ecbe63cc#Gr
 
 [[File:About this platform - graph default view.png|thumb|A screenshot of the graph tool in default view]]
 
----
-
 ==== Basic Example: Explore the schema of any page ====
 
 # Open the graph tool on a page
 # Right-click the central node
 # Select "HasSchema"
-# A new node appears → this is the schema used
+# A new node appears -> this is the schema used
 # Follow "SubClassOf" to understand its hierarchy
-
----
 
 ==== Editor elements ====
 
@@ -75,8 +69,6 @@ Example: {{Template:Viewer/Link|page=Item:OSW8bccb1f0123f47d1831a1348ecbe63cc#Gr
 The central node (dark green) represents the current page. It is connected to other nodes via arrows labeled with semantic properties (e.g. "HasSchema", "SubClassOf").
 
 These connections show how the entry relates to schemas and other entities.
-
----
 
 ===== Property selectors =====
 '''Note: Use the property selector to hide parts of the graph to reduce complexity and focus on specific relationships.'''
@@ -87,29 +79,27 @@ Clicking a button toggles visibility of:
 * the property
 * all connected nodes
 
----
-
-===== Edit menu – editing the graph =====
+===== Edit menu - editing the graph =====
 '''Important:'''
 * The Edit menu changes the actual data (semantic relationships)
 * The View menu only changes how the graph is displayed
 
-'''Note: Be careful when adding edges – they create actual semantic relationships and affect stored data.'''
+'''Note: Be careful when adding edges - they create actual semantic relationships and affect stored data.'''
 
 With the edit menu (top left), you can create semantic statements directly in the graph:
 
-* Add node – reference an existing OSL entry
-* Add edge – create a semantic triple
+* Add node - reference an existing OSL entry
+* Add edge - create a semantic triple
 
 To create an edge:
 * Click and drag from one node to another
 * Select a semantic property
 
-The first node becomes the **subject**, the second becomes the **object**.
+The first node becomes the '''subject''', the second becomes the '''object'''.
 
 These statements are stored in the JSON-Data slot when clicking "Save changes".
 
-⚠️ Without saving, changes are lost when leaving the page.
+Without saving, changes are lost when leaving the page.
 
 This method is useful for:
 * relationships specific to individual entries
@@ -119,9 +109,7 @@ Alternatively, you can use:
 * the form editor
 * the "Statements" property for structured editing
 
----
-
-===== Right-click menu – exploring the graph =====
+===== Right-click menu - exploring the graph =====
 [[File:About this platform - Graph right-click menu.png|thumb|Right-click menu example]]
 
 Right-clicking on a node opens:
@@ -131,35 +119,29 @@ Right-clicking on a node opens:
 ** outgoing (normal)
 ** incoming (prefixed with "-")
 
----
-
 '''Tip: How to explore efficiently'''
-* Start with 1–2 relevant properties instead of expanding everything
+* Start with 1-2 relevant properties instead of expanding everything
 * Follow relationship chains (e.g. "IsPartOf", "SubClassOf")
 * Use reverse properties ("-...") to find related entries
 
----
-
 Clicking a property expands the graph by showing connected nodes. This can be repeated to follow chains and explore relationships.
-
----
 
 ===== Example: Exploring relationships =====
 [[File:Exploring the graph of About this platform.png|thumb|Example graph exploration]]
 
 To reproduce the example:
 
-* Right-click "About this platform" → select "IsPartOf"
+* Right-click "About this platform" -> select "IsPartOf"
 
 On the node "OpenSemanticLab for end users":
 
-* Select "IsPartOf" → move upward in the hierarchy
-* Select "-IsPartOf" → see related entries
+* Select "IsPartOf" -> move upward in the hierarchy
+* Select "-IsPartOf" -> see related entries
 
 From there:
 
-* Expand "HasSchema" → see the entry type ("Article")
-* Follow "SubClassOf" → explore class hierarchy
+* Expand "HasSchema" -> see the entry type ("Article")
+* Follow "SubClassOf" -> explore class hierarchy
 
 You will observe:
 
@@ -173,26 +155,20 @@ Exploring these chains helps you understand:
 * how categories relate to each other
 * how knowledge is organized in OSL
 
----
-
 '''Exploration tip:'''
 Expand a property chain up to a meaningful level (e.g. a Category), then explore reverse properties ("-...") to find similar or related entries.
 
----
-
-===== View menu – persisting the graph =====
+===== View menu - persisting the graph =====
 '''Note: The View menu only changes how the graph is displayed (it does NOT modify data).'''
 
 On the top right, you can:
 
-* Reset the view → restore default or saved layout
-* Copy permalink → share the current graph view
-* Save changes → store the current layout
+* Reset the view -> restore default or saved layout
+* Copy permalink -> share the current graph view
+* Save changes -> store the current layout
 
 Use this to:
 * create reusable views
 * share specific graph perspectives with others
-
----
 
 Go ahead and explore the graph yourself!

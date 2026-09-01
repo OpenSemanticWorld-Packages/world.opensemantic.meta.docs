@@ -1,0 +1,119 @@
+This article covers the two tasks that come up when working with physical quantities: '''adding a unit''' to a quantity that already exists, and '''creating a new quantity''' that does not exist yet. It assumes you know what a characteristic is, see [[Item:OSW65734d3a98b1441da5ae8528107e9a5e|The characteristic building block system]].
+
+{{#if: {{#ask: [[:Category:OSW00fbd6feecb5408997ca18d4e681a131]] |?HasName= |mainlabel=- }} || <div style="border-left:4px solid #c8ccd1; padding:0.5em 1em; margin-bottom:1em;">'''Note:''' the quantities packages are not installed on this wiki, so the pages linked below do not exist here and the links appear red. The article still describes the procedure, but you cannot follow the examples until <code>world.opensemantic.quantities</code> and <code>world.opensemantic.characteristics.quantitative</code> are installed.</div>}}
+
+= How a quantity is put together =
+
+A quantity in OSW is assembled from four kinds of pages. Knowing which is which tells you how much work a given change actually is.
+
+{| class="wikitable"
+!Page
+!Namespace
+!Type
+!Holds
+|-
+|'''Unit'''
+|Item
+|[[:Category:OSW6c2aea028a8647cd97f5d7c65c09cd44|Composed Unit]]
+|One unit, for example [[Item:OSWf101d25e944856e3bd4b4c9863db7de2|Metre]]. Its conversion factor to the SI unit, its symbol, and a list of scaled variants (millimetre, kilometre, ...) as subobjects under <code>composed_units</code>.
+|-
+|'''Quantity kind'''
+|Item
+|[[:Category:OSW00fbd6feecb5408997ca18d4e681a131|Quantity Kind]]
+|What is being measured, for example length. Lists the units that may express it.
+|-
+|'''Characteristic'''
+|Category
+|[[:Category:OSWc7f9aec4f71f4346b6031f96d7e46bd7|Fundamental Quantity Value Type]]
+|The building block you actually put into a category, for example [[:Category:OSWee9c7e5c343e542cb5a8b4648315902f|Length]]. Carries the default unit, the units offered in the editor, and the semantic property the value is stored under.
+|-
+|'''Property'''
+|Property
+|[[:Category:OSW1b15ddcf042c4599bd9d431cbfdf3430|Main Quantity Property]]
+|The semantic property, for example <code>HasLengthValue</code>. Declares the main unit and the conversion factors, so Semantic MediaWiki can compare values entered in different units.
+|}
+
+All quantity characteristics derive from [[:Category:OSW4082937906634af992cf9a1b18d772cf|Quantity Value]], which contributes the two fields every quantity has: a numeric <code>value</code> and a <code>unit</code>.
+
+A stored value is always a pair of a number and a unit. Because the unit travels with the value, a query can compare quantities that were entered in different units, and the wiki converts them for display.
+
+= Case 1: adding a unit to an existing quantity =
+
+This is the common case, and it does '''not''' require any new page. Suppose lengths already exist and you want to enter them in inches.
+
+== Step 1: is the unit already known? ==
+
+Open the unit item of the quantity, for example [[Item:OSWf101d25e944856e3bd4b4c9863db7de2|Metre]], and look at <code>composed_units</code>. Every scaled or derived variant is listed there as a subobject with its own symbol and conversion factor, which is where millimetre, centimetre and kilometre live. If your unit is already in that list, there is nothing to create and you can go straight to step 3.
+
+== Step 2: add the unit to the unit item ==
+
+Add an entry to <code>composed_units</code> of the unit item. The easiest and most reliable way is to copy an existing entry of the same unit and adjust it, because the entry has several fields that have to stay consistent:
+
+* <code>conversion_factor_from_si</code>: how many SI base units are in one of this unit. For an inch that is <code>0.0254</code>, because one inch is 0.0254 metre.
+* <code>main_symbol</code>: the symbol shown in the editor and in query results.
+* <code>ucum_codes</code>: the machine readable code, used for exchange with other systems.
+* <code>osw_id</code>: follows the pattern <code>Item:OSW<parent>#OSW<subobject></code>.
+
+== Step 3: offer the unit in the editor ==
+
+A unit that exists is not yet offered to the user. The characteristic decides which units appear in its dropdown, through its <code>unit_enumeration</code>. Open the characteristic, for example [[:Category:OSWee9c7e5c343e542cb5a8b4648315902f|Length]], and add the unit there, with the identifier from step 2 and the symbol to display.
+
+The <code>default_unit</code> of the characteristic is the one preselected when a user creates a new value. It does not have to be the SI unit; choosing the unit people actually type is usually friendlier. [[:Category:OSW7f41c3f871b9551cbd4032f756f3fc0d|Celsius temperature]] is an example: its default is degree Celsius, although the SI unit is kelvin.
+
+== Step 4: let the property know the conversion ==
+
+Finally add the unit to the <code>additional_units</code> of the quantity property, with its factor relative to the main unit. This is what allows Semantic MediaWiki to answer a query such as "longer than 2 metres" for a value that was entered in inches.
+
+After saving, the new unit appears in the editor and existing values remain valid, since they carry their own unit.
+
+= Case 2: creating a completely new quantity =
+
+Do this only when the quantity really has a new dimension. If you only need a different unit for something that already exists, use case 1. If you need a variant of an existing quantity, for example a pressure limited to bar, it is usually enough to create a characteristic that inherits from the existing one and overrides <code>default_unit</code>, reusing its unit enumeration.
+
+The four pages are created from the bottom up, because each refers to the one before it.
+
+== Step 1: the unit ==
+
+Create an Item of type [[:Category:OSW6c2aea028a8647cd97f5d7c65c09cd44|Composed Unit]]. Model the '''SI coherent''' unit first, the one whose conversion factor is exactly 1. Build it from named units rather than from a decomposition into base units: a thermal conductance is watt per kelvin, not kilogram metre squared per second cubed per kelvin. The <code>factor_units</code> therefore point at named unit items such as [[Item:OSWf101d25e944856e3bd4b4c9863db7de2|Metre]] or [[Item:OSWa58b950af5d658e7b8bc2e1736817e43|Hour]].
+
+Non coherent and prefixed variants are then added as <code>composed_units</code> subobjects, each with its own conversion factor, exactly as in case 1.
+
+=== Naming units ===
+
+Unit names follow a fixed order: '''numerators first, then denominators in alphabetical order'''.
+
+* correct: <code>watt_per_hour_per_kelvin</code>, because h comes before k
+* wrong: <code>watt_per_kelvin_per_hour</code>
+
+This is not cosmetic. The name becomes the identifier used when exchanging values with the Python package, which formats units in exactly this canonical order. A different order means the unit is not found again on the way back. Order the <code>factor_units</code> of the unit the same way. Quantities with at most one denominator are unaffected.
+
+== Step 2: the quantity kind ==
+
+Create an Item of type [[:Category:OSW00fbd6feecb5408997ca18d4e681a131|Quantity Kind]] and let its <code>units</code> point at the unit from step 1. This is the page that says what is being measured, independent of how it is expressed.
+
+== Step 3: the characteristic ==
+
+Create a Category of type [[:Category:OSWc7f9aec4f71f4346b6031f96d7e46bd7|Fundamental Quantity Value Type]], derived from [[:Category:OSW4082937906634af992cf9a1b18d772cf|Quantity Value]]. It refers to the quantity kind, names the default unit, lists the units offered in the editor, and names the property the value is stored under.
+
+Do not write its <code>jsonschema</code> by hand. Fill in the jsondata and let the metacategory generate the schema on save, then reload the page to see the result. [[:Category:OSWee9c7e5c343e542cb5a8b4648315902f|Length]] is a good page to copy from.
+
+== Step 4: the property ==
+
+Create a Property of type [[:Category:OSW1b15ddcf042c4599bd9d431cbfdf3430|Main Quantity Property]]. Its main unit is the SI unit with factor <code>1.0</code>; every other unit is listed under <code>additional_units</code> with its factor relative to the main unit. For a unit per hour compared to a main unit per second, that factor is 3600.
+
+= Checking your work =
+
+After saving, verify in this order:
+
+# Open the characteristic. Its jsonschema slot should now contain a generated section listing <code>value</code> and <code>unit</code>, with your units in the enumeration.
+# Create a test entry in a category that uses the characteristic. The editor should offer your units, with the default preselected.
+# Save it and look at the info box. The value should appear with its unit.
+# Query it. The value should be findable through the quantity property, also when the query uses a different unit than the one entered.
+
+If step 4 fails while step 3 works, the conversion factors on the property are the usual cause.
+
+= Where the pages live =
+
+Units and quantity kinds are maintained in the package <code>world.opensemantic.quantities</code>, characteristics for quantities in <code>world.opensemantic.characteristics.quantitative</code>. Neither is required by this documentation package, so on a minimal installation the pages linked above may not exist. A quantity that only makes sense for one project belongs in that project's own package rather than in the shared ones.
+
+Most units and quantity kinds are imported from QUDT, a public vocabulary of units and quantity kinds, which is why their identifiers are derived from QUDT addresses. A genuinely new quantity that is not in QUDT is the exception, and case 2 is written for it.

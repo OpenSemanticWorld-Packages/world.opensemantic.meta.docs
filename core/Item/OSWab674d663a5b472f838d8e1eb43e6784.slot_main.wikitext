@@ -127,10 +127,6 @@ Why are Categories (Classes) different from Items (Instances)?
 |text
 |stored within a metacategory/-class, contains a handlebars template to build the jsonschema of a class from its jsondata slot
 |-
-|data_template
-|wikitext
-|stored within a category (=class) page, defining how the jsondata attributes of any category member (instance) are mapped to semantic properties
-|-
 |header_template
 |wikitext
 |stored within a category (=class) page, renders the page header of any category member (instance)
@@ -146,11 +142,8 @@ Why are Categories (Classes) different from Items (Instances)?
 |footer
 |wikitext
 |renders the page footer
-|-
-|template/internal
-|wikitext
-|hidden content, not rendered. Can be used to call parser functions or lua modules
 |}
+Note that <code>jsonschema</code>, <code>header_template</code> and <code>footer_template</code> live on the ''category'' page and act on its members, while <code>schema_template</code> lives on a metacategory and builds the jsonschema of the categories derived from it.
 
 ===Meta-Schemas===
 [[:Category:Category]] ist the default Metacategory / -class for all categories / classes. Its slot schema_template contains a handlebars template that sets schema attributes like title, allOf, description, etc. from the user generated jsondata. Additional Metacategories can be created as subclasses of  [[:Category:Category]] to simplify the creation of complex schemas, e. g. [[:Category:OSWecff4345b4b049218f8d6628dc2f2f21]]. This feature is compareable to python metaclasses.
@@ -167,9 +160,13 @@ A Jsonschema can reference other schemas. This is equivalent to <code><nowiki>[[
 {
     "title": "MyEntitySubclass",
     "type": "object",
-    "allOf": [{"$ref": "../Category/Entity.slot_jsonschema.json"}]
+    "allOf": [{"$ref": "/wiki/Category:Entity?action=raw&slot=jsonschema"}]
 }
-</syntaxhighlight>Note: refs were previously noted as <code>"/wiki/Category:Entity?action=raw&slot=jsonschema"</code>but this notation only works if <code>/wiki</code> is actually the root path of the system. Path-relative notations <code>(./)Category:Entity</code> and url-params are problematic so initial absolute and subsequent relative resolving is done via [[Special:SlotResolver]], e. g. [[Special:SlotResolver/JsonSchema/Label.slot_main.json]] or [[Special:SlotResolver/Category/Entity.slot_jsonschema.json]]. To reuse a schema in an external tool you can use e. g. <code>"$schema": "https://opensemantic.world/wiki/Special:SlotResolver/Category/Entity.slot_jsonschema.json"</code>
+</syntaxhighlight>Note that <code>allOf</code> always takes an ''array'' of schemas, even when only one schema is referenced.
+
+This <code>/wiki/...?action=raw&slot=<slot></code> form is the notation used by all schemas on the wiki, and the one to write when authoring a schema here. It resolves relative to the wiki root, so it only works where <code>/wiki</code> is actually the root path of the system.
+
+For consuming a schema outside the wiki, where that assumption does not hold, resolve it through [[Special:SlotResolver]] instead, e. g. [[Special:SlotResolver/JsonSchema/Label.slot_main.json]] or [[Special:SlotResolver/Category/Entity.slot_jsonschema.json]]. In an external tool this gives an absolute reference, e. g. <code>"$schema": "https://opensemantic.world/wiki/Special:SlotResolver/Category/Entity.slot_jsonschema.json"</code>. Path-relative notations such as <code>(./)Category:Entity</code> are problematic and should not be used.
 
 ====Json-Editor====
 https://github.com/json-editor/json-editor, which is used to render edit & query forms based on provided jsonschema, adds additional keywords and options.
@@ -182,7 +179,7 @@ https://github.com/json-editor/json-editor, which is used to render edit & query
 =====Autocompletion =====
 *https://github.com/trevoreyre/autocomplete
 *https://github.com/corejavascript/typeahead.js/blob/master/doc/jquery_typeahead.md (currently not supported)
-Enables autocompletion in input fields. Configuration see [[Zentrales Wiki/Schema#Additional options|Additional options]]
+Enables autocompletion in input fields. Configuration see [[#Additional options|Additional options]]
 
 ====Custom Extensions====
 
@@ -694,7 +691,7 @@ Additional options ($properties.<property>.options.*)
 |
 |
 |
-|Auto-set editor fields based on the SMW ask-API query result. Example: [[JsonSchema:QuantityStatement]]
+|Auto-set editor fields based on the SMW ask-API query result. Example: [[JsonSchema:QuantityProperty]]
 |
 |-
 |
@@ -780,7 +777,7 @@ Additional options ($properties.<property>.options.*)
 |}
 
 =====Autocomplete=====
-Default setting (planned, see also [[Zentrales Wiki/Schema#Object Properties and Data / Annotation Properties|Object Properties and Data / Annotation Properties]])
+Default setting (planned, see also [[#Object Properties and Data / Annotation Properties|Object Properties and Data / Annotation Properties]])
 *for data / annotation properties: existing values of the property: <code><nowiki>{{#ask:[[<Property>::+]]|?<Property>=value}}</nowiki></code>
 *for object properties: existing instances of the range category: <code><nowiki>{{#ask:[[Category:<range>]]}}</nowiki></code>
 
@@ -1262,50 +1259,25 @@ The Category {{Template:Viewer/Link|page=Category:OSW44deaa5b806d41a2a88594f562b
 ====== Annotating equivalent instance ======
 The instance of {{Template:Viewer/Link|page=Category:OSWd2520fa016844e01af0097a85bb25b25|url=|label=Quantity Unit}} "kilo gram" can state that it is equivalent to {{Template:Viewer/Link|page=|url=https://qudt.org/vocab/unit/KiloGM|label=https://qudt.org/vocab/unit/KiloGM}}.
 
-===Recursive Parsing===
+===Rendering and storing===
+Rendering and semantic storage are driven by [[Module:Entity]], which is invoked from the header and footer slot of every entity page (<code><nowiki>{{#invoke:Entity|header}}</nowiki></code> and <code><nowiki>{{#invoke:Entity|footer}}</nowiki></code>). It delegates to [[Module:MwJson]].
 
-====Module:Category====
-<s>Called from Category:<UUID>@template</s> 
+=====Rendering=====
+#Load the jsondata of the page.
+#Determine the categories to render: for a page in the <code>Category</code> namespace the metacategory chain is used, for an instance the categories listed in its <code>type</code>.
+#Walk the <code>allOf</code> chain of the category jsonschema, collecting every ancestor category and its <code>header_template</code> / <code>footer_template</code>.
+#Expand the <code>eval_template</code>s of the schema in <code>render</code> mode, so that each attribute value is turned into its display form.
+#Expand the template of every visited category with the resulting values, most general category first. A category without a template falls back to an automatically rendered info box.
+#Render the jsondata as a collapsible tree below the info box.
 
-#<s>Synchonize Category:<UUID>@jsondata.subclass_of with Category:<UUID>@jsonschema.allOf</s>
-#<s>Expand Category:Category@header_template with jsondata parameters</s>
-#<s>Render Category:<UUID>@main</s>
-#<s>Expand Category:Category@footer_template with jsondata parameters</s>
+=====Storing=====
+Semantic properties are not defined by a template but derived from the JSON-LD <code>@context</code> of the schema (see [[#Property mapping|Property mapping]]).
 
-====Module:Entity====
-Called from item@template, item = Item:<UUID>
-
-=====Recursion=====
-#For each Item:<UUID>@jsondata.osl_category as category:
-##For each category@jsondata.osl_category or category@jsonschema.allOf as supercategory:
-###For each supercategory@jsondata.osl_category or supercategory@jsonschema.allOf as supersupercategory: 
-####...
-###Expand supercategory@header_template with item@jsondata parameters. Fallback: Render infobox
-###Expand supercategory@data_template with item.jsondata parameters. Fallback: Use Json-LD mapping within category:jsonschema
-##If category@header_template: Expand category@header_template with item@jsondata parameters
-##Else: Render infobox with all attribute-value pairs
-##Expand category@data_template with item.jsondata parameters. Fallback: Use Json-LD mapping within category:jsonschema
-#Render item@main
-#footer...
-
-=====Data Storing=====
-
-#template specified: use template
-#category specified:
-##category@data_template specified: use data_template
-##Use Json-LD mapping
-###mapping specified: Store semantic property
-####Literal value: store value
-####Object value
-#####Property has type text/code: Store json string
-#####osl_category / osl_template specifided: see below
-###Don't store semantic property
-
-Nested objects within item@jsondata are handled
-*osl_category: same handling as the root object, but: 
-**Rendering with category@header_template. Fallback: Nested info box
-**Data storing with category@data_template. Fallback: Creating a subobject with Json-LD mapping + (inverse) semantic relation to the root object
-*osl_template: expand the template, return value is asigned to the property
+#Expand the <code>eval_template</code>s in <code>store</code> mode, which produces the values to be stored.
+#For every attribute, look up its term in the merged <code>@context</code> of the category chain. An attribute without a mapping is not stored.
+#Literal values are stored directly on the page.
+#Object valued attributes are stored as a subobject, and the page keeps a reference to it. The subobject id is taken from the <code>uuid</code> of the object if it has one, otherwise it is derived from the position of the object in the jsondata, e. g. <code>Item:OSW...#physical_dimension</code> or <code>Item:OSW...#physical_dimension.l</code>. This makes each entry individually queryable even when several entries share the same type.
+#Arrays are stored as one value, or one subobject, per element.
 
 ===Python Code Generation===
 see https://github.com/OpenSemanticLab/osw-python

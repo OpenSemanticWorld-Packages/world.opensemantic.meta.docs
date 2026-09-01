@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "e03dc32c-f6b7-47e4-b49c-5fe54db3ba1d",
+    "name": "QuantitiesAndUnits",
+    "label": [
+        {
+            "text": "Quantities and units",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Adding a unit to an existing quantity, and creating a completely new quantity",
+            "lang": "en"
+        }
+    ],
+    "part_of": [
+        "Item:OSWae8546dad40e487fa837db9c5ab07a5f"
+    ],
+    "required_predecessor": [
+        "Item:OSW65734d3a98b1441da5ae8528107e9a5e"
+    ]
+}

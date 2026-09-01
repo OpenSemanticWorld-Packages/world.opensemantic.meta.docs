@@ -17,5 +17,8 @@
     "recommended_successor": [
         "Item:OSW911488771ea449a6a34051f8213d7f2f",
         "Item:OSWee501c0fa6a9407d99c058b5ff9d55b4"
+    ],
+    "part_of": [
+        "Item:OSWae8546dad40e487fa837db9c5ab07a5f"
     ]
 }

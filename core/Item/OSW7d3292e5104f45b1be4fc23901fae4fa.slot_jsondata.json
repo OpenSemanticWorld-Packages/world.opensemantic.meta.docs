@@ -16,5 +16,8 @@
     ],
     "required_predecessor": [
         "Item:OSW911488771ea449a6a34051f8213d7f2f"
+    ],
+    "part_of": [
+        "Item:OSWae8546dad40e487fa837db9c5ab07a5f"
     ]
 }
