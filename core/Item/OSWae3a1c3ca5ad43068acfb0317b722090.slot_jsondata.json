@@ -32,6 +32,7 @@
         "Item:OSW92619b0700984fe7913e5fbbd7f194dc",
         "Item:OSW65734d3a98b1441da5ae8528107e9a5e",
         "Item:OSWe03dc32cf6b747e4b49c5fe54db3ba1d",
+        "Item:OSWe0edb51a2b2c473599ade82ca5a809e9",
         "File:About_this_platform_-_graph_default_view.png",
         "File:About_this_platform_-_Graph_right-click_menu.png",
         "File:Exploring_the_graph_of_About_this_platform.png"
@@ -51,9 +52,9 @@
     ],
     "name": "WorldOpensemanticMetaDocsCore",
     "meta": {
-        "uuid": "5b86102b-89dc-4c17-a335-0c131b14539f",
+        "uuid": "39ed529b-efee-4f89-8b36-37f156698274",
         "change_id": [
-            "d66c463e-9b39-4404-9e78-57daa0854512"
+            "aa7e2d66-01b2-4a9d-a5b7-24cd4ed5121e"
         ]
     }
 }

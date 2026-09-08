@@ -1482,6 +1482,23 @@
                     }
                 },
                 {
+                    "name": "OSWe0edb51a2b2c473599ade82ca5a809e9",
+                    "label": "PagePatches",
+                    "namespace": "NS_ITEM",
+                    "urlPath": "Item/OSWe0edb51a2b2c473599ade82ca5a809e9.slot_main.wikitext",
+                    "slots": {
+                        "footer": {
+                            "urlPath": "Item/OSWe0edb51a2b2c473599ade82ca5a809e9.slot_footer.wikitext"
+                        },
+                        "header": {
+                            "urlPath": "Item/OSWe0edb51a2b2c473599ade82ca5a809e9.slot_header.wikitext"
+                        },
+                        "jsondata": {
+                            "urlPath": "Item/OSWe0edb51a2b2c473599ade82ca5a809e9.slot_jsondata.json"
+                        }
+                    }
+                },
+                {
                     "name": "OSW4d1c8eb623285f58a28ed6bb20586b61.drawio.svg",
                     "label": "Diagram01",
                     "namespace": "NS_FILE",

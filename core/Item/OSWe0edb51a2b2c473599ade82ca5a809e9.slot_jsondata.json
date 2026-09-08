@@ -1,0 +1,25 @@
+{
+    "type": [
+        "Category:OSW494f660e6a714a1a9681c517bbb975da"
+    ],
+    "uuid": "e0edb51a-2b2c-4735-99ad-e82ca5a809e9",
+    "name": "PagePatches",
+    "label": [
+        {
+            "text": "Page patches",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "text": "Adapting a shared page to one wiki without editing or forking it",
+            "lang": "en"
+        }
+    ],
+    "part_of": [
+        "Item:OSWae8546dad40e487fa837db9c5ab07a5f"
+    ],
+    "required_predecessor": [
+        "Item:OSWab674d663a5b472f838d8e1eb43e6784"
+    ]
+}

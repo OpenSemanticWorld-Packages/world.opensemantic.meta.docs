@@ -1,0 +1,205 @@
+A page patch modifies the slots of ''other'' pages when they are read, without editing those pages. It is the way to adapt a shared schema to one wiki without forking it: the original page keeps arriving from its package, and the patch is applied on top.
+
+{{#if: {{#ask: [[:Category:OSWbd03ae43c1954ca889860ecf170682ef]] |?HasName= |mainlabel=- }} || <div style="border-left:4px solid #c8ccd1; padding:0.5em 1em; margin-bottom:1em;">'''Note:''' [[:Category:OSWbd03ae43c1954ca889860ecf170682ef|Page Patch]] is not installed on this wiki, so the pages linked below do not exist here.</div>}}
+
+= Why patches exist =
+
+A category that arrives from a package cannot be edited freely: the next package update overwrites the change. Copying the category into a local one avoids that, but it creates a permanent duplicate that no longer receives fixes and improvements, so it is not a real option.
+
+The established answer is a '''subcategory''' that overrides what should differ, and it stays the recommended one whenever you genuinely extend a category installed from an external package. If the change adds properties, narrows meaning, or describes something your wiki treats as its own kind of thing, create a subcategory. It is explicit, it survives updates, and other people can see what you did.
+
+Two things it cannot do well, though.
+
+It fills up the category hierarchy when the change is small. Every minor adjustment adds a class whose only purpose is to alter one detail, and instances have to be assigned to that class rather than to the one they naturally belong to.
+
+More importantly, '''overriding only works where the schema allows it'''. A subcategory can refine a property its parent declared, because schema composition is built for that. It cannot reach anything outside that mechanism, for example the wikitext of a footer template, a heading, or a note that should appear on every page of a category.
+
+A patch fills that gap. The upstream page keeps arriving from its package and keeps updating, no new class appears in the hierarchy, and the patch can modify any slot rather than only the parts of a schema designed to be overridden.
+
+{| class="wikitable"
+!Use
+!When
+|-
+|Subcategory
+|You substantially extend a category from an external package: new properties, a narrower meaning, its own instances
+|-
+|Page patch
+|The change is small and local to your wiki, in particular when it only affects the user interface
+|}
+
+Typical patches:
+
+* offer six time units in the editor instead of twenty-nine
+* rename a field label for one deployment
+* add a note to the footer of every device page
+
+= What a patch declares =
+
+A patch is an entry of type [[:Category:OSWbd03ae43c1954ca889860ecf170682ef|Page Patch]] with four parts.
+
+== Targets ==
+
+The pages whose slots are modified. Patching a '''category''' affects everything that inherits from it; patching a single '''item''' affects only that item. At least one target is required.
+
+== Patch sets ==
+
+The contexts the patch belongs to. A patch applies only when the reader asks for one of its sets:
+
+{| class="wikitable"
+!Patch set
+!Asked for by
+|-
+|<code>render</code>
+|page rendering
+|-
+|<code>ui</code>
+|the form editor
+|}
+
+Any other name is allowed and stays '''inert''' until something requests it. That is what makes a patch safe to write and leave in place: give it a set nobody asks for, and it has no effect until you are ready. At least one set is required, and <code>render</code> is the default.
+
+== Priority ==
+
+When several patches target the same page, the lower priority runs first. Ties break on page title, so the outcome is deterministic rather than dependent on load order. The default is <code>100</code>.
+
+== Operations ==
+
+One list per slot, applied '''in order''', each to the result of the previous one. Wikitext slots and JSON slots offer different operations.
+
+= Operations on wikitext slots =
+
+Available for <code>header_template</code> and <code>footer_template</code>.
+
+{| class="wikitable"
+!Mode
+!Effect
+|-
+|<code>set</code>
+|Discard the slot content and use this instead
+|-
+|<code>replace</code>
+|Exact string match, every occurrence. Prefer this over a regular expression
+|-
+|<code>insert</code>
+|Insert at a placeholder, before or after it
+|-
+|<code>append</code>
+|Add at the end
+|-
+|<code>prepend</code>
+|Add at the start
+|-
+|<code>regex</code>
+|Regular expression, when nothing simpler will do
+|}
+
+The simplest example replaces a footer outright:
+
+<syntaxhighlight lang="json">
+"footer_template": [
+    {"mode": "set", "value": "Hello This is the patch footer content"}
+]
+</syntaxhighlight>
+
+Because operations chain, a longer list reads as a small script. This one sets a footer, wraps it in comments, renames a heading and then rewrites the opening comment:
+
+<syntaxhighlight lang="json">
+"footer_template": [
+    {"mode": "set",     "value": "== Units ==\nOnly the everyday time units are offered.\n"},
+    {"mode": "prepend", "value": "<!-- patched footer -->\n"},
+    {"mode": "append",  "value": "\n<!-- end of patched footer -->\n"},
+    {"mode": "replace", "find": "== Units ==", "with": "== Available units =="},
+    {"mode": "regex",   "pattern": "/^<!-- patched footer -->$/m",
+                        "replacement": "<!-- footer replaced by a patch -->"}
+]
+</syntaxhighlight>
+
+Note that the fourth operation only works because the first one put that heading there. Each step sees the output of the one before it.
+
+= Operations on JSON slots =
+
+Available for <code>jsonschema</code> and <code>jsondata</code>, in two modes.
+
+== Merge patch (RFC 7396) ==
+
+Objects merge recursively, <code>null</code> deletes a key, and any other value '''including an array''' replaces it outright. Use it to set or override a value:
+
+<syntaxhighlight lang="json">
+{"properties": {"responsible_person": {"title*": {"en": "Chief operator", "de": "Chef-Operator"}}}}
+</syntaxhighlight>
+
+That renames one field label and leaves the rest of the schema untouched.
+
+== Overlay (OpenAPI) ==
+
+An overlay addresses parts of the document with JSONPath and removes or updates them. Use it when you want to take something out rather than restate it:
+
+<syntaxhighlight lang="json">
+{
+    "overlay": "1.0.0",
+    "info": {"title": "Drop the day as well", "version": "1.0.0"},
+    "actions": [
+        {"target": "$.properties.unit.enum[?(@ == 'Item:OSWc90e307854c453be958300304ca8185e')]",
+         "description": "Remove the day from the values", "remove": true}
+    ]
+}
+</syntaxhighlight>
+
+== Which one to use ==
+
+Merge patch is the better tool when a list has to be '''shortened''', and the reason is worth understanding because it is easy to get wrong.
+
+A unit list is not one list but three, matched '''by position''': <code>enum</code> holds the values, <code>options.enum_titles</code> the symbols shown to the reader, and <code>x-enum-varnames</code> the names used in generated code. Remove an entry from one and the three stop lining up, so a unit ends up labelled with another unit's symbol.
+
+Since merge patch replaces an array outright rather than merging into it, restating all three together keeps them consistent:
+
+<syntaxhighlight lang="json">
+{
+  "properties": {
+    "unit": {
+      "enum": [
+        "Item:OSW85302b21cf045998b80f38c9fdb88f84#OSW90ff22cff2dd5d8ba6de84bf9a70c50c",
+        "Item:OSW85302b21cf045998b80f38c9fdb88f84#OSW84d4f530814e5251b06e73ee0184e32b",
+        "Item:OSW85302b21cf045998b80f38c9fdb88f84",
+        "Item:OSWca47b84354ef5eb1947de297c89694a4",
+        "Item:OSWa58b950af5d658e7b8bc2e1736817e43",
+        "Item:OSWc90e307854c453be958300304ca8185e"
+      ],
+      "x-enum-varnames": ["micro_second", "milli_second", "second", "minute", "hour", "day"],
+      "options": {"enum_titles": ["μs", "ms", "s", "min", "h", "d"]},
+      "default": "Item:OSW85302b21cf045998b80f38c9fdb88f84"
+    }
+  }
+}
+</syntaxhighlight>
+
+If you do reach for an overlay to remove a single entry, remember to remove it from all three lists:
+
+<syntaxhighlight lang="json">
+"actions": [
+    {"target": "$.properties.unit.enum[?(@ == 'Item:OSWc90e307854c453be958300304ca8185e')]",
+     "description": "Remove the day from the values", "remove": true},
+    {"target": "$.properties.unit.options.enum_titles[?(@ == 'd')]",
+     "description": "and from the titles beside them", "remove": true},
+    {"target": "$.properties.unit['x-enum-varnames'][?(@ == 'day')]",
+     "description": "and from the variable names, or the three lists stop lining up", "remove": true}
+]
+</syntaxhighlight>
+
+= Finding patches =
+
+Each patch records its targets under the property [[Property:HasPatchTarget]], so the patches affecting a page can be listed:
+
+<syntaxhighlight lang="text">
+{{#ask: [[HasPatchTarget::Category:OSW389cb87d31be515aa5d2f12e2b66e938]]
+ |?Display title of=Patch
+}}
+</syntaxhighlight>
+
+= Practical advice =
+
+* Patch the '''narrowest''' target that solves the problem. Patching a category reaches everything below it, which is powerful and easy to underestimate.
+* Start with an unused patch set while writing, then switch to <code>render</code> or <code>ui</code> once it does what you expect.
+* Prefer <code>replace</code> over <code>regex</code>; a literal string is easier to reason about and does not break when the surrounding text changes.
+* Remember the ordering rule when a patch stops working: an earlier operation may no longer produce the text a later one is looking for.
+* A patch does not change the stored page. Reading the target page directly still shows the original content, which is what makes patches reversible: delete the patch and the wiki returns to its previous state.
